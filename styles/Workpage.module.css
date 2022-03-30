@@ -1,0 +1,92 @@
+.workContainer{
+    margin: 0 auto;
+    max-width: 500px;
+    
+    padding: 1rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.workCard{
+    cursor: pointer;
+
+    transition: all .2s ease-out;
+}
+
+.workCard:hover{
+    background-color: rgba(155, 155, 155, 0.315);
+}
+
+.imageContainer{
+    /* overflow: hidden; */
+    /* min-height: 200px; */
+    position: relative;
+
+    height: 100%;
+    width: 100%;
+    
+        /* clip-path: inset(0); */
+    /* clip-path: inset(0 round 10px); */
+    clip-path: polygon(0 1%, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+.image{
+    object-fit: cover;
+    position: fixed;
+    
+    
+    height: 100vh;
+
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+
+    /* width: 70%;
+    height: 70%; */
+
+    /* padding: 2rem; */
+
+}
+
+.workInfo{
+    position: absolute;
+    z-index: 3;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all .22s ease-out;
+
+    text-align: center;
+    color: white;
+}
+
+.workInfo h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.workInfo span{
+    font-size: 1.5rem;
+}
+
+.workInfo:hover{
+    color: transparent;
+    background-color: rgba(0, 0, 0, 0.1);
+}

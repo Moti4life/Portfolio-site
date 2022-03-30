@@ -1,0 +1,103 @@
+
+
+.bgDiv{
+    position: absolute;
+    
+  
+    height: 100vh;
+    width: 100%;
+  
+    z-index: 0;
+  
+    top: 0;
+  
+    /* background-color: rgb(255, 255, 255); */
+  
+
+}
+
+.brandPanels{
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.letters{
+    display: none;
+    font-size: 20vw;
+    width: 1ch;
+    line-height: 1;
+    mix-blend-mode: difference;
+
+    font-family: 'Poppins', sans-serif;
+    
+}
+.letters:nth-child(4){
+    margin-left: -2rem;
+}
+
+.letterContainer{
+    /* background-color: aqua; */
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+
+.infoPanel{
+    position: absolute;
+    overflow: hidden;
+
+    width: 50vw;
+    height: 100%;
+    z-index: 1;
+
+    top: 0;
+    right: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    mix-blend-mode: difference;
+}
+
+.infoContainer{
+    overflow: hidden;
+
+}
+
+.info{
+    
+    font-size: 6vw;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.wipePanel{
+    position: absolute;
+    
+
+    top: 0;
+    left: 0;
+
+    height: 0;
+    width: 100%;
+  
+    /* background-color: #151515; */
+    background-color: rgb(212, 179, 30);
+    
+    z-index: 2;
+  }

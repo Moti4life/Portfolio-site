@@ -1,0 +1,37 @@
+.footerContainer{
+    
+    margin: 0 auto;
+    /* max-width: 500px; */
+    padding: 1rem
+}   
+
+.linkContainer{
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+
+    gap: .5rem;
+}
+
+.linkOut{
+    cursor: pointer;
+    width: max-content;
+    padding: .2rem .4rem;
+
+    border-radius: .3rem;
+
+    transition: all ease-out .3s;
+    text-underline-offset: 4px;
+}
+
+.linkOut:hover{
+    background-color: #76746871;
+
+    text-decoration: underline;
+}
+
+.copy{
+    padding: 2rem 0 1.5rem;
+    text-align: center;
+    opacity: .5;
+}
