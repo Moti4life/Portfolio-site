@@ -15,12 +15,15 @@
     height: 2.5rem;
     /* background: white; */
     border-radius: 50%;
+
+    display: none;
 }
 
 .secondaryCursor{
     width: 60px;
     height: 60px;
     mix-blend-mode: difference;
+    
 }
 
 .secondaryCursorBg{
@@ -79,3 +82,10 @@
     border: 2px turquoise solid;
     border-radius: 50%;
 } */
+
+@media (pointer: coarse) {
+    .secondaryCursor,
+    .mainCursor{
+        opacity: 0;
+    }
+}

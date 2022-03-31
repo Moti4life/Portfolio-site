@@ -24,7 +24,7 @@ const Home = ({ workResults }) => {
 
     const introTime = gsap.timeline();
 
-    if(sessionStorage.getItem("hasPlayedAnimation")){
+    if(!sessionStorage.getItem("hasPlayedAnimation")){
 
       introTime.to('body', { overflowY: 'hidden' })
         .fromTo('.letterPanel', { y: 1000, display: 'block' }, { y: 0, duration: .4, stagger: .1})
@@ -140,8 +140,9 @@ const Home = ({ workResults }) => {
       scrollTrigger: {
         trigger: ".galleryContainer",
         pin: true,
-        start: "top top",
+        start: "top 13%",
         scrub: 1,
+        markers: true,
         snap: {
           snapTo: 1 / (galleryPanels.length - 1),
           inertia: false,
