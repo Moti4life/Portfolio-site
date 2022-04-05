@@ -6,22 +6,33 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    Flex,
+    Text,
   } from '@chakra-ui/react'
 
-import { useDisclosure, Button, Input } from '@chakra-ui/react'
+import { useDisclosure, Button, Input, useColorMode, useColorModeValue } from '@chakra-ui/react'
 
 import { useRef } from 'react'
 
 import styles from '../styles/Burger.module.css'
 import Link from 'next/link'
-import { useColorMode } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import SpinnerLoader from './SpinnerLoader'
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleHalfStroke,
+    faHouseChimneyWindow,
+    faLaptopCode,
+    faIdCard,
+    faUserTie,
+    } from "@fortawesome/free-solid-svg-icons";
+
 
 const DynamicComponent = dynamic( 
     () => import('../components/SceneLoader'),
     { ssr: false , loading: () => <SpinnerLoader /> }
 )
+
 
 
 const Burger = () => {
@@ -30,40 +41,114 @@ const Burger = () => {
 
     const { toggleColorMode } = useColorMode()
 
+    // const navbarBackground = useColorModeValue("jade.50", "gray.800")
+    const colorModeBackground = useColorModeValue("purple", "orange")
+
+    const DrawerButton = ({ link, icon, title}) => {
+        return (
+            <Link href={link}>
+                <Button width={'70%'} maxWidth={'30rem'} onClick={() => onClose()} size='xl' variant={'ghost'} >
+                    <Flex padding={'1rem'} flexDirection={"row"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
+                        <span className={styles.drawerNav}><FontAwesomeIcon size={'2xs'} icon={icon} /> {title}</span>
+                    </Flex>
+                </Button>
+            </Link>
+    )
+    }
+
     return (
         <>
             <div id='burger' className={styles.burgerContainer}>
-                <Button  ref={btnRef} colorScheme='teal' onClick={() => onOpen()}>
-                    Open
+                <Button 
+                    ref={btnRef} 
+                    colorScheme={"blackAlpha"}
+                    backgroundColor={'#181818'}
+                    border={"2px"}
+                    borderColor={'jade.200'}
+                    onClick={() => onOpen()}
+                    padding={'0'}
+                    >
+                    <div className={styles.burgerLines}>
+                        <div className={styles.burgerLine}></div>
+                        <div className={styles.burgerLine}></div>
+                        <div className={styles.burgerLine}></div>
+                    </div>
                 </Button>
             </div>
 
             <Drawer
                 isOpen={isOpen}
-                placement='right'
                 onClose={onClose}
                 finalFocusRef={btnRef}
-                size='sm'
+                size='full'
+                placement='right'
             >
                 <DrawerOverlay />
 
                 <DrawerContent>
-
+                        
                     <DrawerCloseButton />
                     
-                    <DrawerHeader marginTop='4rem' >Did you find what you're looking for??</DrawerHeader>
+                    <DrawerHeader marginTop='1rem' ></DrawerHeader>
+                    
 
-                    <DrawerBody display='flex' flexDirection='column'>
-                        <Link href='/'><Button onClick={() => onClose()}>back to home</Button></Link>
-                        <Link href='/test'><Button onClick={() => onClose()}>to test js</Button></Link>
+                    <DrawerBody display='flex' flexDirection='column' alignItems={'center'}>
+                        <Flex gap={'1rem'} width={'100%'} justifyContent={'center'} flexDirection={'column'} alignItems={'center'}>
+                                                                                         
+                            <DrawerButton link={'/'} title={'HOME'} icon={faHouseChimneyWindow} />
+
+                            <div className={styles.divider}></div>
+
+                            <DrawerButton link={'/works'} title={'WORKS'} icon={faLaptopCode} />
+
+                            <div className={styles.divider}></div>
+
+                            <DrawerButton link={'/about'} title={'ABOUT'} icon={faUserTie} />
+
+                            <div className={styles.divider}></div>
+
+                            <DrawerButton link={'/contact'} title={'CONTACT'} icon={faIdCard} />
+
+                            {/* <Link href='/works'>
+                                <Button onClick={() => onClose()} size='xl' width={'47%'}>
+                                    <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
+                                        <FontAwesomeIcon size={'2x'} icon={faLaptopCode} />
+                                        <Text>WORKS</Text>
+                                    </Flex>
+                                </Button>
+                            </Link>
+                            <Link href='/about'>
+                                <Button onClick={() => onClose()} size='xl' width={'47%'}>
+                                    <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
+                                        <FontAwesomeIcon size={'2x'} icon={faUserTie} />
+                                        <Text>ABOUT</Text>
+                                    </Flex>
+                                </Button>
+                            </Link>
+                            <Link href='/contact'>
+                                <Button onClick={() => onClose()} size='xl' width={'47%'}>
+                                    <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
+                                        <FontAwesomeIcon size={'2x'} icon={faIdCard} />
+                                        <Text>CONTACT</Text>
+                                    </Flex>
+                                </Button>
+                            </Link> */}
+                            
+                            
+                            {/* <Link href='/works'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faLaptopCode} />} >WORKS</Button></Link>
+                            <Link href='/about'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faUserTie} />} >ABOUT</Button></Link>
+                            <Link href='/contact'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faIdCard} />} >CONTACT</Button></Link> */}
+                        </Flex>
                         
-                        <Button onClick={toggleColorMode} size='sm'> toggle color </Button>
                         <div className={styles.modelContainer}>
                             <DynamicComponent />
                         </div>
                     </DrawerBody>
 
                     <DrawerFooter>
+                        <Button onClick={toggleColorMode} colorScheme={colorModeBackground} size='lg'>
+                                <FontAwesomeIcon icon={faCircleHalfStroke} size="lg"/>
+                        </Button>
                         
                     </DrawerFooter>
 

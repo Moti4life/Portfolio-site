@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }) {
       <div className='bodyContainer'>
         <IntroOverlay />
         <Cursor />
+        <Navbar />
         <MWbrand />
         <Burger />
         

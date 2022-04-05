@@ -29,8 +29,19 @@ const colors = {
     }
   }
 
+  const components = {
+    Drawer: {
+      // setup light/dark mode component defaults
+      baseStyle: props => ({
+        dialog: {
+          bg: mode('jade.100', '#202020')(props),
+        }
+      })
+    }
+  };
 
 
-const theme = extendTheme({ config, styles, colors })
+
+const theme = extendTheme({ config, styles, colors, components })
 
 export default theme

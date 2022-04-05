@@ -43,8 +43,8 @@ const Home = ({ workResults }) => {
         .to('body', { overflowY: 'auto' })
 
         .fromTo('#brandLogo', {opacity: 0}, { opacity: 1, ease: 'power3.in', duration: .2} )
+        .fromTo('#navbar', {opacity: 0}, { opacity: 1, ease: 'power3.in', duration: .2, delay: -.1 } )
         .fromTo('#burger', {opacity: 0}, { opacity: 1, ease: 'power3.in', duration: .2, delay: -.1 } )
-
     }
 
     sessionStorage.setItem("hasPlayedAnimation", true)
@@ -169,6 +169,7 @@ const Home = ({ workResults }) => {
       </Head>
 
       <main className={styles.main}>
+        
         <Box className='page1'> 
           <div className={`heroTitleContainer`}>
             <h1 className='heroTitle'>MOTI</h1>
@@ -179,6 +180,7 @@ const Home = ({ workResults }) => {
         </Box>
 
         <div className="pageFiller">page 2</div>
+        
 
         {/* <div className='pageFiller'>
           page 3
