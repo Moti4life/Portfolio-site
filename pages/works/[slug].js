@@ -17,6 +17,7 @@ import {
   } from '@chakra-ui/react'
 
 import { motion } from "framer-motion"
+import FallbackWorkItem from "../../components/FallbackWorkItem";
 
 
 const client = createClient({
@@ -37,8 +38,11 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false
+        fallback: true
     }
+
+    
+
 }
 
 //contentful slug should be unique to fetch only 1 result
@@ -50,25 +54,44 @@ export const getStaticProps = async ({ params }) => {
         'fields.slug': params.slug
     })
 
+    console.log('content: ', contentRes.items.length);
+    if(!contentRes.items.length){
+        return{
+            redirect: {
+                destination: '/404',
+                permanent: false
+            }
+        }
+        //set permanent to false
+        //https://nextjs.org/docs/api-reference/next.config.js/redirects
+    }
+
+    //setting this will result to errors if contentRes is undefined
     const workItem = contentRes.items[0]
+
 
     return{
         props: {
             workItem
-        }
+        },
+        revalidate: 10
     }
+    //----for revalidate
+    //https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 }
 
 
 const work = ({ workItem }) => {
 
+    if(!workItem) return(
+        <FallbackWorkItem />
+    )
+
     const linkColors = useColorModeValue("orange.600", "teal.400")
     
     const workFields = workItem.fields
 
-    console.log("workFields: ", workFields);
-
-    
+    // console.log("workFields: ", workFields);
     
     return (
         <motion.div 

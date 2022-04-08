@@ -1,10 +1,12 @@
-import { createClient } from "contentful";
-
+import FooterSection from "../../components/FooterSection";
+import styles from '../../styles/Workpage.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Workpage.module.css'
 
 import { SimpleGrid, Image, Heading, Badge, Box, Text, Flex, useColorModeValue } from "@chakra-ui/react";
+
+import worksModel from "../../models/worksModel";
+import connectDB from "../../utils/db";
 
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
@@ -16,16 +18,17 @@ import {
 
 import { motion } from "framer-motion";
 
-const index = ({ workItems }) => {
+const works = ({ workResults }) => {
     const linkColors = useColorModeValue("orange.600", "teal.400")
 
-    // console.log('workItems: ', workItems);
-
     return (
-        <div>
+        <motion.div 
+        exit={{ opacity: 0}}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}>
 
             <Head>
-                <title>Works</title>
+                <title>Moti works</title>
             </Head>
             <div className={styles.workContainer}>
                 
@@ -42,53 +45,47 @@ const index = ({ workItems }) => {
                 <Heading>My Work</Heading>
 
                 <SimpleGrid columns={1} spacing={6}>
-
-                    {workItems.map( workItem => {
-                        // console.log('workItem: ', workItem);
-                        const {title, banner, description, slug} = workItem.fields
-
+                    {workResults.map( work => {
                         return(
-                            <Link key={title} href={`/works/${slug}`}>
+                            <Link key={work.title} href={`/works/${work.title}`}>
                                 <Box position='relative' className={styles.workCard} borderWidth='2px' height='300px' >
                                     <div className={styles.imageContainer}>
-                                        <Image  className={styles.image} src={`https:${banner.fields.file.url}`}/>
+                                        <Image  className={styles.image} src={work.thumb[0]} />
                                     </div>
                                     <Box className={styles.workInfo}>
-                                        <h1>{title}</h1>
-                                        <span>{description}</span>
+                                        <h1>{work.title}</h1>
+                                        <span>{work.details}</span>
                                     </Box>
                                 </Box>
                             </Link>
                         )
                     })}
-                    
                 </SimpleGrid>
 
             </div>
 
-        </div>
+            <FooterSection />
+        </motion.div>
     );
 }
 
-export default index;
+export default works;
+
 
 export const getStaticProps = async () => {
-    const client = createClient({
-        space: process.env.SPACE_ID,
-        accessToken: process.env.CONTENTFUL_CONTENTDELIVERY,
-    });
+    await connectDB()
 
-    const worksRes = await client.getEntries({
-        content_type: "studies"
-    })
+    const res = await worksModel.find({})
 
-    const workItems = worksRes.items
+    const workResults = JSON.parse(JSON.stringify(res))
+
+    // console.log('====================================');
+    // console.log('workResults: ', workResults, typeof(workResults));
+    // console.log('====================================');
 
     return{
-        props: {
-            workItems
-        },
-        revalidate: 10
-    }
-
+        props:{
+          workResults
+        }
+      }
 }

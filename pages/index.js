@@ -90,7 +90,11 @@ export const getStaticProps = async () => {
       // workResults,
       studies,
     },
+    revalidate: 10
   };
+
+  //----for revalidate
+  //https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration
 };
 
 export default Home;
