@@ -1,11 +1,16 @@
 import styles from '../styles/Gallery.module.css'
 // import { useState } from 'react'
 import Image from "next/image";
-import { useColorModeValue, Box } from '@chakra-ui/react';
+import Link from 'next/link'
+import { Box } from '@chakra-ui/react';
 
-const GalleryItem = ({ work, updateWorkCounter }) => {
+import CustomLink2 from './CustomLink2';
 
+const GalleryItem = ({ study }) => {
     
+    const { title, slug, description, banner, mobile} = study.fields
+    
+    // console.log(slug);
 
     return(
         <div  className={`galleryItemPanel ${styles.galleryItemContainer}`}>
@@ -14,18 +19,20 @@ const GalleryItem = ({ work, updateWorkCounter }) => {
             
             <div className={styles.galleryItem}>
 
-                <div className={styles.galleryItemInfo}>
-                    <h2>{work.title}</h2>
-                    <p>{work.details}</p>
-                </div>
+                <Link href={`/works/${slug}`}>
+                    <div className={styles.galleryItemInfo}>
+                        <CustomLink2 title={title} link={`/works/${slug}`} />
+                        <p>{description}</p>
+                    </div>
+                </Link>
 
                 <div className={styles.galleryItemImageContainer}>
-                    <Image src={work.images[0]} layout='fill' objectFit='contain' /* width='1000px' height='1000px' */  />
+                    <Image src={`https:${banner.fields.file.url}`} layout='fill' objectFit='contain'  />
                 </div>
 
                 <div className={styles.phoneFloat}>
                     <div className={styles.galleryItemMobileImageContainer}>
-                        <Image src={work.mobileImages[1]} layout='fill' objectFit='contain' />
+                        <Image src={`https:${mobile.fields.file.url}`} layout='fill' objectFit='contain' />
                     </div>
                 </div>
 
@@ -41,7 +48,7 @@ const GalleryItem = ({ work, updateWorkCounter }) => {
 
 
 
-const Gallery = ({ workResults }) => {
+const Gallery = ({ studies }) => {
 
     // const [activeWorkCount, setActiveWorkCount] = useState(1)
 
@@ -49,10 +56,10 @@ const Gallery = ({ workResults }) => {
     //     setActiveWorkCount(index + 1)
     // }
 
-    const colorModeBgGallery = useColorModeValue("orange", "red.800")
+    // console.log('studies: ', studies);
 
     return (
-        <Box backgroundColor={colorModeBgGallery} className={`galleryContainer ${styles.galleryContainer}`}>
+        <Box /* backgroundColor={colorModeBgGallery} */ className={`galleryContainer ${styles.galleryContainer}`}>
 
             {/* <div className={`${styles.galleryCounter}`}>
                 
@@ -61,11 +68,12 @@ const Gallery = ({ workResults }) => {
                 <span>{workResults.length}</span>
             </div> */}
 
-            {workResults.map( (work, index) => {
+            {studies.map( (study, index) => {
                 return(
                     <GalleryItem 
-                        key={work.title} 
-                        work={work} 
+                        key={study.fields.title} 
+                        // work={work} 
+                        study={study}
                         index={index}
                         // updateWorkCounter={handleCounterUpdate}
                     />

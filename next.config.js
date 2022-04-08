@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     domains: [
       'via.placeholder.com',
-      'res.cloudinary.com'
+      'res.cloudinary.com',
+      'images.ctfassets.net'
     ]
   }
 }

@@ -18,9 +18,9 @@ const Navbar = () => {
                 </Link>
                 */}
                 <Stack spacing={6} direction='row' align='center' >
-                        <CustomLink link={'/'} title={'About'}/>
-                        <CustomLink link={'/works'} title={'Works'}/>
-                        <CustomLink link={'/contact'} title={'Contact'}/>
+                    <CustomLink link={'/works'} title={'Works'}/>
+                    <CustomLink link={'/about'} title={'About'}/>
+                    <CustomLink link={'/contact'} title={'Contact'}/>
                 </Stack>
 
                 

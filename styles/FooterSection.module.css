@@ -1,16 +1,25 @@
 .footerContainer{
-    
+    position: relative;
     margin: 0 auto;
     /* max-width: 500px; */
-    padding: 1rem
+    padding: 8rem 4vw;
 }   
 
+.bottomContainer{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    gap: 3rem;
+}
+
 .linkContainer{
-    margin-top: .5rem;
     display: flex;
     flex-direction: column;
-
     gap: .5rem;
+
+    align-items: flex-end;
 }
 
 .linkOut{
@@ -30,8 +39,28 @@
     text-decoration: underline;
 }
 
+.worksMoti{
+    
+    bottom: 0;
+    font-size: clamp(5rem, 15vw, 15rem);
+    font-family: 'Poppins', sans-serif;
+    line-height: .72;
+}
+
 .copy{
-    padding: 2rem 0 1.5rem;
-    text-align: center;
-    opacity: .5;
+    padding: 0rem .4rem;
+    font-family: 'Poppins', sans-serif;
+    right: 4vw;
+    bottom: 0;
+}
+
+
+@media (max-width: 700px) {
+    .bottomContainer{
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .worksMoti{
+        align-self: flex-start;
+    }
 }

@@ -35,7 +35,9 @@ font-family: 'Poppins', sans-serif; */
     display: flex;
     position: relative;
 
-    /* background-color:tomato */
+    /* background-color:tomato; */
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 
@@ -46,7 +48,7 @@ font-family: 'Poppins', sans-serif; */
 
     display: grid;
 
-    grid-template-columns: 15vw 70vw 15vw 1fr;
+    grid-template-columns: 10vw 70vw 20vw 1fr;
 
     /* background-color: #d53f41; */
 }
@@ -58,14 +60,6 @@ font-family: 'Poppins', sans-serif; */
     left: 0%;
     mix-blend-mode: difference;
 
-    /* max-width: 20ch; */
-
-}
-
-.galleryItemInfo h2{
-    font-size: 3rem;
-    /* font-family: 'Merriweather', serif; */
-    font-family: 'Poppins', sans-serif; 
 }
 
 .galleryItemInfo p{
@@ -102,11 +96,13 @@ font-family: 'Poppins', sans-serif; */
 
 .phoneFloat{
     position: absolute;
-    width: 20vw;
+    width: clamp(150px, 20vw, 200px);
     height: 40vh;
     bottom: -5%;
-    right: 0%;
+    right: -10%;
     z-index: 0;
+
+    /* background-color: aqua; */
 
     /* transition: all .8s cubic-bezier(.94,.06,.92,.81); */
 }
@@ -120,4 +116,13 @@ font-family: 'Poppins', sans-serif; */
     .phoneFloat{
         visibility: collapse;
     }
+
+    .galleryItemContainer{
+        grid-template-columns: 15vw 70vw 15vw 1fr;
+        
+    }
 }
+
+/* @media (min-width: 1440px) {
+    
+} */

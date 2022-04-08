@@ -9,7 +9,8 @@ const config = {
 const styles = {
     global: props => ({
         body: {
-            bg: mode('#F3F3F1', '#141414')(props)
+            bg: mode('#F3F3F1', '#141414')(props),
+            color: mode('rgb(32, 37, 39)', 'rgb(223, 218, 216)')(props)
         }
     })
 }
@@ -29,16 +30,17 @@ const colors = {
     }
   }
 
-  const components = {
-    Drawer: {
-      // setup light/dark mode component defaults
-      baseStyle: props => ({
-        dialog: {
-          bg: mode('jade.100', '#202020')(props),
-        }
-      })
-    }
-  };
+const components = {
+  Drawer: {
+    // setup light/dark mode component defaults
+    baseStyle: props => ({
+      dialog: {
+        bg: mode('jade.100', '#202020')(props),
+      }
+    })
+  }
+};
+
 
 
 
