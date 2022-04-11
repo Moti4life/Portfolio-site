@@ -129,7 +129,7 @@ const Burger = () => {
         <DrawerOverlay />
 
         <DrawerContent justifyContent={'space-between'}>
-          <DrawerCloseButton />
+          <DrawerCloseButton size={'lg'}/>
 
           <DrawerHeader ></DrawerHeader>
 

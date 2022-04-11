@@ -15,6 +15,7 @@ import {
   } from '@chakra-ui/react'
 
 import { motion } from "framer-motion";
+import Layout from "../../components/Layout";
 
 const index = ({ workItems }) => {
     const linkColors = useColorModeValue("orange.600", "teal.400")
@@ -22,7 +23,7 @@ const index = ({ workItems }) => {
     // console.log('workItems: ', workItems);
 
     return (
-        <div>
+        <Layout>
 
             <Head>
                 <title>Works</title>
@@ -66,7 +67,7 @@ const index = ({ workItems }) => {
 
             </div>
 
-        </div>
+        </Layout>
     );
 }
 

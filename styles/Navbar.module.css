@@ -25,3 +25,9 @@
         visibility: collapse;
     }
 }
+
+@media (max-height: 768px) {
+    .navContainer{
+        visibility: collapse;
+    }
+}

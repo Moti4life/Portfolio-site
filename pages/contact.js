@@ -1,5 +1,4 @@
 import styles from "../styles/contact.module.css";
-import FooterSection from "../components/FooterSection";
 
 const contact = () => {
   return (
@@ -7,7 +6,7 @@ const contact = () => {
       <div className={styles.contactContainer}>
         <span className={styles.contactHeading}>Contact</span>
       </div>
-      <FooterSection />
+      
     </>
   );
 };

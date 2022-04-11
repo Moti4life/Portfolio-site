@@ -12,6 +12,7 @@ const Animation = () => {
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           introTime
             .to("body", { overflowY: "hidden" })
+            .to('.bgDiv', { display: "block"})
             .fromTo(
               ".letterPanel",
               { y: 1000, display: "block" },
@@ -58,7 +59,9 @@ const Animation = () => {
             .to(".letterPanel", { display: "none", duration: 0.1 })
             .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
     
+            .to('.bgDiv', { display: "none"})
             .to("body", { overflowY: "auto" })
+
     
             .fromTo(
               "#brandLogo",

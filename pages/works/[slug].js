@@ -96,9 +96,9 @@ const work = ({ workItem }) => {
     return (
         <motion.div 
         className={styles.workContainer}
-        initial={{opacity: 0}}
+        /* initial={{opacity: 0}}
         animate={{opacity: 1}}
-        exit={{ opacity: 0}}
+        exit={{ opacity: 0}} */
         >
             <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
                 <BreadcrumbItem>

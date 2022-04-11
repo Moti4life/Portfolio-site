@@ -1,0 +1,46 @@
+.mainContainer{
+    height: 100vh;
+    width: 100%;
+
+    padding: 0 1rem;
+    padding-top: 8rem;
+
+    margin: 0 auto;
+    
+    max-width: 1920px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.portalContainer{
+    position: relative;
+    max-height: 400px;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+
+    transition: scale 10s ease-in;
+}
+
+.portalContainer:hover{
+    scale: 1.6;
+}
+
+.portalOverlay{
+    
+    /* background-color: rgba(0, 255, 255, 0.082); */
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+}

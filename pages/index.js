@@ -10,7 +10,7 @@ import styles from "../styles/Home.module.css";
 
 import About from "../components/About";
 import Gallery from "../components/Gallery";
-import FooterSection from "../components/FooterSection";
+
 
 import { motion } from "framer-motion";
 
@@ -26,10 +26,9 @@ const Home = ({ workResults, studies }) => {
 
   return (
     <motion.div
-    /* className={styles.container}
-      exit={{ opacity: 0}}
-      initial={{opacity: 0}}
-      animate={{opacity: 1}} */
+    initial={{opacity: 0}}
+    animate={{opacity: 1}}
+    exit={{ opacity: 0}}
     >
       <Head>
         <title>Moti's Portfolio Site</title>
@@ -53,7 +52,7 @@ const Home = ({ workResults, studies }) => {
         <div className="pageFiller">page after gallery</div>
 
         <About />
-        <FooterSection />
+        
       </main>
     </motion.div>
   );
