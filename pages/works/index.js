@@ -32,7 +32,7 @@ const index = ({ workItems }) => {
                 
                 <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
                     <BreadcrumbItem>
-                        <Link href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
+                        <Link scroll={false} href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
                     </BreadcrumbItem>
 
                     <BreadcrumbItem isCurrentPage>
@@ -49,7 +49,7 @@ const index = ({ workItems }) => {
                         const {title, banner, description, slug} = workItem.fields
 
                         return(
-                            <Link key={title} href={`/works/${slug}`}>
+                            <Link scroll={false} key={title} href={`/works/${slug}`}>
                                 <Box position='relative' className={styles.workCard} borderWidth='2px' height='300px' >
                                     <div className={styles.imageContainer}>
                                         <Image  className={styles.image} src={`https:${banner.fields.file.url}`}/>

@@ -2,7 +2,7 @@
     position: relative;
     /* position: relative; needed for page to surface */
 
-
+    min-height: 100vh;
     margin: 0 auto;
     max-width: 700px;
     padding-top: 10rem;

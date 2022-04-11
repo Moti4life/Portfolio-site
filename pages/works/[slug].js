@@ -4,10 +4,10 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styles from '../../styles/work.module.css'
 
 import Link from 'next/link'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 import { Heading, Text, useColorModeValue, Badge, Flex } from '@chakra-ui/react'
-import { Link as ChakraLink }  from "@chakra-ui/react"
+// import { Link as ChakraLink }  from "@chakra-ui/react"
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
     Breadcrumb,
@@ -16,7 +16,6 @@ import {
     BreadcrumbSeparator,
   } from '@chakra-ui/react'
 
-import { motion } from "framer-motion"
 import FallbackWorkItem from "../../components/FallbackWorkItem";
 
 
@@ -94,19 +93,15 @@ const work = ({ workItem }) => {
     // console.log("workFields: ", workFields);
     
     return (
-        <motion.div 
-        className={styles.workContainer}
-        /* initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{ opacity: 0}} */
+        <div className={styles.workContainer}
         >
             <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
                 <BreadcrumbItem>
-                    <Link href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
+                    <Link scroll={false} href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem>
-                    <Link href='/works'><Text decoration='underline' cursor='pointer' color={linkColors}>Works</Text></Link>
+                    <Link scroll={false} href='/works'><Text decoration='underline' cursor='pointer' color={linkColors}>Works</Text></Link>
                 </BreadcrumbItem>
 
                 <BreadcrumbItem isCurrentPage>
@@ -135,7 +130,7 @@ const work = ({ workItem }) => {
 
             
 
-        </motion.div>
+        </div>
     );
 }
 

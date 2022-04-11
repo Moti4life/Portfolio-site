@@ -19,7 +19,7 @@ const GalleryItem = ({ study }) => {
             
             <div className={styles.galleryItem}>
 
-                <Link href={`/works/${slug}`}>
+                <Link scroll={false} href={`/works/${slug}`}>
                     <div className={styles.galleryItemInfo}>
                         <CustomLink2 title={title} link={`/works/${slug}`} />
                         <p>{description}</p>

@@ -16,6 +16,8 @@ import MWbrand from "../components/MWBrand";
 import { AnimatePresence } from "framer-motion";
 import FooterSection from '../components/FooterSection'
 
+
+
 function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
@@ -29,6 +31,7 @@ function MyApp({ Component, pageProps, router }) {
         <AnimatePresence 
         exitBeforeEnter
         initial={false}
+        onExitComplete={() => window.scrollTo(0, 0)}
         >
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
@@ -37,5 +40,8 @@ function MyApp({ Component, pageProps, router }) {
     </ChakraProvider>
   );
 }
+
+// https://github.com/framer/motion/issues/1375 for AnimatePresence; specifying a key for the component
+// https://github.com/james-wallis/wallis.dev/blob/master/pages/_app.tsx#L61 for onExitComplete={() => window.scrollTo(0, 0)}
 
 export default MyApp;

@@ -1,6 +1,4 @@
 import styles from '../styles/FooterSection.module.css'
-/* import Link from "next/link";
-import Image from "next/image"; */
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'

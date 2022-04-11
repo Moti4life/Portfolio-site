@@ -74,7 +74,7 @@ const Burger = () => {
   const DrawerButton = ({ link, icon, title }) => {
     return (
       <div className={`drawerButtonContainer ${styles.drawerButtonContainer}`}>
-        <Link href={link}>
+        <Link scroll={false} href={link}>
           <Button
             width={"100%"}
             maxWidth={"30rem"}

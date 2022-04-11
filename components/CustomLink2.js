@@ -5,10 +5,13 @@ const CustomLink2 = ({ link, title}) => {
     return (
         <div className={styles.linkContainer}>
             
-            <Link href={link}>{title}</Link>
+            <Link scroll={false} href={link}>{title}</Link>
             
         </div>
     );
+
+    //Solving the scroll on link change issue
+    //https://wallis.dev/blog/nextjs-page-transitions-with-framer-motion
 }
 
 export default CustomLink2;

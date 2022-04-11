@@ -9,17 +9,28 @@ const Custom404 = () => {
     return(
         <motion.div
         className={styles.mainContainer}
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{ opacity: 0, scale: 2}}
-        >
-            <Heading>Have you lost your way?</Heading>
-            <Text maxWidth={'40ch'}>Sorry, we could not find that page. Here is a portal back to the Home Page.</Text>
         
-            <div className={styles.portalContainer}>
-                <Link href={'/'}><div className={styles.portalOverlay}></div></Link>
+        
+        >
+            <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{ duration: .3}}
+            >
+                <Heading>Have you lost your way?</Heading>
+                <Text maxWidth={'40ch'}>Sorry, we could not find that page. Here is a portal back to the Home Page.</Text>
+            </motion.div>
+        
+            <motion.div className={styles.portalContainer}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{ opacity: 0, scale: 5, y: 0}}
+            transition={{ duration: 1}}
+            >
+                <Link scroll={false} href={'/'}><div className={styles.portalOverlay}></div></Link>
                 <object type="image/svg+xml" data="/portal.svg">svg-animation</object>
-            </div>
+            </motion.div>
         
         
         </motion.div>
