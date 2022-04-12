@@ -24,10 +24,18 @@ const About = () => {
             <div>
                 <Heading size='lg' marginBottom={".5rem"}>Right now</Heading>
                 <Text align={"justify"}>
-                    Learning Nextjs/React and improving css design skills;
-                    having fun building these voxel models/ using blender for material effects; 
-                    about to do some freelancing;
-                    build recommendations for gaming system units
+                    Practicing Nextjs/React and improving css design skills; Learning lots from youtube, from creators who focus on design / UI and UX; to those whose craft is the backend.
+                    Having fun building these voxel models / using blender for material effects; 
+                    Everyday finding a little bit of myself;
+                    build recommendations for gaming system units.
+                </Text>
+            </div>
+
+            <div>
+                <Heading size='lg' marginBottom={".5rem"}>Credits</Heading>
+                <Text align={"justify"}>
+                    This part is to give credit to the creators / youtubers / teachers who made all of those reseach materials / videos / instructions around the net. 
+                    Thank you very much for making the internet better and easier.
                 </Text>
             </div>
         </div>

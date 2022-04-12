@@ -5,6 +5,7 @@ import styles from '../../styles/work.module.css'
 
 import Link from 'next/link'
 // import Image from 'next/image'
+import Head from "next/head";
 
 import { Heading, Text, useColorModeValue, Badge, Flex } from '@chakra-ui/react'
 // import { Link as ChakraLink }  from "@chakra-ui/react"
@@ -17,7 +18,7 @@ import {
   } from '@chakra-ui/react'
 
 import FallbackWorkItem from "../../components/FallbackWorkItem";
-
+import Layout from '../../components/Layout'
 
 const client = createClient({
     space: process.env.SPACE_ID,
@@ -93,44 +94,43 @@ const work = ({ workItem }) => {
     // console.log("workFields: ", workFields);
     
     return (
-        <div className={styles.workContainer}
-        >
-            <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
-                <BreadcrumbItem>
-                    <Link scroll={false} href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
-                </BreadcrumbItem>
-
-                <BreadcrumbItem>
-                    <Link scroll={false} href='/works'><Text decoration='underline' cursor='pointer' color={linkColors}>Works</Text></Link>
-                </BreadcrumbItem>
-
-                <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink href='#'>{workFields.title}</BreadcrumbLink>
-                </BreadcrumbItem>
-            </Breadcrumb>
-            <Flex alignItems='baseline' gap='1rem'>
-                <Heading size='lg'>{workFields.title}</Heading>
-                <Badge variant='outline'>{workFields.year}</Badge>
-            </Flex>
-            <Text>{workFields.description}</Text>
-
-            <Flex flexDirection='column' gap='.5rem' >
-                <Text>Framework / libraries:</Text>
-                    {workFields.libraries.map( (library, index) => {
-                    return(
-                        <div key={index}>
-                            <Badge variant='solid' textTransform={'capitalize'} letterSpacing={'.1rem'} fontFamily={'Saira Semi Condensed, sans-serif'}>{library}</Badge>
-                        </div>
-                    )
-                })}
-            </Flex>
-            <div>
-                <Text>{documentToReactComponents(workFields.details)}</Text>
-            </div>
-
+        <Layout>
+            <Head>
+                <title>{workFields.title}</title>
+            </Head>
+            <div className={styles.workContainer}>
             
-
-        </div>
+                <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />} >
+                    <BreadcrumbItem>
+                        <Link scroll={false} href='/'><Text decoration='underline' cursor='pointer' color={linkColors}>Home</Text></Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <Link scroll={false} href='/works'><Text decoration='underline' cursor='pointer' color={linkColors}>Works</Text></Link>
+                    </BreadcrumbItem>
+                    <BreadcrumbItem isCurrentPage>
+                        <BreadcrumbLink href='#'>{workFields.title}</BreadcrumbLink>
+                    </BreadcrumbItem>
+                </Breadcrumb>
+                <Flex alignItems='baseline' gap='1rem'>
+                    <Heading size='lg'>{workFields.title}</Heading>
+                    <Badge variant='outline'>{workFields.year}</Badge>
+                </Flex>
+                <Text>{workFields.description}</Text>
+                <Flex flexDirection='column' gap='.5rem' >
+                    <Text>Framework / libraries:</Text>
+                        {workFields.libraries.map( (library, index) => {
+                        return(
+                            <div key={index}>
+                                <Badge variant='solid' textTransform={'capitalize'} letterSpacing={'.1rem'} fontFamily={'Saira Semi Condensed, sans-serif'}>{library}</Badge>
+                            </div>
+                        )
+                    })}
+                </Flex>
+                <div>
+                    <Text>{documentToReactComponents(workFields.details)}</Text>
+                </div>
+            </div>
+        </Layout>
     );
 }
 

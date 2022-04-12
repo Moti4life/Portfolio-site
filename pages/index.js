@@ -1,16 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
+// ========== be sure to mute import of models when unused =========
 // import connectDB from "../utils/db";
 // import save from '../testdb'
-
-// ========== be sure to mute import of models when unused =========
 // import Info from "../models/infoModel";
 // import worksModel from "../models/worksModel";
 
-import About from "../components/About";
 import Gallery from "../components/Gallery";
-
 
 import { motion } from "framer-motion";
 
@@ -19,7 +16,7 @@ import { Box } from "@chakra-ui/react";
 import { createClient } from "contentful";
 import Animation from "../components/Animation";
 
-const Home = ({ workResults, studies }) => {
+const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
 
   Animation();
@@ -51,7 +48,7 @@ const Home = ({ workResults, studies }) => {
 
         <div className="pageFiller">page after gallery</div>
 
-        <About />
+        
         
       </main>
     </motion.div>
