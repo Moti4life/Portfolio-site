@@ -14,7 +14,7 @@ import {
     BreadcrumbSeparator,
   } from '@chakra-ui/react'
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import Layout from "../../components/Layout";
 
 const index = ({ workItems }) => {

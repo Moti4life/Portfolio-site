@@ -1,12 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-// ========== be sure to mute import of models when unused =========
-// import connectDB from "../utils/db";
-// import save from '../testdb'
-// import Info from "../models/infoModel";
-// import worksModel from "../models/worksModel";
-
 import Gallery from "../components/Gallery";
 
 import { motion } from "framer-motion";

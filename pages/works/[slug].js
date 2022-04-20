@@ -4,7 +4,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styles from '../../styles/work.module.css'
 
 import Link from 'next/link'
-// import Image from 'next/image'
 import Head from "next/head";
 
 import { Heading, Text, useColorModeValue, Badge, Flex } from '@chakra-ui/react'
