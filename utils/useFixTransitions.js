@@ -6,6 +6,7 @@ export const OPACITY_EXIT_DURATION = 1;
 // this fix is for the unmounting of css on exit transitions
 // see https://github.com/vercel/next.js/issues/17464
 // https://github.com/vercel/next.js/issues/17464#issuecomment-1094588632
+// alt fix https://github.com/vercel/next.js/issues/18342
 
 const routeChange = () => {
     const tempFix = () => {
@@ -13,7 +14,7 @@ const routeChange = () => {
         elements.forEach((elem) => elem.removeAttribute('media'));
         setTimeout(() => {
             elements.forEach((elem) => elem.remove());
-            console.log('tempFix ran');
+            // console.log('tempFix ran');
         }, OPACITY_EXIT_DURATION * 1000);
     };
     tempFix();
@@ -24,7 +25,7 @@ export const useTransitionFix = () => {
         Router.events.on('routeChangeComplete', routeChange);
         Router.events.on('routeChangeStart', routeChange);
 
-        console.log('useTransitionFix ran');
+        // console.log('useTransitionFix ran');
         return () => {
             Router.events.off('routeChangeComplete', routeChange);
             Router.events.off('routeChangeStart', routeChange);

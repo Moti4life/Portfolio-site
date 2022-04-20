@@ -12,11 +12,11 @@ const Animation = () => {
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           introTime
             .to("body", { overflowY: "hidden" })
-            .to('.bgDiv', { display: "block"})
+            // .to('.bgDiv', { display: "block"})
             .fromTo(
               ".letterPanel",
               { y: 1000, display: "block" },
-              { y: 0, duration: 0.4, stagger: 0.1 }
+              { y: 0, duration: 0.4, stagger: 0.1, delay: 1 }
             )
             .to(".letterPanelOther", {
               opacity: 0,
@@ -82,7 +82,8 @@ const Animation = () => {
     
         sessionStorage.setItem("hasPlayedAnimation", true);
     
-        introTime.to(".heroTitle", { display: "block" }).fromTo(
+        introTime.to('.bgDiv', { display: "none"})
+        .to(".heroTitle", { display: "block" }).fromTo(
           ".heroTitle",
           { y: "100%" },
           {
