@@ -20,7 +20,7 @@ import {
 
 import { useRef } from "react";
 
-import styles from "../styles/Burger.module.css";
+import styles from "../styles/Burger.module.scss";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import SpinnerLoader from "./SpinnerLoader";

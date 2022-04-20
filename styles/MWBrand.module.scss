@@ -1,0 +1,43 @@
+.brandContainer{
+    position: fixed;
+    z-index: 3;
+    top: 35%;
+    left: 4%;
+    cursor: pointer;
+    
+
+    .m, .w{
+        display: inline-block;
+        transition: all .23s ease;
+    }
+
+    .separator{
+        width: 5rem;
+        border: 2px solid;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+        transform-origin: 0%;
+        
+        scale: 0;
+        transition: all .3s ease-out;
+    }
+
+    &:hover{
+        .m{
+            transform: translate( -5%, -30%);
+        }
+
+        .w{
+            transform: translate( 5%, 30%);
+        }
+        .separator{
+            scale: 1;
+            rotate: 120deg;
+        }
+    }
+   
+
+}

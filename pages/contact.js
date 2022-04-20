@@ -8,6 +8,8 @@ import { gsap } from "gsap/dist/gsap";
 import { TextPlugin } from "gsap/dist/TextPlugin";
 import { useEffect } from "react";
 
+import WaterText from "../components/WaterText";
+
 const contact = () => {
   let [copyText, setCopyText] = useState("Copy it!");
 
@@ -38,6 +40,7 @@ const contact = () => {
         <title>Contact</title>
       </Head>
       <div className={styles.contactContainer}>
+        <WaterText title={'Contact'} right={'-10%'} bottom={'30%'} />
 
         <span className={styles.contactHeading}>Contact</span>
 

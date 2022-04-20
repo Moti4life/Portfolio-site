@@ -3,10 +3,15 @@
 
     z-index: 3;
 
-    top: 5%;
+    top: 35%;
     right: 4%;
 
-    
+    transition: rotate .32s ease-in-out;
+    rotate: -45deg;
+
+    &:hover{
+        rotate: 0deg;
+    }
 }
 
 /* font-family: 'Merriweather', serif;
