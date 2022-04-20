@@ -1,17 +1,17 @@
-.burgerContainer{
-    position: fixed;
+.burgerContainer {
+  position: fixed;
 
-    z-index: 3;
+  z-index: 3;
 
-    top: 35%;
-    right: 4%;
+  top: 35%;
+  right: 4%;
 
-    transition: rotate .32s ease-in-out;
-    rotate: -45deg;
+  transition: transform 0.32s ease-in-out;
+  transform: rotate(-45deg);
 
-    &:hover{
-        rotate: 0deg;
-    }
+  &:hover {
+    transform: rotate(0deg);
+  }
 }
 
 /* font-family: 'Merriweather', serif;
@@ -22,65 +22,64 @@ font-family: 'Saira Semi Condensed', sans-serif;
 
 */
 
-.modelContainer{
-    width: 100%;
-    height: 100%;
-    min-height: 150px;
-    z-index: 0;
-    flex: 1 1 150px;
+.modelContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  z-index: 0;
+  flex: 1 1 150px;
 
-    /* background-color: aqua; */
+  /* background-color: aqua; */
 }
 
-.burgerLines{
-    display: flex;
-    flex-direction: column;
+.burgerLines {
+  display: flex;
+  flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
-    gap: 6px;
+  gap: 6px;
 }
 
-.burgerLine{
-    width: 16px;
-    height: 3px;
-    background-color: white;
+.burgerLine {
+  width: 16px;
+  height: 3px;
+  background-color: white;
 }
 
-.burgerLine:nth-child(2){
-    width: 24px;
+.burgerLine:nth-child(2) {
+  width: 24px;
 }
 
-
-.drawerNav{
-    font-family: 'Saira Semi Condensed', sans-serif;
-    font-size: 4vh;
-    font-weight: 700;
+.drawerNav {
+  font-family: "Saira Semi Condensed", sans-serif;
+  font-size: 4vh;
+  font-weight: 700;
 }
 
-.drawerButtonContainer{
-    width: 70%;
-    display: flex;
-    justify-content: center;    
+.drawerButtonContainer {
+  width: 70%;
+  display: flex;
+  justify-content: center;
 }
-.divider{
-    width: 70%;
-    max-width: 30rem;
-    border-bottom: 2px solid;
-}
-
-.drawerBody{
-    height: 100%;
+.divider {
+  width: 70%;
+  max-width: 30rem;
+  border-bottom: 2px solid;
 }
 
-.drawerBodyContainer{
-    /* background-color: aqua; */
-    flex: 1 1 80%;
+.drawerBody {
+  height: 100%;
+}
+
+.drawerBodyContainer {
+  /* background-color: aqua; */
+  flex: 1 1 80%;
 }
 
 @media (max-height: 600px) {
-    .divider{
-        display: none;
-    }
+  .divider {
+    display: none;
+  }
 }

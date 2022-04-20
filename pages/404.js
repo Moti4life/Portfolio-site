@@ -30,7 +30,7 @@ const Custom404 = () => {
         className={styles.portalContainer}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0, scale: 5, y: "-50%" }}
+        exit={{ opacity: 0, scale: 20, y: "-300%" }}
         transition={{ duration: 1 }}
       >
         <Link scroll={false} href={"/"}>

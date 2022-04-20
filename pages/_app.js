@@ -11,25 +11,27 @@ config.autoAddCss = false;
 import IntroOverlay from "../components/IntroOverlay";
 import Cursor from "../components/Cursor";
 import { AnimatePresence } from "framer-motion";
-import FooterSection from '../components/FooterSection'
+import FooterSection from "../components/FooterSection";
 
-
+import { useTransitionFix } from '../utils/useFixTransitions'
 
 function MyApp({ Component, pageProps, router }) {
+
+  useTransitionFix();
   return (
     <ChakraProvider theme={theme}>
       <div className="bodyContainer">
         <IntroOverlay />
         <Cursor />
         <Navbar />
-        <AnimatePresence 
-        exitBeforeEnter
-        initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}
+        <AnimatePresence
+          exitBeforeEnter
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
         >
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>
-        {/* <FooterSection /> */}
+        <FooterSection />
       </div>
     </ChakraProvider>
   );
