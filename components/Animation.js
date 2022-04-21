@@ -12,7 +12,7 @@ const Animation = () => {
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           introTime
             .to("body", { overflowY: "hidden" })
-            // .to('.bgDiv', { display: "block"})
+            .to('.bgDiv', { display: "block"})
             .fromTo(
               ".letterPanel",
               { y: 1000, display: "block" },
@@ -65,18 +65,18 @@ const Animation = () => {
     
             .fromTo(
               "#brandLogo",
-              { opacity: 0 },
-              { opacity: 1, ease: "power3.in", duration: 0.2 }
+              { opacity: 0, y: -10 },
+              { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
             )
             .fromTo(
-              "#navbar",
-              { opacity: 0 },
-              { opacity: 1, ease: "power3.in", duration: 0.2, delay: -0.1 }
+              "#navOnly",
+              { opacity: 0, y: -10  },
+              { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1}
             )
             .fromTo(
               "#burger",
-              { opacity: 0 },
-              { opacity: 1, ease: "power3.in", duration: 0.2, delay: -0.1 }
+              { opacity: 0, y: -10  },
+              { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1 }
             );
         }
     

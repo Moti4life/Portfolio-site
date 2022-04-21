@@ -21,6 +21,7 @@ const Navbar = () => {
         yPercent: -100,
         paused: true,
         duration: .4,
+        opacity: 0,
       })
       .progress(1);
 
@@ -37,7 +38,7 @@ const Navbar = () => {
     <div id="navbar" className={styles.navContainer}>
         <MWbrand />
         <Burger />
-      <Flex className={styles.navbar}>
+      <Flex id="navOnly" className={styles.navbar}>
         <Stack spacing={6} direction="row" align="center">
           <CustomLink link={"/works"} title={"Works"} />
           <CustomLink link={"/about"} title={"About"} />

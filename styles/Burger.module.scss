@@ -9,7 +9,8 @@
   transition: transform 0.32s ease-in-out;
   transform: rotate(-45deg);
 
-  &:hover {
+  &:hover,
+  &:active {
     transform: rotate(0deg);
   }
 }

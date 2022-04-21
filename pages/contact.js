@@ -1,4 +1,4 @@
-import styles from "../styles/contact.module.css";
+import styles from "../styles/contact.module.scss";
 import Layout from "../components/Layout";
 import { Button } from "@chakra-ui/react";
 import Head from "next/head";

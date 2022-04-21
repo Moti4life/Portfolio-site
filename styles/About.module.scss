@@ -9,15 +9,22 @@ font-family: 'Saira Semi Condensed', sans-serif;
 ---- */
 
 .aboutContainer{
-    /* max-width: 500px; */
     display: flex;
     flex-direction: column;
 
     gap: 2rem;
 
-    /* max-width: 50ch; */
+    .spanConnect{
+        display: inline-block;
+        font-family: 'Poppins', sans-serif; 
+        line-height: 1.5rem;
+        letter-spacing: .1rem;
+    }
+    .showItemContainer{
+        display: inline-block;
+    }
+    
     h1{
-        font-family: 'Saira Semi Condensed', sans-serif;
         font-size: 3rem;
         font-weight: 600;
     }
@@ -29,8 +36,9 @@ font-family: 'Saira Semi Condensed', sans-serif;
     }
     h3{
         font-size: 2rem;
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
+        font-family: 'Saira Semi Condensed', sans-serif;
+        // font-family: 'Playfair Display', serif;
+        // font-style: italic;
     }
     p{
         max-width: 50ch;
@@ -39,3 +47,12 @@ font-family: 'Saira Semi Condensed', sans-serif;
         letter-spacing: .1rem;
     }
 }
+
+.stickFood{
+    position: relative;
+    display: inline-block;
+    height: 3rem;
+    width: 1.5rem;
+    transform: translate( 0%, 20%) rotate(15deg);
+}
+

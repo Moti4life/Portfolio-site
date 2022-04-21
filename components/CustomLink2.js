@@ -1,4 +1,4 @@
-import styles from '../styles/CustomLink2.module.css'
+import styles from '../styles/CustomLink2.module.scss'
 import Link from 'next/link'
 
 const CustomLink2 = ({ link, title}) => {

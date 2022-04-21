@@ -29,7 +29,8 @@
 
     transition: transform 5s ease-out;
 
-    &:hover{
+    &:hover,
+    &:active{
         transform: scale(1.6);
     }
 }
