@@ -1,4 +1,4 @@
-import styles from "../styles/Gallery.module.css";
+import styles from "../styles/Gallery.module.scss";
 // import { useState } from 'react'
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +72,8 @@ const Gallery = ({ studies }) => {
       scrollTrigger: {
         trigger: ".galleryContainer",
         pin: true,
-        start: "top 13%",
+        start: "10% 15%",
+        // markers: true,
         scrub: 1,
         snap: {
           snapTo: 1 / (galleryPanels.length - 1),

@@ -14,9 +14,15 @@
     
 }
 
-/* font-family: 'Merriweather', serif;
+/* ----
+-serif
+font-family: 'Merriweather', serif;
+font-family: 'Playfair Display', serif;
 
-font-family: 'Poppins', sans-serif; */
+-sans-serif
+font-family: 'Poppins', sans-serif; 
+font-family: 'Saira Semi Condensed', sans-serif;
+---- */
 
 .galleryCounter{
     position: absolute;
@@ -60,10 +66,13 @@ font-family: 'Poppins', sans-serif; */
     left: 0%;
     mix-blend-mode: difference;
 
-}
-
-.galleryItemInfo p{
-    font-size: 1rem;
+    & > p{
+        font-family: 'Merriweather', serif;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        font-weight: 300;
+    }
 }
 
 .galleryItemImageContainer{

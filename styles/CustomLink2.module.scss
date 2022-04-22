@@ -1,7 +1,19 @@
-.linkContainer{
-    font-size: 3rem;
-    font-family: 'Poppins', sans-serif; 
+/* ----
+-serif
+font-family: 'Merriweather', serif;
+font-family: 'Playfair Display', serif;
 
+-sans-serif
+font-family: 'Poppins', sans-serif; 
+font-family: 'Saira Semi Condensed', sans-serif;
+---- */
+
+.linkContainer{
+    font-size: clamp(1rem, 10vw, 4rem);
+    font-family: 'Saira Semi Condensed', sans-serif;
+    // font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    // font-style: italic;
     letter-spacing: .1em;
 
     position: relative;

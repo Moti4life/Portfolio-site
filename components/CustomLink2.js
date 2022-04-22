@@ -4,9 +4,7 @@ import Link from 'next/link'
 const CustomLink2 = ({ link, title}) => {
     return (
         <div className={styles.linkContainer}>
-            
             <Link scroll={false} href={link}>{title}</Link>
-            
         </div>
     );
 
