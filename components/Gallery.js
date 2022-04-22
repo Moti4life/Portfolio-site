@@ -1,88 +1,121 @@
-import styles from '../styles/Gallery.module.css'
+import styles from "../styles/Gallery.module.css";
 // import { useState } from 'react'
 import Image from "next/image";
-import Link from 'next/link'
-import { Box } from '@chakra-ui/react';
+import Link from "next/link";
+import { Box } from "@chakra-ui/react";
 
-import CustomLink2 from './CustomLink2';
+import CustomLink2 from "./CustomLink2";
+
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const GalleryItem = ({ study }) => {
-    
-    const { title, slug, description, banner, mobile} = study.fields
-    
-    // console.log(slug);
+  const { title, slug, description, banner, mobile } = study.fields;
 
-    return(
-        <div  className={`galleryItemPanel ${styles.galleryItemContainer}`}>
-            
-            <div></div>
-            
-            <div className={styles.galleryItem}>
+  // console.log(slug);
 
-                <Link scroll={false} href={`/works/${slug}`}>
-                    <div className={styles.galleryItemInfo}>
-                        <CustomLink2 title={title} link={`/works/${slug}`} />
-                        <p>{description}</p>
-                    </div>
-                </Link>
+  return (
+    <div className={`galleryItemPanel ${styles.galleryItemContainer}`}>
+      <div></div>
 
-                <div className={styles.galleryItemImageContainer}>
-                    <Image src={`https:${banner.fields.file.url}`} layout='fill' objectFit='contain'  />
-                </div>
+      <div className={styles.galleryItem}>
+        <Link scroll={false} href={`/works/${slug}`}>
+          <div className={styles.galleryItemInfo}>
+            <CustomLink2 title={title} link={`/works/${slug}`} />
+            <p>{description}</p>
+          </div>
+        </Link>
 
-                <div className={styles.phoneFloat}>
-                    <div className={styles.galleryItemMobileImageContainer}>
-                        <Image src={`https:${mobile.fields.file.url}`} layout='fill' objectFit='contain' />
-                    </div>
-                </div>
-
-            </div>
-
-            <div></div>
-
-            <div></div>
-            
+        <div className={styles.galleryItemImageContainer}>
+          <Image
+            src={`https:${banner.fields.file.url}`}
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
-    )
-}
 
+        <div className={styles.phoneFloat}>
+          <div className={styles.galleryItemMobileImageContainer}>
+            <Image
+              src={`https:${mobile.fields.file.url}`}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        </div>
+      </div>
 
+      <div></div>
+
+      <div></div>
+    </div>
+  );
+};
 
 const Gallery = ({ studies }) => {
+  // const [activeWorkCount, setActiveWorkCount] = useState(1)
 
-    // const [activeWorkCount, setActiveWorkCount] = useState(1)
+  // const handleCounterUpdate = (index) => {
+  //     setActiveWorkCount(index + 1)
+  // }
 
-    // const handleCounterUpdate = (index) => {
-    //     setActiveWorkCount(index + 1)
-    // }
+  // console.log('studies: ', studies);
+  gsap.registerPlugin(ScrollTrigger);
 
-    // console.log('studies: ', studies);
+  useEffect(() => {
+    let galleryPanels = gsap.utils.toArray(".galleryItemPanel");
 
-    return (
-        <Box /* backgroundColor={colorModeBgGallery} */ className={`galleryContainer ${styles.galleryContainer}`}>
+    let galleryAnimation = gsap.to(galleryPanels, {
+      xPercent: -100 * (galleryPanels.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".galleryContainer",
+        pin: true,
+        start: "top 13%",
+        scrub: 1,
+        snap: {
+          snapTo: 1 / (galleryPanels.length - 1),
+          inertia: false,
+          duration: 2,
+        },
+        end: "+=100%",
+      },
+    });
+    
+    // make sure to that ScrollTriggers are killed on page/route change
+    // https://greensock.com/forums/topic/25893-scrolltrigger-issue-with-react/?do=findComment&comment=125755
+    return () => {
+      galleryAnimation.kill();
+      // .disable() not recognized?? not sure
+    }
 
-            {/* <div className={`${styles.galleryCounter}`}>
+  }, []);
+
+  return (
+    <Box
+      /* backgroundColor={colorModeBgGallery} */ className={`galleryContainer ${styles.galleryContainer}`}
+    >
+      {/* <div className={`${styles.galleryCounter}`}>
                 
                 <span>{activeWorkCount}</span>
                 <span className={styles.divider}> / </span>
                 <span>{workResults.length}</span>
             </div> */}
 
-            {studies.map( (study, index) => {
-                return(
-                    <GalleryItem 
-                        key={study.fields.title} 
-                        // work={work} 
-                        study={study}
-                        index={index}
-                        // updateWorkCounter={handleCounterUpdate}
-                    />
-                )
-            })}
-
-        </Box>
-    );
-}
+      {studies.map((study, index) => {
+        return (
+          <GalleryItem
+            key={study.fields.title}
+            // work={work}
+            study={study}
+            index={index}
+            // updateWorkCounter={handleCounterUpdate}
+          />
+        );
+      })}
+    </Box>
+  );
+};
 
 export default Gallery;
-

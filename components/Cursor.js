@@ -1,7 +1,6 @@
 import styles from '../styles/Cursor.module.css'
-import Image from 'next/image';
-
-import gsap from 'gsap';
+// import Image from 'next/image';
+// import gsap from 'gsap';
 import { useRef } from 'react';
 import { useEffect } from 'react'
 

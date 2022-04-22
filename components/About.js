@@ -66,7 +66,7 @@ const About = () => {
       <div >
         <h2>Credits</h2>
         <p>
-          This part is to give credit to the creators / youtubers / teachers who
+          This part is to give credit to the creators who
           made all of those reseach materials / videos / instructions around the
           net. Thank you very much for making the internet better and easier.
           Also, to all the people who make good food!

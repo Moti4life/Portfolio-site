@@ -12,9 +12,9 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useEffect } from "react";
 
 const Navbar = () => {
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
     const showAnim = gsap
       .from("#navbar", {

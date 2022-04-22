@@ -39,6 +39,7 @@ const Home = ({ studies }) => {
         <div className="pageFiller">page 2</div>
 
         <Gallery studies={studies} />
+        {/* <GalleryTest /> */}
 
         <div className="pageFiller">page after gallery</div>
 

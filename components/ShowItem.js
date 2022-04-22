@@ -41,6 +41,7 @@ const ShowItem = ({ imgUrl, imgWidth, imgHeight, children }) => {
           backgroundColor={"transparent"}
           width={imgWidth}
           height={imgHeight}
+          position={'relative'}
         >
           <Image src={imgUrl} layout='fill' objectFit='contain' />
         </MenuList>

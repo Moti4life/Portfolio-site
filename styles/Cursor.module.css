@@ -3,7 +3,7 @@
     position: fixed;
     z-index: 10000;
     pointer-events: none;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0%, 0%, 0%);
 }
 
 .mainCursor{
@@ -33,6 +33,8 @@
     background: rgb(255, 255, 255);
     /* border: 1px solid black; */
     position: relative;
+    
+
 }
 
 /* .secondaryCursor::after,
@@ -83,9 +85,30 @@
     border-radius: 50%;
 } */
 
-@media (pointer: coarse) {
+/* @media (pointer: coarse) {
     .secondaryCursor,
     .mainCursor{
         opacity: 0;
     }
+} */
+
+/* smartphones, touchscreens */
+@media (hover: none) and (pointer: coarse) {
+    .secondaryCursor,
+    .mainCursor{
+        opacity: 0;
+        visibility: collapse;
+    }
 }
+/* stylus-based screens */
+/* @media (hover: none) and (pointer: fine) {
+    .secondaryCursor,
+    .mainCursor{
+        opacity: 0;
+    }
+} */
+
+/* 
+if cursor appears on mobile; check if you are in dev environment;
+not sure why yet but @media pointer: coarse does not detect that device is touch only. 
+*/
