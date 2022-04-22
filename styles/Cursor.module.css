@@ -100,6 +100,15 @@
         visibility: collapse;
     }
 }
+
+@media (pointer: coarse) {
+    .secondaryCursor,
+    .mainCursor{
+        opacity: 0;
+        visibility: collapse;
+    }
+}
+
 /* stylus-based screens */
 /* @media (hover: none) and (pointer: fine) {
     .secondaryCursor,
