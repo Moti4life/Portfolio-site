@@ -75,25 +75,12 @@ const Burger = () => {
     return (
       <div className={`drawerButtonContainer ${styles.drawerButtonContainer}`}>
         <Link scroll={false} href={link}>
-          <Button
-            width={"100%"}
-            maxWidth={"30rem"}
-            onClick={() => onClose()}
-            size="xl"
-            variant={"ghost"}
-          >
-            <Flex
-              padding={"1rem"}
-              flexDirection={"row"}
-              gap={".5rem"}
-              justifyContent={"center"}
-              alignItems={"center"}
-            >
-              <span className={styles.drawerNav}>
-                <FontAwesomeIcon size={"2xs"} icon={icon} /> {title}
-              </span>
-            </Flex>
-          </Button>
+          <div onClick={() => onClose()}>
+            <span className={styles.drawerNav}>
+              <FontAwesomeIcon size={"xs"} icon={icon} width={"3rem"} />
+              {title}
+            </span>
+          </div>
         </Link>
       </div>
     );
@@ -125,35 +112,30 @@ const Burger = () => {
         finalFocusRef={btnRef}
         size="full"
         placement="right"
+        // blockScrollOnMount={false}
       >
         <DrawerOverlay />
 
-        <DrawerContent justifyContent={'space-between'}>
-          <DrawerCloseButton size={'lg'}/>
-
-          <DrawerHeader ></DrawerHeader>
+        <DrawerContent justifyContent={"space-between"}>
+          <DrawerCloseButton size={"lg"} zIndex={"2"} />
 
           <motion.div
             variants={drawerAnim}
             initial={drawerAnim.offScreen}
             whileInView={drawerAnim.onScreen}
             viewport={drawerAnim.viewport}
-            
             className={styles.drawerBodyContainer}
           >
-            <DrawerBody
-              display="flex"
-              flexDirection="column"
-              alignItems={"center"}
-              className={styles.drawerBody}
+            <Button
+              onClick={toggleColorMode}
+              colorScheme={colorModeSwitch}
+              size="lg"
+              margin={'1rem'}
             >
-              <Flex
-                gap={"1rem"}
-                width={"100%"}
-                justifyContent={"center"}
-                flexDirection={"column"}
-                alignItems={"center"}
-              >
+              <FontAwesomeIcon icon={faCircleHalfStroke} size="lg" />
+            </Button>
+            <div className={styles.drawerBody}>
+              <div className={styles.optionContainer}>
                 <DrawerButton
                   link={"/"}
                   title={"HOME"}
@@ -177,42 +159,16 @@ const Burger = () => {
                   title={"CONTACT"}
                   icon={faIdCard}
                 />
-                {/* <Link href='/works'>
-                                      <Button onClick={() => onClose()} size='xl' width={'47%'}>
-                                          <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
-                                              <FontAwesomeIcon size={'2x'} icon={faLaptopCode} />
-                                              <Text>WORKS</Text>
-                                          </Flex>
-                                      </Button>
-                                  </Link>
-                                  <Link href='/about'>
-                                      <Button onClick={() => onClose()} size='xl' width={'47%'}>
-                                          <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
-                                              <FontAwesomeIcon size={'2x'} icon={faUserTie} />
-                                              <Text>ABOUT</Text>
-                                          </Flex>
-                                      </Button>
-                                  </Link>
-                                  <Link href='/contact'>
-                                      <Button onClick={() => onClose()} size='xl' width={'47%'}>
-                                          <Flex padding={'2rem'} flexDirection={"column"} gap={'.5rem'} justifyContent={"center"} alignItems={'center'}>
-                                              <FontAwesomeIcon size={'2x'} icon={faIdCard} />
-                                              <Text>CONTACT</Text>
-                                          </Flex>
-                                      </Button>
-                                  </Link> */}
-                {/* <Link href='/works'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faLaptopCode} />} >WORKS</Button></Link>
-                                  <Link href='/about'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faUserTie} />} >ABOUT</Button></Link>
-                                  <Link href='/contact'><Button onClick={() => onClose()} leftIcon={<FontAwesomeIcon icon={faIdCard} />} >CONTACT</Button></Link> */}
-              </Flex>
+              </div>
 
               <div className={styles.modelContainer}>
                 <DynamicComponent />
               </div>
-            </DrawerBody>
+            </div>
           </motion.div>
 
-          <DrawerFooter>
+          {/* <DrawerFooter>
+
             <Button
               onClick={toggleColorMode}
               colorScheme={colorModeSwitch}
@@ -220,7 +176,8 @@ const Burger = () => {
             >
               <FontAwesomeIcon icon={faCircleHalfStroke} size="lg" />
             </Button>
-          </DrawerFooter>
+
+          </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </>
