@@ -10,8 +10,10 @@ const Animation = () => {
 
     if (!sessionStorage.getItem("hasPlayedAnimation")) {
       introTime
+        .to("#brandLogo", { opacity: 0 })
+        .to("#navOnly", { opacity: 0 })
+        .to("#burger", { opacity: 0 })
         .to("body", { overflowY: "hidden" })
-        .to(".introBox", { display: "none" })
         .to(".bgDiv", { display: "block" })
         .fromTo(
           ".letterPanel",
@@ -124,7 +126,6 @@ const Animation = () => {
     // return () => {
     //   // .disable() not recognized?? not sure
     // }
-
   }, []);
 };
 

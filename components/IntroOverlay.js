@@ -1,14 +1,8 @@
 import styles from "../styles/IntroOverlay.module.css";
-import { Box, useColorModeValue } from "@chakra-ui/react";
 
 const IntroOverlay = () => {
-    const introBoxColor = useColorModeValue('#ffaa00', '#bbff00') // 
   return (
     <>
-    <Box 
-    className={`introBox ${styles.introBox}`}
-    backgroundColor={introBoxColor} 
-    />
       <div className={`bgDiv ${styles.bgDiv}`}>
         <div className={`brandPanels ${styles.brandPanels}`}>
           <div className={`letterContainer ${styles.letterContainer}`}>
