@@ -1,4 +1,11 @@
+.introBox{
+    width: 100%;
+    height: 100vh;
 
+    z-index: 20;
+
+    position: absolute;
+}
 
 .bgDiv{
     position: absolute;

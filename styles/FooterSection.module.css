@@ -2,7 +2,7 @@
     position: relative;
     margin: 0 auto;
     /* max-width: 500px; */
-    padding: 8rem 4vw;
+    padding: 6rem 4vw;
 }   
 
 .bottomContainer{
@@ -56,10 +56,15 @@
 
 
 @media (max-width: 700px) {
+    .footerContainer{
+        padding: 3rem 4vw;
+    }
+
     .bottomContainer{
         flex-direction: column;
         justify-content: space-around;
     }
+    
     .worksMoti{
         align-self: flex-start;
     }

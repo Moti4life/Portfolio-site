@@ -11,6 +11,7 @@ const Animation = () => {
     if (!sessionStorage.getItem("hasPlayedAnimation")) {
       introTime
         .to("body", { overflowY: "hidden" })
+        .to(".introBox", { display: "none" })
         .to(".bgDiv", { display: "block" })
         .fromTo(
           ".letterPanel",
@@ -81,6 +82,7 @@ const Animation = () => {
     sessionStorage.setItem("hasPlayedAnimation", true);
 
     introTime
+      .to(".introBox", { display: "none" })
       .to(".bgDiv", { display: "none" })
       .to(".heroTitle", { display: "block" })
       .fromTo(

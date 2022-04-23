@@ -56,11 +56,11 @@ const About = () => {
             imgHeight={"230px"}
             imgWidth={"150px"}
             children={
-              <h3 className={styles.devRole}>&lt;webDeveloper /&gt;&nbsp;</h3>
+              <h3 className={styles.devRole}>&lt;webDeveloper /&gt;</h3>
             }
           />
         </div>
-        <span className={styles.spanConnect}>skills</span>
+        <span className={styles.spanConnect}>&nbsp;skills</span>
       </div>
 
       <div >
