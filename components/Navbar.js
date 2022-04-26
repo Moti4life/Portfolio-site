@@ -15,12 +15,11 @@ const Navbar = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-
     const showAnim = gsap
       .from("#navbar", {
         yPercent: -100,
         paused: true,
-        duration: .4,
+        duration: 0.4,
         opacity: 0,
       })
       .progress(1);
@@ -36,8 +35,8 @@ const Navbar = () => {
 
   return (
     <div id="navbar" className={styles.navContainer}>
-        <MWbrand />
-        <Burger />
+      <MWbrand />
+      <Burger />
       <Flex id="navOnly" className={styles.navbar}>
         <Stack spacing={6} direction="row" align="center">
           <CustomLink link={"/works"} title={"Works"} />

@@ -5,14 +5,76 @@ import { faGear, faBurger } from "@fortawesome/free-solid-svg-icons";
 import ShowItem from "./ShowItem";
 import Image from "next/image";
 
-const About = () => {
-  return (
-    <div className={styles.aboutContainer}>
-      {/* <div className={styles.title}>
-        
-      </div> */}
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useEffect } from "react";
 
-      <div>
+const About = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    let panelGroup = gsap.utils.toArray(".aboutPanel");
+
+    panelGroup.forEach((panel) => {
+
+      gsap.fromTo(
+            panel,
+            { y: "100%", opacity: 0 },
+            {
+              y: "0%",
+              opacity: 1,
+              scrollTrigger: {
+                trigger: panel,
+                start: "0% 100%",
+                end: "60% 100%",
+                scrub: true,
+                // markers: true,
+              },
+            }
+          );
+
+      // if (panel.className.includes("offset")) {
+      //   gsap.fromTo(
+      //     panel,
+      //     { x: "120%", opacity: 0 },
+      //     {
+      //       x: "0%",
+      //       opacity: 1,
+      //       scrollTrigger: {
+      //         trigger: panel,
+      //         start: "0% 60%",
+      //         end: "100% 70%",
+      //         scrub: true,
+      //         // markers: true,
+      //       },
+      //     }
+      //   );
+      // } else {
+      //   gsap.fromTo(
+      //     panel,
+      //     { x: "-120%", opacity: 0 },
+      //     {
+      //       x: "0%",
+      //       opacity: 1,
+      //       scrollTrigger: {
+      //         trigger: panel,
+      //         start: "0% 60%",
+      //         end: "100% 70%",
+      //         scrub: true,
+      //         // markers: true,
+      //       },
+      //     }
+      //   );
+      // }
+    });
+    
+  }, []);
+
+  return (
+    <div className={`aboutContainer ${styles.aboutContainer}`}>
+      {/* <div className={styles.panelBuffer}></div> */}
+
+      <div className={`aboutPanel ${styles.aboutPanel}`}>
         <h2>About Me</h2>
         <p>
           I'm a web developer with a passion for learning Also a car enthusiast;
@@ -37,7 +99,7 @@ const About = () => {
         </div>
       </div>
 
-      <div>
+      <div className={`aboutPanel offset ${styles.aboutPanel} ${styles.offset}`}>
         <h2>Right now</h2>
         <p>
           Practicing Nextjs/React and improving css design skills; Learning lots
@@ -63,13 +125,13 @@ const About = () => {
         <span className={styles.spanConnect}>&nbsp;skills</span>
       </div>
 
-      <div >
+      <div className={`aboutPanel ${styles.aboutPanel}`}>
         <h2>Credits</h2>
         <p>
-          This part is to give credit to the creators who
-          made all of those reseach materials / videos / instructions around the
-          net. Thank you very much for making the internet better and easier.
-          Also, to all the people who make good food!
+          This part is to give credit to the creators who made all of those
+          reseach materials / videos / instructions around the net. Thank you
+          very much for making the internet better and easier. Also, to all the
+          people who make good food!
         </p>
         <span className={styles.spanConnect}>especially&nbsp;</span>
         <div className={styles.showItemContainer}>
@@ -89,7 +151,7 @@ const About = () => {
           />
         </div>
       </div>
-    </div>
+    </div> /* --aboutContainer */
   );
 };
 

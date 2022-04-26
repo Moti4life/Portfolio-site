@@ -83,7 +83,7 @@ export const getStaticProps = async ({ params }) => {
 const work = ({ workItem }) => {
   if (!workItem) return <FallbackWorkItem />;
 
-  const linkColors = useColorModeValue("orange.600", "teal.400");
+  const linkColors = useColorModeValue("orange.600", "lime.600")
 
   const workFields = workItem.fields;
 
@@ -97,7 +97,7 @@ const work = ({ workItem }) => {
       <div className={styles.workContainer}>
         <Breadcrumb
           spacing="8px"
-          separator={<ChevronRightIcon color="gray.500" />}
+          separator={<ChevronRightIcon />}
         >
           <BreadcrumbItem>
             <Link scroll={false} href="/">

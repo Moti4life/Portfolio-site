@@ -45,6 +45,7 @@
     font-size: clamp(5rem, 15vw, 15rem);
     font-family: 'Poppins', sans-serif;
     line-height: .72;
+    margin: 0rem -1rem;
 }
 
 .copy{

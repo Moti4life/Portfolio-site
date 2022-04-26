@@ -8,11 +8,14 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Saira Semi Condensed', sans-serif;
 ---- */
 
+
 .aboutContainer{
     display: flex;
     flex-direction: column;
 
     gap: 2rem;
+    align-items: flex-start;
+    overflow: hidden;
 
     .spanConnect{
         display: inline-block;
@@ -57,3 +60,13 @@ font-family: 'Saira Semi Condensed', sans-serif;
     transform: translate( 0%, 20%) rotate(15deg);
 }
 
+.panelBuffer{
+    width: 100%;
+    height: 10vh;
+}
+
+@media (min-width: 1024px) {
+    .offset{
+        align-self: flex-end;
+    }
+}
