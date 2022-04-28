@@ -17,16 +17,17 @@ const Home = ({ studies }) => {
 
   return (
     <motion.div
-    initial={{opacity: 0}}
-    animate={{opacity: 1}}
-    exit={{ opacity: 0}}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       <Head>
-        <title>Moti's Portfolio Site</title>
+        <title>Moti Works</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
+        
         <Box className="page1">
           <div className={`heroTitleContainer`}>
             <h1 className="heroTitle">MOTI</h1>
@@ -42,9 +43,6 @@ const Home = ({ studies }) => {
         {/* <GalleryTest /> */}
 
         <div className="pageFiller">page after gallery</div>
-
-        
-        
       </main>
     </motion.div>
   );
@@ -64,8 +62,6 @@ export const getStaticProps = async () => {
   //For those of you still dealing with this
   //you can continue with the JSON.parse(JSON.stringify) hack or you can make sure your data consists of easily-serializable primitives.
 
-  
-
   const client = createClient({
     space: process.env.SPACE_ID,
     accessToken: process.env.CONTENTFUL_CONTENTDELIVERY,
@@ -74,14 +70,12 @@ export const getStaticProps = async () => {
   const resContentful = await client.getEntries({ content_type: "studies" });
   const studies = resContentful.items;
 
-  
-
   return {
     props: {
       // workResults,
       studies,
     },
-    revalidate: 10
+    revalidate: 10,
   };
 
   //----for revalidate

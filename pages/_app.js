@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }) {
         <Navbar />
         <AnimatePresence
           exitBeforeEnter
-          initial={false}
+          initial={false} 
           onExitComplete={() => window.scrollTo(0, 0)}
         >
           <Component {...pageProps} key={router.route} />
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps, router }) {
     </ChakraProvider>
   );
 }
-
+// https://www.framer.com/docs/animate-presence/###initial
 // https://github.com/framer/motion/issues/1375 for AnimatePresence; specifying a key for the component
 // https://github.com/james-wallis/wallis.dev/blob/master/pages/_app.tsx#L61 for onExitComplete={() => window.scrollTo(0, 0)}
 

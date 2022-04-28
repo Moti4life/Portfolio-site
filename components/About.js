@@ -16,22 +16,21 @@ const About = () => {
     let panelGroup = gsap.utils.toArray(".aboutPanel");
 
     panelGroup.forEach((panel) => {
-
       gsap.fromTo(
-            panel,
-            { y: "100%", opacity: 0 },
-            {
-              y: "0%",
-              opacity: 1,
-              scrollTrigger: {
-                trigger: panel,
-                start: "0% 100%",
-                end: "60% 100%",
-                scrub: true,
-                // markers: true,
-              },
-            }
-          );
+        panel,
+        { y: "100%", opacity: 0 },
+        {
+          y: "0%",
+          opacity: 1,
+          scrollTrigger: {
+            trigger: panel,
+            start: "0% 100%",
+            end: "60% 100%",
+            scrub: true,
+            // markers: true,
+          },
+        }
+      );
 
       // if (panel.className.includes("offset")) {
       //   gsap.fromTo(
@@ -67,7 +66,6 @@ const About = () => {
       //   );
       // }
     });
-    
   }, []);
 
   return (
@@ -99,7 +97,9 @@ const About = () => {
         </div>
       </div>
 
-      <div className={`aboutPanel offset ${styles.aboutPanel} ${styles.offset}`}>
+      <div
+        className={`aboutPanel offset ${styles.aboutPanel} ${styles.offset}`}
+      >
         <h2>Right now</h2>
         <p>
           Practicing Nextjs/React and improving css design skills; Learning lots

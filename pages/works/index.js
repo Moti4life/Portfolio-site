@@ -23,8 +23,8 @@ import {
   BreadcrumbSeparator,
 } from "@chakra-ui/react";
 
-// import { motion } from "framer-motion";
-import Layout from "../../components/Layout";
+// import Layout from "../../components/Layout";
+import { motion } from "framer-motion";
 
 const index = ({ workItems }) => {
   const linkColors = useColorModeValue("orange.600", "lime.600");
@@ -32,12 +32,21 @@ const index = ({ workItems }) => {
   // console.log('workItems: ', workItems);
 
   return (
-    <Layout>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Head>
         <title>Works</title>
       </Head>
       <div className={styles.workContainer}>
-        <Breadcrumb spacing="8px" separator={<ChevronRightIcon />}>
+        <Breadcrumb
+          className={styles.breadCrumb}
+          spacing="8px"
+          separator={<ChevronRightIcon />}
+        >
           <BreadcrumbItem>
             <Link scroll={false} href="/">
               <Text decoration="underline" cursor="pointer" color={linkColors}>
@@ -51,7 +60,7 @@ const index = ({ workItems }) => {
           </BreadcrumbItem>
         </Breadcrumb>
 
-        <Heading padding={"2rem 0rem"}>My Work</Heading>
+        <Heading>My Work</Heading>
 
         <div className={styles.workList}>
           {workItems.map((workItem) => {
@@ -79,7 +88,7 @@ const index = ({ workItems }) => {
           })}
         </div>
       </div>
-    </Layout>
+    </motion.div>
   );
 };
 

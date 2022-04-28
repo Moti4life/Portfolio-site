@@ -14,11 +14,16 @@
     padding: 10rem 4vw 6rem;
 }
 
+.breadCrumb{
+    align-self: flex-end;
+}
+
 .workList{
     display: flex;
     flex-direction: column;
 
     gap: 2rem;
+    padding-top: 3rem;
 }
 
 .workCard{
@@ -69,7 +74,9 @@
     left: 0;
     right: 0;
 
-    height: 100%;
+    /* does not fully overlap */
+    height: 100.13%;
+    width: 100.05%;
 
     padding: 2rem;
 

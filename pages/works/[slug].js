@@ -1,9 +1,12 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import styles from "../../styles/work.module.scss";
 
-import styles from "../../styles/work.module.css";
+import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import Link from "next/link";
+// import Link from "next/link";
 import Head from "next/head";
 
 import {
@@ -12,14 +15,7 @@ import {
   useColorModeValue,
   Badge,
   Flex,
-} from "@chakra-ui/react";
-// import { Link as ChakraLink }  from "@chakra-ui/react"
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbSeparator,
+  Box,
 } from "@chakra-ui/react";
 
 import FallbackWorkItem from "../../components/FallbackWorkItem";
@@ -83,21 +79,162 @@ export const getStaticProps = async ({ params }) => {
 const work = ({ workItem }) => {
   if (!workItem) return <FallbackWorkItem />;
 
-  const linkColors = useColorModeValue("orange.600", "lime.600")
-
-  const workFields = workItem.fields;
+  const {
+    title,
+    slogan,
+    year,
+    description,
+    libraries,
+    details,
+    link,
+    colorbg,
+  } = workItem.fields;
+  // console.log('type: ', typeof(colorbg),' colorbg: ', colorbg );
+  let introBgColor = useColorModeValue("", "");
+  if (colorbg !== undefined) {
+    introBgColor = useColorModeValue(
+      colorbg[0] ? colorbg[0] : "",
+      colorbg[1] ? colorbg[1] : ""
+    );
+  }
 
   // console.log("workFields: ", workFields);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useEffect(() => {
+    let panelGroup = gsap.utils.toArray(".revealPanelAnim");
+
+    panelGroup.forEach((panel) => {
+      gsap.fromTo(
+        panel,
+        { y: "100%", opacity: 0 },
+        {
+          y: "0%",
+
+          opacity: 1,
+          scrollTrigger: {
+            trigger: panel,
+            // markers: true,
+            start: "0% 83%",
+            end: "100% 30%",
+            toggleActions: "play pause resume reverse",
+          },
+          duration: 0.5,
+        }
+      );
+    });
+
+    gsap.fromTo(
+      ".workIntroPanel",
+      { opacity: 1, y: "-100%" },
+      {
+        opacity: 1,
+        y: "0%",
+        duration: 0.3,
+        stagger: {
+          // each: .2,
+          amount: 0.3
+        },
+      }
+    );
+
+    gsap.fromTo(
+      ".libraryBadgeAnim",
+      { opacity: 0, y: "100%", x: "30%" },
+      {
+        opacity: 1,
+        y: "0%",
+        x: "0%",
+        stagger: {
+          each: 0.2,
+          from: "random",
+        },
+        scrollTrigger: {
+          trigger: ".libraryBadgeAnim",
+          // markers: true,
+          start: "10% 80%",
+          end: "100% 0%",
+          toggleActions: "play pause resume reverse",
+        },
+      }
+    );
+  }, []);
 
   return (
     <Layout>
       <Head>
-        <title>{workFields.title}</title>
+        <title>{title}</title>
       </Head>
+
+      <Box className={styles.introBox} backgroundColor={introBgColor}>
+        <div className={`${styles.overflowHidden} ${styles.heroTitle}`}>
+          <h1 className={`workIntroPanel`}>{title}</h1>
+        </div>
+        <div className={`${styles.overflowHidden}`}>
+          <h3 className={`workIntroPanel`}>{slogan}</h3>
+        </div>
+      </Box>
+
       <div className={styles.workContainer}>
-        <Breadcrumb
+        <div className={styles.workInfo}>
+          <Badge
+            variant="outline"
+            width={"min-content"}
+            className={`revealPanelAnim`}
+          >
+            {year}
+          </Badge>
+
+          <Text className={`revealPanelAnim`}>{description}</Text>
+
+          <Flex flexDirection="column" gap=".5rem">
+            <Text className={`libraryBadgeAnim`}>Framework / libraries:</Text>
+            {libraries.map((library, index) => {
+              return (
+                <div key={index}>
+                  <Badge
+                    variant="solid"
+                    textTransform={"capitalize"}
+                    letterSpacing={".1rem"}
+                    fontFamily={"Saira Semi Condensed, sans-serif"}
+                    className={`libraryBadgeAnim`}
+                  >
+                    {library}
+                  </Badge>
+                </div>
+              );
+            })}
+          </Flex>
+        </div>
+
+        <div className={`${styles.overflowHidden} ${styles.workDetails}`}>
+          <div /* className={`revealPanelAnim`} */>
+            {documentToReactComponents(details)}
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default work;
+
+// bread crumb
+
+// import { Link as ChakraLink }  from "@chakra-ui/react"
+// import { ChevronRightIcon } from "@chakra-ui/icons";
+// import {
+//   Breadcrumb,
+//   BreadcrumbItem,
+//   BreadcrumbLink,
+//   BreadcrumbSeparator,
+// } from "@chakra-ui/react";
+
+/* <Breadcrumb
           spacing="8px"
           separator={<ChevronRightIcon />}
+          className={styles.breadCrumb}
         >
           <BreadcrumbItem>
             <Link scroll={false} href="/">
@@ -116,39 +253,31 @@ const work = ({ workItem }) => {
           <BreadcrumbItem isCurrentPage>
             <BreadcrumbLink href="#">{workFields.title}</BreadcrumbLink>
           </BreadcrumbItem>
-        </Breadcrumb>
+        </Breadcrumb> */
 
-        <Flex alignItems="baseline" gap="1rem">
-          <Heading size="lg">{workFields.title}</Heading>
-          <Badge variant="outline">{workFields.year}</Badge>
-        </Flex>
-        <Text>{workFields.description}</Text>
-        <Flex flexDirection="column" gap=".5rem">
-          <Text>Framework / libraries:</Text>
-          {workFields.libraries.map((library, index) => {
-            return (
-              <div key={index}>
-                <Badge
-                  variant="solid"
-                  textTransform={"capitalize"}
-                  letterSpacing={".1rem"}
-                  fontFamily={"Saira Semi Condensed, sans-serif"}
-                >
-                  {library}
-                </Badge>
-              </div>
-            );
-          })}
-        </Flex>
+// const textAnim = {
+//   offScreen: {
+//     opacity: 0,
+//     y: 100,
+//     rotateX: "45deg",
+//     skew: "10deg, 10deg",
+//   },
+//   onScreen: {
+//     opacity: 1,
+//     y: 0,
+//     skew: "0deg",
+//     rotateX: "0deg",
+//     transition: { duration: .5 },
+//   },
+//   viewport: {
+//     once: true,
+//     amount: 0.1,
+//   },
 
+/*   variants={textAnim}
+          initial={textAnim.offScreen}
+          whileInView={textAnim.onScreen}
+          viewport={textAnim.viewport}
+           */
 
-        <div className={styles.details}>
-          {documentToReactComponents(workFields.details)}
-        </div>
-        
-      </div>
-    </Layout>
-  );
-};
-
-export default work;
+// };
