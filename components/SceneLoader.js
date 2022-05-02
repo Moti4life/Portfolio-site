@@ -4,6 +4,8 @@ import { OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Suspense, useRef } from "react";
 
+// import { Box } from "@react-three/drei"
+
 // import { useFrame } from "@react-three/fiber";
 
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
@@ -12,7 +14,7 @@ const Model = () => {
 
     // do not include '.' on the target path "/gltf/fc3sbetaRoom1.gltf"
     const gltf = useLoader(GLTFLoader, "/gltf/fc3sbetaRoom1.gltf")
-    const mesh = useRef()
+    // const mesh = useRef()
 
     //https://stackoverflow.com/questions/62280231/castshadow-and-recieveshadow-is-not-rendering-in-the-scene
     ///////////// FOR GLTF SHADOWS DONT FORGET THIS!!//////////////

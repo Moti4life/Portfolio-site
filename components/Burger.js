@@ -39,6 +39,8 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"; */
 import { motion } from "framer-motion";
 
+import DarkLightButton from "./DarkLightButton";
+
 const DynamicComponent = dynamic(() => import("../components/SceneLoader"), {
   ssr: false,
   loading: () => <SpinnerLoader />,
@@ -77,7 +79,7 @@ const Burger = () => {
         <Link scroll={false} href={link}>
           <div onClick={() => onClose()}>
             <span className={styles.drawerNav}>
-              <FontAwesomeIcon size={"xs"} icon={icon} width={"3rem"} />
+              <FontAwesomeIcon size={"xs"} icon={icon} width={"48px"} />
               {title}
             </span>
           </div>
@@ -105,6 +107,8 @@ const Burger = () => {
           </div>
         </Button>
       </div>
+
+      <DarkLightButton />
 
       <Drawer
         isOpen={isOpen}

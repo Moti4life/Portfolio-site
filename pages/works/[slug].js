@@ -85,6 +85,7 @@ const work = ({ workItem }) => {
     year,
     description,
     libraries,
+    detailsHeader,
     details,
     link,
     colorbg,
@@ -97,6 +98,7 @@ const work = ({ workItem }) => {
       colorbg[1] ? colorbg[1] : ""
     );
   }
+  const textColor = useColorModeValue("rgb(32, 37, 39)", "rgb(223, 218, 216)");
 
   // console.log("workFields: ", workFields);
 
@@ -134,7 +136,7 @@ const work = ({ workItem }) => {
         duration: 0.3,
         stagger: {
           // each: .2,
-          amount: 0.3
+          amount: 0.3,
         },
       }
     );
@@ -161,6 +163,35 @@ const work = ({ workItem }) => {
     );
   }, []);
 
+  // console.log("type: ", typeof(documentToReactComponents(details)));
+
+  // let returnWithLineBreaks = (text) => {
+  //   let newText = text.map((section, index) => {
+  //     // console.log("section: ", index);
+  //     // console.log(section.props.children[0]);
+  //     if (section.props.children[0].includes("<br/>")) {
+  //       return (
+  //         <span key={index}>
+  //           <br />
+  //           <br />
+  //         </span>
+  //       );
+  //     } else {
+  //       return <span key={index}>{section.props.children[0]}</span>;
+  //     }
+  //   });
+  //   return newText;
+  // };
+
+  // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
+  const options = {
+    renderText: text => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
+  };
+
   return (
     <Layout>
       <Head>
@@ -182,6 +213,7 @@ const work = ({ workItem }) => {
             variant="outline"
             width={"min-content"}
             className={`revealPanelAnim`}
+            color={textColor}
           >
             {year}
           </Badge>
@@ -199,6 +231,8 @@ const work = ({ workItem }) => {
                     letterSpacing={".1rem"}
                     fontFamily={"Saira Semi Condensed, sans-serif"}
                     className={`libraryBadgeAnim`}
+                    backgroundColor={introBgColor}
+                    color={textColor}
                   >
                     {library}
                   </Badge>
@@ -209,8 +243,10 @@ const work = ({ workItem }) => {
         </div>
 
         <div className={`${styles.overflowHidden} ${styles.workDetails}`}>
-          <div /* className={`revealPanelAnim`} */>
-            {documentToReactComponents(details)}
+          <h2>{detailsHeader}</h2>
+          <div /* className={styles.workDetailsRich} */>
+            {/* {returnWithLineBreaks(documentToReactComponents(details))} */}
+            {documentToReactComponents(details, options)}
           </div>
         </div>
       </div>
@@ -219,65 +255,3 @@ const work = ({ workItem }) => {
 };
 
 export default work;
-
-// bread crumb
-
-// import { Link as ChakraLink }  from "@chakra-ui/react"
-// import { ChevronRightIcon } from "@chakra-ui/icons";
-// import {
-//   Breadcrumb,
-//   BreadcrumbItem,
-//   BreadcrumbLink,
-//   BreadcrumbSeparator,
-// } from "@chakra-ui/react";
-
-/* <Breadcrumb
-          spacing="8px"
-          separator={<ChevronRightIcon />}
-          className={styles.breadCrumb}
-        >
-          <BreadcrumbItem>
-            <Link scroll={false} href="/">
-              <Text decoration="underline" cursor="pointer" color={linkColors}>
-                Home
-              </Text>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Link scroll={false} href="/works">
-              <Text decoration="underline" cursor="pointer" color={linkColors}>
-                Works
-              </Text>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href="#">{workFields.title}</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb> */
-
-// const textAnim = {
-//   offScreen: {
-//     opacity: 0,
-//     y: 100,
-//     rotateX: "45deg",
-//     skew: "10deg, 10deg",
-//   },
-//   onScreen: {
-//     opacity: 1,
-//     y: 0,
-//     skew: "0deg",
-//     rotateX: "0deg",
-//     transition: { duration: .5 },
-//   },
-//   viewport: {
-//     once: true,
-//     amount: 0.1,
-//   },
-
-/*   variants={textAnim}
-          initial={textAnim.offScreen}
-          whileInView={textAnim.onScreen}
-          viewport={textAnim.viewport}
-           */
-
-// };

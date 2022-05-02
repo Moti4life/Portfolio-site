@@ -71,9 +71,8 @@ font-family: 'Saira Semi Condensed', sans-serif;
     // background-color: rgb(20, 75, 75);
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-
 }
 
 .workInfo{
@@ -88,13 +87,34 @@ font-family: 'Saira Semi Condensed', sans-serif;
 
 .workDetails{
     flex: 0 1 60%;
-    padding-top: 33vh;
     max-width: 40ch;
-
+    margin-left: 30vw;
     font-family: 'Poppins', sans-serif; 
+
+    h2{
+        font-family: 'Arima Madurai', cursive;
+        font-size: 2rem;
+        max-width: 12ch;
+        margin-bottom: 2rem;
+    }
+
+    // .workDetailsRich{
+    //     white-space: pre-wrap;
+    // }
 }
 
 .breadCrumb{
     align-self: flex-end;
 }
 
+@media (min-width: 768px) {
+    .workContainer{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .workDetails{
+        margin-left: 0;
+        padding-top: 33vh;
+    }
+}
