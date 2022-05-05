@@ -25,7 +25,7 @@ const About = () => {
           scrollTrigger: {
             trigger: panel,
             start: "0% 100%",
-            end: "60% 100%",
+            end: "50% 100%",
             scrub: true,
             // markers: true,
           },

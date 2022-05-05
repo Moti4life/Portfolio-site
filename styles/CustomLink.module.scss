@@ -10,6 +10,8 @@
 
   mix-blend-mode: difference;
 
+  transition: color .3s ease-out;
+
   & > a::before,
   & > a::after {
     position: absolute;

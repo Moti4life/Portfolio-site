@@ -1,118 +1,133 @@
-.workContainer{
-    position: relative;
-    margin: 0 auto;
+.workContainer {
+  position: relative;
+  margin: 0 auto;
 
-    min-height: 100vh;
-    max-width: 1920px;
-    
-    display: flex;
+  min-height: 100vh;
+  max-width: 1920px;
 
-    flex-direction: column;
+  display: flex;
 
-    gap: 1rem;
+  flex-direction: column;
 
-    padding: 10rem 4vw 6rem;
+  gap: 1rem;
+
+  padding: 10rem 4vw 6rem;
 }
 
-.breadCrumb{
-    align-self: flex-end;
+.breadCrumb {
+  align-self: flex-end;
 }
 
-.workList{
-    display: flex;
-    flex-direction: column;
+.workList {
+  display: flex;
+  flex-direction: column;
 
-    gap: 2rem;
-    padding-top: 3rem;
+  gap: 2rem;
+  padding-top: 3rem;
 }
 
-.workCard{
-    position: relative;
-    cursor: pointer;
-    transition: all .2s ease-out;
-    
+.workCard {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
 
-    height: 66vh;
+  height: 66vh;
 }
 
-.workCard:hover{
-    background-color: rgba(155, 155, 155, 0.315);
+.workCard:hover {
+  background-color: rgba(155, 155, 155, 0.315);
 }
 
-.imageContainer{
-    /* overflow: hidden; */
-    /* min-height: 200px; */
-    /* position: relative; */
+.imageContainer {
+  /* overflow: hidden; */
+  /* min-height: 200px; */
+  /* position: relative; */
 
-    height: 100%;
-    /* width: 100%; */
+  height: 100%;
+  /* width: 100%; */
 
-    /* background-color: aqua; */
-    
-        /* clip-path: inset(0); */
-    /* clip-path: inset(0 round 10px); */
-    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+  /* background-color: aqua; */
 
+  /* clip-path: inset(0); */
+  /* clip-path: inset(0 round 10px); */
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+  visibility: collapse;
+  display: none;
 }
 
-.image{
-    
-    width: 100%;
-    height: 100%;
-
-    position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translateX(-50%); 
+.imageContainerMobile {
+  height: 100%;
+  clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
 }
 
-.workInfo{
-    position: absolute;
-    z-index: 3;
+.image {
+  width: 100%;
+  height: 100%;
 
-    top: 0;
-    left: 0;
-    right: 0;
-
-    /* does not fully overlap */
-    height: 100.13%;
-    width: 100.05%;
-
-    padding: 2rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2rem;
-
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all .22s ease-out;
-
-    text-align: center;
-    color: white;
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.workInfo h1{
-    font-size: 3rem;
-    font-weight: 600;
+.workInfo {
+  position: absolute;
+  z-index: 3;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  /* does not fully overlap */
+  height: 100.13%;
+  width: 100.05%;
+
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.22s ease-out;
+
+  text-align: center;
+  color: white;
 }
 
-.workInfo span{
-    font-size: 1.5rem;
+.workInfo h1 {
+  font-size: 3rem;
+  font-weight: 600;
 }
 
-.workInfo:hover{
-    color: transparent;
-    background-color: rgba(0, 0, 0, 0.1);
+.workInfo span {
+  font-size: 1.5rem;
+}
+
+.workInfo:hover {
+  color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1024px) {
-    .workContainer{
-        max-width: 768px;
-        
-    }
+  .workContainer {
+    max-width: 768px;
+  }
 
-    .workCard{
-        height: 40vh;
-    }
+  .workCard {
+    height: 40vh;
+  }
+}
+
+@media (min-width: 512px) {
+  .imageContainer {
+    visibility: visible;
+    display: block;
+  }
+
+  .imageContainerMobile {
+    visibility: collapse;
+    display: none;
+  }
 }

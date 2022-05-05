@@ -16,6 +16,8 @@ font-family: 'Saira Semi Condensed', sans-serif;
     gap: 2rem;
     align-items: flex-start;
     overflow: hidden;
+    max-width: 1024px;
+    margin: 0 auto;
 
     .spanConnect{
         display: inline-block;
@@ -65,7 +67,7 @@ font-family: 'Saira Semi Condensed', sans-serif;
     height: 10vh;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .offset{
         align-self: flex-end;
     }

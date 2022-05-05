@@ -81,7 +81,7 @@ const Animation = () => {
     sessionStorage.setItem("hasPlayedAnimation", true);
 
     introTime
-      .to(".introBox", { display: "none" })
+      // .to(".introBox", { display: "none" })
       .to(".bgDiv", { display: "none" })
       .to(".heroTitle", { display: "block" })
       .fromTo(

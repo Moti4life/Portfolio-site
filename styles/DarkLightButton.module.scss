@@ -1,6 +1,6 @@
 .darkLightBtnPosition{
     position: absolute;
-    bottom: -85vh;
+    bottom: -75vh;
     right: 3vw;
 }
 
@@ -45,4 +45,10 @@
 .icon{
     transform: rotate(45deg);
     transition: all .43s ease-in-out;
+}
+
+@media (min-width: 800px) {
+    .darkLightBtnPosition{
+        bottom: -85vh;
+    }
 }

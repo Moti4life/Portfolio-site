@@ -8,9 +8,10 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 import {
-  Heading,
+  // Heading,
   Text,
   useColorModeValue,
   Badge,
@@ -20,6 +21,9 @@ import {
 
 import FallbackWorkItem from "../../components/FallbackWorkItem";
 import Layout from "../../components/Layout";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 const client = createClient({
   space: process.env.SPACE_ID,
@@ -83,12 +87,15 @@ const work = ({ workItem }) => {
     title,
     slogan,
     year,
+    banner,
     description,
     libraries,
     detailsHeader,
     details,
     link,
     colorbg,
+    detailsBanner,
+    images,
   } = workItem.fields;
   // console.log('type: ', typeof(colorbg),' colorbg: ', colorbg );
   let introBgColor = useColorModeValue("", "");
@@ -101,6 +108,7 @@ const work = ({ workItem }) => {
   const textColor = useColorModeValue("rgb(32, 37, 39)", "rgb(223, 218, 216)");
 
   // console.log("workFields: ", workFields);
+  // console.log("images: ", images, typeof(images));
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -118,8 +126,8 @@ const work = ({ workItem }) => {
           scrollTrigger: {
             trigger: panel,
             // markers: true,
-            start: "0% 83%",
-            end: "100% 30%",
+            start: "-50% 90%",
+            end: "100% 20%",
             toggleActions: "play pause resume reverse",
           },
           duration: 0.5,
@@ -163,30 +171,10 @@ const work = ({ workItem }) => {
     );
   }, []);
 
-  // console.log("type: ", typeof(documentToReactComponents(details)));
-
-  // let returnWithLineBreaks = (text) => {
-  //   let newText = text.map((section, index) => {
-  //     // console.log("section: ", index);
-  //     // console.log(section.props.children[0]);
-  //     if (section.props.children[0].includes("<br/>")) {
-  //       return (
-  //         <span key={index}>
-  //           <br />
-  //           <br />
-  //         </span>
-  //       );
-  //     } else {
-  //       return <span key={index}>{section.props.children[0]}</span>;
-  //     }
-  //   });
-  //   return newText;
-  // };
-
   // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
   const options = {
-    renderText: text => {
-      return text.split('\n').reduce((children, textSegment, index) => {
+    renderText: (text) => {
+      return text.split("\n").reduce((children, textSegment, index) => {
         return [...children, index > 0 && <br key={index} />, textSegment];
       }, []);
     },
@@ -198,7 +186,7 @@ const work = ({ workItem }) => {
         <title>{title}</title>
       </Head>
 
-      <Box className={styles.introBox} backgroundColor={introBgColor}>
+      <Box className={`${styles.introBox}`} backgroundColor={introBgColor}>
         <div className={`${styles.overflowHidden} ${styles.heroTitle}`}>
           <h1 className={`workIntroPanel`}>{title}</h1>
         </div>
@@ -207,7 +195,7 @@ const work = ({ workItem }) => {
         </div>
       </Box>
 
-      <div className={styles.workContainer}>
+      <div className={`${styles.workContainer}`}>
         <div className={styles.workInfo}>
           <Badge
             variant="outline"
@@ -240,15 +228,68 @@ const work = ({ workItem }) => {
               );
             })}
           </Flex>
+
+          <div className={`revealPanelAnim ${styles.projectLink}`}>
+            <a href={link} target={"_blank"} rel="noopener noreferrer">
+              View it live &nbsp;
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </a>
+          </div>
         </div>
 
         <div className={`${styles.overflowHidden} ${styles.workDetails}`}>
           <h2>{detailsHeader}</h2>
-          <div /* className={styles.workDetailsRich} */>
-            {/* {returnWithLineBreaks(documentToReactComponents(details))} */}
+          <div className={styles.workDetailsRich}>
             {documentToReactComponents(details, options)}
           </div>
         </div>
+
+        <div className={styles.workFiller}></div>
+      </div>
+
+      <div className={styles.workGalleryContainer}>
+
+        {detailsBanner ? (
+          <div className={` ${styles.workGalleryBannerContainer}`}>
+            <div className={`revealPanelAnim ${styles.workGalleryBanner}`}>
+              <Image
+                src={`https:${detailsBanner.fields.file.url}`}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+        ) : (
+          <>
+            <br />
+            <br />
+            <br />
+          </>
+        )}
+
+        {images ? (
+          <div className={styles.workGalleryImages}>
+            {images.map((image, index) => {
+              // console.log("image: ", image);
+              return (
+                <div className={`${styles.workGalleryImage}`} key={index}>
+                  <Image
+                    src={`https:${image.fields.file.url}`}
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <>
+            <br />
+            <br />
+            <br />
+          </>
+        )}
+
       </div>
     </Layout>
   );

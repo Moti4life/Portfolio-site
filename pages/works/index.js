@@ -65,11 +65,13 @@ const index = ({ workItems }) => {
         <div className={styles.workList}>
           {workItems.map((workItem) => {
             // console.log('workItem: ', workItem);
-            const { title, workbg, description, slug } = workItem.fields;
+            const { title, workbg, description, slug, workbgmobile } = workItem.fields;
 
             return (
               <Link scroll={false} key={title} href={`/works/${slug}`}>
+
                 <div className={styles.workCard}>
+
                   <div className={styles.imageContainer}>
                     <Image
                       className={styles.image}
@@ -78,11 +80,22 @@ const index = ({ workItems }) => {
                       objectFit="cover"
                     />
                   </div>
+                  <div className={styles.imageContainerMobile}>
+                    <Image
+                      className={styles.image}
+                      src={`https:${workbgmobile.fields.file.url}`}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  </div>
+
                   <div className={styles.workInfo}>
                     <h1>{title}</h1>
                     <span>{description}</span>
                   </div>
+
                 </div>
+
               </Link>
             );
           })}
