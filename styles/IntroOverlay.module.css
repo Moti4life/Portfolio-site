@@ -1,6 +1,6 @@
 .bgDiv{
     position: absolute;
-    display: none;
+    display: block;
   
     height: 100vh;
     width: 100%;
@@ -10,8 +10,6 @@
     top: 0;
   
     /* background-color: rgb(255, 255, 255); */
-  
-
 }
 
 .brandPanels{
@@ -29,7 +27,7 @@
     font-size: 20vw;
     width: 1ch;
     line-height: 1;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
 
     font-family: 'Poppins', sans-serif;
     
@@ -69,7 +67,7 @@
 
     flex-direction: column;
 
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
 }
 
 .infoContainer{

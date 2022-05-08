@@ -8,12 +8,31 @@ import { motion } from "framer-motion";
 import { Box } from "@chakra-ui/react";
 
 import { createClient } from "contentful";
-import Animation from "../components/Animation";
+
+import { useEffect } from "react";
+import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
 
-  Animation();
+  useEffect(() => {
+    let tl = gsap.timeline();
+
+    tl.to(".bgDiv", { display: "none" })
+      .to(".heroTitle", { display: "block" })
+      .fromTo(
+        ".heroTitle",
+        { y: "100%" },
+        {
+          y: "0%",
+          opacity: 1,
+          ease: "power1.out",
+          duration: 0.2,
+          stagger: 0.1,
+        }
+      );
+  }, []);
 
   return (
     <motion.div
@@ -27,7 +46,6 @@ const Home = ({ studies }) => {
       </Head>
 
       <main className={styles.main}>
-        
         <Box className="page1">
           <div className={`heroTitleContainer`}>
             <h1 className="heroTitle">MOTI</h1>
