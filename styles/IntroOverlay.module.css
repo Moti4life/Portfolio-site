@@ -27,7 +27,7 @@
     font-size: 20vw;
     width: 1ch;
     line-height: 1;
-    /* mix-blend-mode: difference; */
+    mix-blend-mode: difference;
 
     font-family: 'Poppins', sans-serif;
     

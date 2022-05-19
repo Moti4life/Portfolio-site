@@ -59,10 +59,10 @@ const IntroOverlay = () => {
           { y: "100%", height: "100vh" },
           { y: "0%", ease: "power1.in", duration: 0.5, delay: -0.1 }
         )
-        .to(".infoPanel", { display: "none", duration: 0.1 })
-        .to(".letterPanel", { display: "none", duration: 0.1 })
-        .to(".bgDiv", { backgroundColor: "transparent" })
-        .to("body", { overflowY: "auto" })
+        .to(".infoPanel", { display: "none", duration: 0.15 })
+        .to(".letterPanel", { display: "none", duration: 0.15 })
+        .to(".bgDiv", { backgroundColor: "transparent", duration: 0.15 })
+        .to("body", { overflowY: "auto", duration: 0.15 })
 
         .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
 

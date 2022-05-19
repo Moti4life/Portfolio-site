@@ -1,19 +1,17 @@
 import {
   Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
+  // DrawerBody,
+  // DrawerFooter,
+  // DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Flex,
-  Text,
 } from "@chakra-ui/react";
 
 import {
   useDisclosure,
   Button,
-  Input,
+  // Input,
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -22,8 +20,10 @@ import { useRef } from "react";
 
 import styles from "../styles/Burger.module.scss";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import SpinnerLoader from "./SpinnerLoader";
+// import dynamic from "next/dynamic";
+// import SpinnerLoader from "./SpinnerLoader";
+import SceneLoader from './SceneLoader'
+import DelayRender from "./DelayRender";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -34,17 +34,18 @@ import {
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 /* import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"; */
 import { motion } from "framer-motion";
 
 import DarkLightButton from "./DarkLightButton";
 
-const DynamicComponent = dynamic(() => import("../components/SceneLoader"), {
-  ssr: false,
-  loading: () => <SpinnerLoader />,
-});
+// const DynamicComponent = dynamic(() => import("./SceneLoader"), {
+//   ssr: false,
+//   loading: () => <SpinnerLoader />,
+// });
+
 
 const Burger = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -166,7 +167,10 @@ const Burger = () => {
               </div>
 
               <div className={styles.modelContainer}>
-                <DynamicComponent />
+                <DelayRender waitTime={800}> 
+                  <SceneLoader />
+                </DelayRender>
+                
               </div>
             </div>
           </motion.div>

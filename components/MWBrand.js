@@ -1,18 +1,17 @@
-import { Heading } from "@chakra-ui/react";
-import styles from '../styles/MWBrand.module.scss'
-import Link from 'next/link'
+import styles from "../styles/MWBrand.module.scss";
+import Link from "next/link";
 
 const MWbrand = () => {
-    return (
-        <Link scroll={false} href={'/'}>
-            <div id='brandLogo' className={styles.brandContainer}>
-                <Heading size='xl' className={styles.m}>M</Heading>
-                <Heading size='xl' className={styles.w}>W</Heading>
+  return (
+    <Link scroll={false} href={"/"}>
+      <div id="brandLogo" className={styles.brandContainer}>
+        <span className={styles.m}>M</span>
+        <span className={styles.w}>W</span>
 
-                <div className={styles.separator}></div>
-            </div>
-        </Link>
-    );
-}
+        <div className={styles.separator}></div>
+      </div>
+    </Link>
+  );
+};
 
 export default MWbrand;

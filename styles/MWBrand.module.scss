@@ -1,3 +1,16 @@
+/* ----
+--display
+font-family: 'Arima Madurai', cursive;
+
+-serif
+font-family: 'Merriweather', serif;
+font-family: 'Playfair Display', serif;
+
+-sans-serif
+font-family: 'Poppins', sans-serif; 
+font-family: 'Saira Semi Condensed', sans-serif;
+---- */
+
 .brandContainer {
   position: fixed;
   z-index: 3;
@@ -9,18 +22,22 @@
   .w {
     display: inline-block;
     transition: all 0.4s ease-in-out;
+    font-size: 2rem;
+
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 300;
   }
 
   .separator {
     width: 5rem;
-    border: 2px solid;
+    border: 1px solid;
 
     position: absolute;
     left: 50%;
     top: 50%;
-    
+
     transform-origin: 50%;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transform: translate(-50%, 0%) rotate(120deg) scale(0);
   }
 
@@ -37,6 +54,5 @@
     .separator {
       transform: translate(-50%, 0%) rotate(120deg);
     }
-
   }
 }
