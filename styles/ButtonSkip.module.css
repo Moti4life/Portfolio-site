@@ -1,0 +1,73 @@
+.skipContainer {
+  /* background-color: aqua; */
+  position: -webkit-sticky; 
+  position: sticky;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+}
+
+.skipButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.skipButton:hover{
+  opacity: 1;
+  color: grey;
+}
+
+.buttonTitle{
+  font-size: clamp(1rem, 1.2vmax, 1.2rem);
+  /* background-color: aqua; */
+}
+
+.skipArrow{
+  border: 2px solid;
+
+  width: clamp(1rem, 1.2vmax, 1.2rem);
+  height: clamp(1rem, 1.2vmax, 1.2rem);
+  transform: rotate(45deg);
+}
+
+/* .skipBlink {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 4;
+  animation: blink 10s ease-in-out;
+}
+ */
+/* .skipButton:active ~ .skipOverlay {
+  animation-name: blink;
+  animation-duration: 1s;
+}
+.skipButton:focus ~ .skipOverlay {
+  animation-name: blink;
+  animation-duration: 1s;
+}
+ */
+
+ 
+/* @keyframes blink {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #131313;
+  }
+  100% {
+    background-color: transparent;
+  }
+} */

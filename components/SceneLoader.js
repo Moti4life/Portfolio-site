@@ -57,7 +57,7 @@ const ScenelLoader = () => {
                 <Model  />
                 <OrbitControls 
                     autoRotate
-                    autoRotateSpeed={1}
+                    autoRotateSpeed={-1}
                     maxPolarAngle={Math.PI / 1.9}
                     maxDistance={15}
                     minDistance={8}

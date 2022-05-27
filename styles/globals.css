@@ -59,35 +59,9 @@ dd {
 
 }
 
-.page1{
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  flex-direction: column;
-
-}
-
 .pageFiller{
   height: 100vh;
   width: 100%;
 
   background-color: #181818;
-}
-
-
-.heroTitleContainer{
-  overflow: hidden;
-}
-
-.heroTitle{
-  text-align: center;
-  font-size: 20vw;
-  line-height: 1;
-  font-weight: 600;
-
-  opacity: 0;
-  display: none;
-  
 }

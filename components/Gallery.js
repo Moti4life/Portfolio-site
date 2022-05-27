@@ -70,10 +70,10 @@ const Gallery = ({ studies }) => {
       xPercent: -100 * (galleryPanels.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: ".galleryContainer",
+        trigger: "#gallerySection",
         pin: true,
         start: "10% 15%",
-        // markers: true,
+        markers: true,
         scrub: 1,
         snap: {
           snapTo: 1 / (galleryPanels.length - 1),
@@ -83,18 +83,17 @@ const Gallery = ({ studies }) => {
         end: "+=100%",
       },
     });
-    
+
     // make sure to that ScrollTriggers are killed on page/route change
     // https://greensock.com/forums/topic/25893-scrolltrigger-issue-with-react/?do=findComment&comment=125755
     return () => {
       galleryAnimation.kill();
       // .disable() not recognized?? not sure
-    }
-
+    };
   }, []);
 
   return (
-    <Box
+    <Box 
       /* backgroundColor={colorModeBgGallery} */ className={`galleryContainer ${styles.galleryContainer}`}
     >
       {/* <div className={`${styles.galleryCounter}`}>

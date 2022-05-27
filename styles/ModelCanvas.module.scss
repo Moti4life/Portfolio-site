@@ -1,0 +1,58 @@
+.pageFiller {
+  width: 100%;
+  height: 100vh;
+  /* background-color: antiquewhite; */
+}
+
+.carModelContainer {
+  height: 100vh;
+  min-height: 100vh;
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  // background-color: aqua;
+
+  position: relative;
+}
+
+.carModel {
+  margin: 0 auto;
+  min-width: 0;
+  width: 100%;
+  max-width: 1920px;
+
+  height: 100%;
+  /* max-height: 100vh; */
+
+  pointer-events: none;
+
+  /* background-color: aqua; */
+}
+
+.carModelOverlay {
+  z-index: 2;
+  position: absolute;
+  background-color: #131313;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.bgText1Container {
+  position: absolute;
+
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(5rem, 12.5vmax, 13rem);
+  line-height: 90%;
+
+  overflow: hidden;
+}
+
+.bgText1 {
+  opacity: 0;
+}
