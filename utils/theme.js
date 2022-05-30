@@ -12,6 +12,19 @@ const styles = {
       bg: mode("#f2efeb", "#141414")(props),
       color: mode("rgb(32, 37, 39)", "rgb(223, 218, 216)")(props),
     },
+    'html::-webkit-scrollbar': {
+      maxWidth: '20px'
+    },
+    'html::-webkit-scrollbar-thumb': {
+      backgroundColor: '#777777',
+    },
+    
+    'html::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: '#404040'
+    },
+    'html::-webkit-scrollbar-track': {
+      backgroundColor: 'rgba(0,0,0,0)'
+    },
   }),
 };
 

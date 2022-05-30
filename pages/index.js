@@ -8,10 +8,13 @@ import ButtonSkip from "../components/ButtonSkip";
 import { motion } from "framer-motion";
 
 import { createClient } from "contentful";
+import TestSpacer from "../components/TestSpacer";
+import TestCanvas from "../components/TestCanvas";
 
 const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
 
+  // https://greensock.com/forums/topic/28793-pinning-and-pin-spacer-gap/
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,16 +26,27 @@ const Home = ({ studies }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={`modelCanvasContainer ${styles.modelCanvasContainer}`}>
+      <main id="mainContainer" className={styles.main}>
+        <div id="modelCanvasSection">
           <ModelCanvas />
+          {/* <TestSpacer /> */}
+          {/* <TestCanvas /> */}
+          {/* <TestSpacer /> */}
         </div>
-        <div id={"gallerySection"}>
-          <Gallery studies={studies} />
+        <div id="gallerySection">
+          gallerySection
+          {/* <Gallery studies={studies} /> */}
+          
         </div>
-        <div className="pageFiller">page after gallery</div>
+
+        <div className="filler pageFiller">page before gallery</div>
+
+        <div id="page3" className="pageFiller">
+          page 3
+        </div>
       </main>
-      <ButtonSkip title={"scroll"} link={"#gallerySection"} />
+
+      {/* <ButtonSkip title={"scroll"} link={"#page3"} /> */}
     </motion.div>
   );
 };

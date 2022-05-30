@@ -14,7 +14,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TextPlugin } from "gsap/dist/TextPlugin";
-import RxModel from './RxModel'
+import RxModel from "./RxModel";
 
 const RxScene = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -36,7 +36,6 @@ const RxScene = () => {
 
     let tl = gsap.timeline();
 
-    // .to(billRef.current, { strokeOpacity: 0, fillOpacity: 0, delay: 0.5 })
     tl.set(".skipContainer", { pointerEvents: "none" })
       .to(pointLightRef.current, { intensity: 0.2, delay: 0.5 })
       .to(
@@ -63,10 +62,10 @@ const RxScene = () => {
       // stagger https://greensock.com/docs/v3/Staggers
       // Text reveal / fade
       .to(".bgText1", { opacity: 1, stagger: 0.1 }, ">-1")
-      .to(".bgText1", { opacity: 0, stagger: 0.1 }, "<+0.5");
+      .to(".bgText1", { opacity: 0, stagger: 0.1 }, "<+0.5")
 
-    //white blink
-    tl.set(".carModelOverlay", { backgroundColor: "#ccc" })
+      //white blink
+      .set(".carModelOverlay", { backgroundColor: "#ccc" })
       .set("#bgText1Container", { visibility: "collapse" }, "<")
       .to(".carModelOverlay", {
         opacity: 1,
@@ -430,13 +429,17 @@ const RxScene = () => {
 
     let controller = ScrollTrigger.create({
       animation: tl,
-      trigger: ".modelCanvasContainer",
+      trigger: "#modelCanvasSection",
       scrub: 0.2,
-      start: "0% 0%",
+      // start: "0% 0%",
+      start: "top top",
       end: "+=800%",
       // markers: true,
-      pin: true,
+      // pin: true,
+      // pin: "#mainContainer",
+      pin: '#modelCanvasSection',
       ease: "none",
+      anticipatePin: 1,
     });
   });
 

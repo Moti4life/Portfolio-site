@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
     <ChakraProvider theme={theme}>
       <div className="bodyContainer">
         <IntroOverlay />
-        <Cursor />
+        {/* <Cursor /> */}
         <Navbar />
         <AnimatePresence
           exitBeforeEnter

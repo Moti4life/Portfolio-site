@@ -1,6 +1,6 @@
 import styles from "../styles/ModelCanvas.module.scss";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect, useRef } from "react";
 
 import {
   EffectComposer,
@@ -10,11 +10,19 @@ import {
   // Vignette,
 } from "@react-three/postprocessing";
 
-import RxScene from "./RxScene";
+// import RxScene from "./RxScene";
 import DelayLoaderOverlay from "../components/DelayLoaderOverlay";
 // import ButtonSkip from "../components/ButtonSkip";
+import TestScene from "./TestScene";
+// import { Box } from "@react-three/drei";
 
-const ModelCanvas = () => {
+const TestCanvas = () => {
+  /* const boxRef = useRef();
+
+  useEffect(() => {
+    console.log("boxRef.current: ", boxRef.current);
+  }, []); */
+
   return (
     <div className={`mainCanvas`}>
       {/* <div className={styles.pageFiller}></div> */}
@@ -36,7 +44,8 @@ const ModelCanvas = () => {
         <div className={`carModel ${styles.carModel}`}>
           <Canvas /* frameloop="demand" */ shadows>
             <Suspense fallback={null}>
-              <RxScene />
+              <TestScene />
+              {/* <Box  /> */}
             </Suspense>
             <EffectComposer>
               <Bloom
@@ -49,11 +58,13 @@ const ModelCanvas = () => {
               {/* <Vignette eskil={false} offset={0.1} darkness={1.4} /> */}
             </EffectComposer>
           </Canvas>
+          {/* <div ref={boxRef} style={{width: "200px", height: "200px", backgroundColor: "aqua"}}>
+              box
+          </div> */}
         </div>
       </div>
-      
     </div>
   );
 };
 
-export default ModelCanvas;
+export default TestCanvas;

@@ -7,6 +7,23 @@ body {
   
 }
 
+/* html::-webkit-scrollbar{
+  max-width: 16px;
+}
+
+html::-webkit-scrollbar-thumb{
+  background-color: #303030;
+}
+
+html::-webkit-scrollbar-thumb:hover{
+  background-color: #555555;
+}
+
+html::-webkit-scrollbar-track{
+  background-color: #161616;
+} */
+
+
 /* ----
 --display
 font-family: 'Arima Madurai', cursive;

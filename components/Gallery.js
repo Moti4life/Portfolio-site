@@ -70,9 +70,9 @@ const Gallery = ({ studies }) => {
       xPercent: -100 * (galleryPanels.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: "#gallerySection",
+        // trigger: "#gallerySection",
+        pinnedContainer: '#modelCanvasSection',
         pin: true,
-        start: "10% 15%",
         markers: true,
         scrub: 1,
         snap: {
@@ -80,12 +80,16 @@ const Gallery = ({ studies }) => {
           inertia: false,
           duration: 2,
         },
+        start: "10% 15%", 
         end: "+=100%",
       },
     });
 
     // make sure to that ScrollTriggers are killed on page/route change
     // https://greensock.com/forums/topic/25893-scrolltrigger-issue-with-react/?do=findComment&comment=125755
+
+    // gsap pinSpacer
+    // https://vimeo.com/439964874
     return () => {
       galleryAnimation.kill();
       // .disable() not recognized?? not sure
