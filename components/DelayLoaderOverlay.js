@@ -5,7 +5,7 @@ import { useColorModeValue } from "@chakra-ui/react";
 
 const DelayLoaderOverlay = ({ waitTime }) => {
     const [isShown, setIsShown] = useState(false)
-    const spinnerBgColor = useColorModeValue('#141414', '#f2efeb')
+    const spinnerBgColor = useColorModeValue('#f2efeb', '#141414')
 
     useEffect(() => {
         const timer = setTimeout( () => {

@@ -432,16 +432,18 @@ const RxScene = () => {
       trigger: "#modelCanvasSection",
       scrub: 0.2,
       // start: "0% 0%",
-      start: "top top",
       end: "+=800%",
       // markers: true,
-      // pin: true,
+      pin: true,
       // pin: "#mainContainer",
-      pin: '#modelCanvasSection',
+      // pin: '#modelCanvasSection',
       ease: "none",
-      anticipatePin: 1,
+      // anticipatePin: 1,
+      refreshPriority: 1,
     });
-  });
+
+    ScrollTrigger.refresh();
+  }, []);
 
   return (
     <>

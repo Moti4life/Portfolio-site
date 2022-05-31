@@ -1,15 +1,24 @@
 .main {
   overflow-x: hidden;
+  
 }
 
 /* .modelCanvasContainer{
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   min-height: -moz-available;
   min-height: -webkit-fill-available;
   min-height: stretch;
-  background-color: aqua;
 } */
+
+.gallerySectionSpacer{
+  width: 100%;
+  height: 100px;
+  /* background-color: aqua; */
+}
+
+
+
 
 /* 414 x 736 iphone 7 plus */
 

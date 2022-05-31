@@ -16,7 +16,7 @@ import DelayLoaderOverlay from "../components/DelayLoaderOverlay";
 
 const ModelCanvas = () => {
   return (
-    <div className={`mainCanvas`}>
+    <div className={`mainCanvas ${styles.mainCanvas}`}>
       {/* <div className={styles.pageFiller}></div> */}
       <DelayLoaderOverlay waitTime={4000} />
 

@@ -70,10 +70,10 @@ const Gallery = ({ studies }) => {
       xPercent: -100 * (galleryPanels.length - 1),
       ease: "none",
       scrollTrigger: {
-        // trigger: "#gallerySection",
-        pinnedContainer: '#modelCanvasSection',
+        trigger: "#gallerySection",
+        // pinnedContainer: '#modelCanvasSection',
         pin: true,
-        markers: true,
+        // markers: true,
         scrub: 1,
         snap: {
           snapTo: 1 / (galleryPanels.length - 1),
@@ -81,7 +81,7 @@ const Gallery = ({ studies }) => {
           duration: 2,
         },
         start: "10% 15%", 
-        end: "+=100%",
+        end: "+=200%",
       },
     });
 

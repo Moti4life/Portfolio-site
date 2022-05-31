@@ -21,6 +21,7 @@ const Navbar = () => {
         paused: true,
         duration: 0.4,
         opacity: 0,
+        pointerEvents: "none"
       })
       .progress(1);
 

@@ -9,14 +9,14 @@ import { useColorModeValue } from "@chakra-ui/react";
 const IntroOverlay = () => {
   gsap.registerPlugin(ScrollTrigger);
   const introBgColor = useColorModeValue("#f2efeb", "#141414")
-
+  const introSwipeColor = useColorModeValue( "#141414", "#f2efeb")
   useEffect(() => {
     const introTime = gsap.timeline();
 
-    if (!sessionStorage.getItem("hasPlayedAnimation")) {
+    if (sessionStorage.getItem("hasPlayedAnimation")) {
       introTime
-        .to("body", { overflowY: "hidden" })
-        .to(".bgDiv", { display: "block" })
+        .set("body", { overflowY: "hidden" })
+        .set(".bgDiv", { display: "block" })
         .fromTo(
           ".letterPanel",
           { y: 1000, display: "block" },
@@ -62,7 +62,7 @@ const IntroOverlay = () => {
         .to(".infoPanel", { display: "none", duration: 0.15 })
         .to(".letterPanel", { display: "none", duration: 0.15 })
         .to(".bgDiv", { backgroundColor: "transparent", duration: 0.15 })
-        .to("body", { overflowY: "auto", duration: 0.15 })
+        .set("body", { overflowY: "auto" })
 
         .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
 
@@ -88,7 +88,8 @@ const IntroOverlay = () => {
 
     sessionStorage.setItem("hasPlayedAnimation", true);
 
-    introTime.to(".bgDiv", { display: "none" })
+    //uncomment this
+    // introTime.set(".bgDiv", { display: "none" })
     
 
     //scrolltrigger animation not ok with hot reload
@@ -110,8 +111,7 @@ const IntroOverlay = () => {
     //   }
     // );
 
-    //----------- gallery
-
+  
     // make sure to that ScrollTriggers are killed on page/route change
     // https://greensock.com/forums/topic/25893-scrolltrigger-issue-with-react/?do=findComment&comment=125755
     // return () => {
@@ -122,7 +122,7 @@ const IntroOverlay = () => {
 
   return (
     <>
-      <div style={{backgroundColor: introBgColor}} className={`bgDiv ${styles.bgDiv}`}>
+      <div /* style={{backgroundColor: introBgColor}} */ className={`bgDiv ${styles.bgDiv}`}>
         <div className={`brandPanels ${styles.brandPanels}`}>
           <div className={`letterContainer ${styles.letterContainer}`}>
             <h1 className={`letterPanel ${styles.letters}`}>MW</h1>
@@ -150,7 +150,7 @@ const IntroOverlay = () => {
           </div>
         </div>
 
-        <div className={`wipePanel ${styles.wipePanel}`}></div>
+        <div style={{ backgroundColor: introSwipeColor}} className={`wipePanel ${styles.wipePanel}`}></div>
       </div>
     </>
   );

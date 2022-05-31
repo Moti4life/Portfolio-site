@@ -8,8 +8,6 @@ import ButtonSkip from "../components/ButtonSkip";
 import { motion } from "framer-motion";
 
 import { createClient } from "contentful";
-import TestSpacer from "../components/TestSpacer";
-import TestCanvas from "../components/TestCanvas";
 
 const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
@@ -27,26 +25,17 @@ const Home = ({ studies }) => {
       </Head>
 
       <main id="mainContainer" className={styles.main}>
-        <div id="modelCanvasSection">
+        <div id="modelCanvasSection" className={styles.modelCanvasContainer}>
           <ModelCanvas />
-          {/* <TestSpacer /> */}
-          {/* <TestCanvas /> */}
-          {/* <TestSpacer /> */}
         </div>
-        <div id="gallerySection">
-          gallerySection
-          {/* <Gallery studies={studies} /> */}
-          
+        <div id="gallerySectionSpacer"className={styles.gallerySectionSpacer} />
+        <div id="gallerySection" >
+          <Gallery studies={studies} />
         </div>
-
-        <div className="filler pageFiller">page before gallery</div>
-
-        <div id="page3" className="pageFiller">
-          page 3
-        </div>
+        <div className={styles.gallerySectionSpacer} />
       </main>
 
-      {/* <ButtonSkip title={"scroll"} link={"#page3"} /> */}
+      <ButtonSkip title={"scroll"} link={"#gallerySectionSpacer"} />
     </motion.div>
   );
 };

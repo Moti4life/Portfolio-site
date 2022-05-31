@@ -28,6 +28,7 @@
     width: 1ch;
     line-height: 1;
     mix-blend-mode: difference;
+    color: rgb(223, 218, 216);
 
     font-family: 'Poppins', sans-serif;
     
@@ -66,8 +67,6 @@
     align-items: flex-start;
 
     flex-direction: column;
-
-    /* mix-blend-mode: difference; */
 }
 
 .infoContainer{
@@ -79,7 +78,6 @@
     
     font-size: 6vw;
     font-family: 'Poppins', sans-serif;
-
 }
 
 .wipePanel{
@@ -92,8 +90,8 @@
     height: 0;
     width: 100%;
   
-    /* background-color: #151515; */
-    background-color: rgb(212, 179, 30);
+    /* background-color: #008a94; */
+    /* background-color: rgb(212, 179, 30); */
     
     z-index: 2;
   }

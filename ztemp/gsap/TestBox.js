@@ -35,19 +35,20 @@ const TestBox = () => {
 
     let controller = ScrollTrigger.create({
       animation: tl,
-      trigger: ".boxTest",
+      trigger: "#modelCanvasSection",
       scrub: 0.2,
       // start: "0% 0%",
-      start: "0% 50%",
-      end: "+=100%",
+      start: "top top",
+      end: "+=800%",
       markers: true,
-      // pin: true,
+      pin: true,
       // pin: "#mainContainer",
       // pin: '.modelCanvasContainer',
-      pinnedContainer: '#modelCanvasSection',
+      // pinnedContainer: '#modelCanvasSection',
       ease: "none",
       // pinSpacing: true,
       // anticipatePin: 1,
+      // refreshPriority: 0
     });
 
 
