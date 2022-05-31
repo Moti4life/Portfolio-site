@@ -44,7 +44,7 @@ const Navbar = () => {
           <CustomLink link={"/works"} title={"Works"} />
           <CustomLink link={"/about"} title={"About"} />
           <CustomLink link={"/contact"} title={"Contact"} />
-          <CustomLink link={"/test"} title={"404"} />
+          <CustomLink link={"/lostrightnow"} title={"404"} />
         </Stack>
       </Flex>
     </div>

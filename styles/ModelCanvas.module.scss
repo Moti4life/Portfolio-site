@@ -47,12 +47,14 @@
 
   left: 50%;
   transform: translateX(-50%);
-  font-size: clamp(5rem, 12.5vmax, 13rem);
-  line-height: 90%;
+  font-size: clamp(5rem, 11.5vmax, 10rem);
+  line-height: 120%;
 
   overflow: hidden;
 }
 
 .bgText1 {
   opacity: 0;
+  font-family: "DangerOnTheMotorway";
+  font-weight: 400;
 }

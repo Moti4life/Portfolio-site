@@ -9,12 +9,15 @@ import { useColorModeValue } from "@chakra-ui/react";
 const IntroOverlay = () => {
   gsap.registerPlugin(ScrollTrigger);
   const introBgColor = useColorModeValue("#f2efeb", "#141414")
-  const introSwipeColor = useColorModeValue( "#141414", "#f2efeb")
+  // const introSwipeColor = useColorModeValue( "#141414", "#f2efeb")
+  const introSwipeColor = useColorModeValue('#141414', '#bbff00')
   useEffect(() => {
     const introTime = gsap.timeline();
 
-    if (sessionStorage.getItem("hasPlayedAnimation")) {
+    if (!sessionStorage.getItem("hasPlayedAnimation")) {
       introTime
+        // scrollbarGutter needed for model alignment
+        .set("html", { scrollbarGutter: "stable"})
         .set("body", { overflowY: "hidden" })
         .set(".bgDiv", { display: "block" })
         .fromTo(
@@ -62,6 +65,9 @@ const IntroOverlay = () => {
         .to(".infoPanel", { display: "none", duration: 0.15 })
         .to(".letterPanel", { display: "none", duration: 0.15 })
         .to(".bgDiv", { backgroundColor: "transparent", duration: 0.15 })
+
+        //set scrollbarGutter back to auto
+        .set("html", { scrollbarGutter: "auto"})
         .set("body", { overflowY: "auto" })
 
         .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
@@ -89,7 +95,7 @@ const IntroOverlay = () => {
     sessionStorage.setItem("hasPlayedAnimation", true);
 
     //uncomment this
-    // introTime.set(".bgDiv", { display: "none" })
+    introTime.set(".bgDiv", { display: "none" })
     
 
     //scrolltrigger animation not ok with hot reload
@@ -122,7 +128,7 @@ const IntroOverlay = () => {
 
   return (
     <>
-      <div /* style={{backgroundColor: introBgColor}} */ className={`bgDiv ${styles.bgDiv}`}>
+      <div style={{backgroundColor: introBgColor}} className={`bgDiv ${styles.bgDiv}`}>
         <div className={`brandPanels ${styles.brandPanels}`}>
           <div className={`letterContainer ${styles.letterContainer}`}>
             <h1 className={`letterPanel ${styles.letters}`}>MW</h1>

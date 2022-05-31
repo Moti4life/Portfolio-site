@@ -61,8 +61,30 @@ const RxScene = () => {
 
       // stagger https://greensock.com/docs/v3/Staggers
       // Text reveal / fade
-      .to(".bgText1", { opacity: 1, stagger: 0.1 }, ">-1")
-      .to(".bgText1", { opacity: 0, stagger: 0.1 }, "<+0.5")
+      .to(
+        ".bgText1",
+        {
+          opacity: 1,
+          stagger: {
+            each: 0.1,
+            from: "center",
+            grid: "auto",
+          },
+        },
+        ">-1"
+      )
+      .to(
+        ".bgText1",
+        {
+          opacity: 0,
+          stagger: {
+            each: 0.1,
+            from: "center",
+            grid: "auto",
+          },
+        },
+        "<+0.5"
+      )
 
       //white blink
       .set(".carModelOverlay", { backgroundColor: "#ccc" })
@@ -440,9 +462,11 @@ const RxScene = () => {
       ease: "none",
       // anticipatePin: 1,
       refreshPriority: 1,
+      // set refreshPriority for animation sequence
     });
 
     ScrollTrigger.refresh();
+    // call ScrollTrigger.refresh() for start/end pin refresh
   }, []);
 
   return (

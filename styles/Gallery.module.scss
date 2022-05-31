@@ -87,6 +87,7 @@ font-family: 'Saira Semi Condensed', sans-serif;
 
     /* transition: scale .8s cubic-bezier(.94,.06,.92,.81); */
     transition: transform 1s cubic-bezier(0.51, 0.08, 0.39, 0.79);
+    cursor: pointer;
 }
 
 .galleryItemImageContainer:hover{
@@ -108,7 +109,7 @@ font-family: 'Saira Semi Condensed', sans-serif;
     width: clamp(150px, 20vw, 200px);
     height: 40vh;
     bottom: -5%;
-    right: -10%;
+    right: -17%;
     z-index: 0;
 
     /* background-color: aqua; */

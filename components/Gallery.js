@@ -28,11 +28,13 @@ const GalleryItem = ({ study }) => {
         </Link>
 
         <div className={styles.galleryItemImageContainer}>
-          <Image
-            src={`https:${banner.fields.file.url}`}
-            layout="fill"
-            objectFit="contain"
-          />
+          <Link scroll={false} href={`/works/${slug}`}>
+            <Image
+              src={`https:${banner.fields.file.url}`}
+              layout="fill"
+              objectFit="contain"
+            />
+          </Link>
         </div>
 
         <div className={styles.phoneFloat}>
@@ -80,7 +82,7 @@ const Gallery = ({ studies }) => {
           inertia: false,
           duration: 2,
         },
-        start: "10% 15%", 
+        start: "10% 15%",
         end: "+=200%",
       },
     });
@@ -97,7 +99,7 @@ const Gallery = ({ studies }) => {
   }, []);
 
   return (
-    <Box 
+    <Box
       /* backgroundColor={colorModeBgGallery} */ className={`galleryContainer ${styles.galleryContainer}`}
     >
       {/* <div className={`${styles.galleryCounter}`}>

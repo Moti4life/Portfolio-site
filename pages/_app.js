@@ -15,6 +15,8 @@ import FooterSection from "../components/FooterSection";
 
 import { useTransitionFix } from '../utils/useFixTransitions'
 
+import "../styles/fonts.css"
+
 function MyApp({ Component, pageProps, router }) {
 
   useTransitionFix();
@@ -22,7 +24,7 @@ function MyApp({ Component, pageProps, router }) {
     <ChakraProvider theme={theme}>
       <div className="bodyContainer">
         <IntroOverlay />
-        {/* <Cursor /> */}
+        <Cursor />
         <Navbar />
         <AnimatePresence
           exitBeforeEnter
