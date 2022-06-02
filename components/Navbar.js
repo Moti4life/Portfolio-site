@@ -19,7 +19,7 @@ const Navbar = () => {
       .from("#navbar", {
         yPercent: -100,
         paused: true,
-        duration: 0.4,
+        duration: 0.2,
         opacity: 0,
         pointerEvents: "none"
       })

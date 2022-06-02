@@ -104,7 +104,7 @@ const About = () => {
         <p>
           Practicing Nextjs/React and improving css design skills; Learning lots
           from youtube, from creators who focus on design / UI and UX / motion
-          and animation; to those whose craft is the backend.
+          and animation, to those whose craft is the backend.
           <br />
           <br />
           Having fun building these voxel models / using blender for material

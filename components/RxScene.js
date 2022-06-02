@@ -25,6 +25,7 @@ const RxScene = () => {
   const pointLightRef = useRef();
   const billRef = useRef();
 
+ 
   useEffect(() => {
     // console.log("pointLightRef.current ", pointLightRef.current);
     // console.log(deg2rad(90), deg2rad(45));
@@ -35,7 +36,7 @@ const RxScene = () => {
     // console.log("carRef: ", carRef);
 
     let tl = gsap.timeline();
-
+    
     tl.set(".skipContainer", { pointerEvents: "none" })
       .to(pointLightRef.current, { intensity: 0.2, delay: 0.5 })
       .to(
@@ -153,10 +154,7 @@ const RxScene = () => {
         ease: "none",
         duration: 0.3,
       })
-      // skip button out
-      .to(".skipButton", { opacity: 0 }, "<")
-      .to(".skipButton", { visibility: "collapse" }, "<+0.5")
-
+      
       // right far panning
       .to(
         orbitControlRef.current.target,
@@ -184,6 +182,9 @@ const RxScene = () => {
         },
         ">-0.4"
       )
+      // skip button out
+      .to(".skipButton", { opacity: 0 }, "<-0.5")
+      .set(".skipButton", { visibility: "collapse" }, "<+0.5")
 
       // set left side full view
       .set(orbitControlRef.current.target, {
@@ -449,24 +450,76 @@ const RxScene = () => {
         y: 12,
       });
 
-    let controller = ScrollTrigger.create({
-      animation: tl,
-      trigger: "#modelCanvasSection",
-      scrub: 0.2,
-      // start: "0% 0%",
-      end: "+=800%",
-      // markers: true,
-      pin: true,
-      // pin: "#mainContainer",
-      // pin: '#modelCanvasSection',
-      ease: "none",
-      // anticipatePin: 1,
-      refreshPriority: 1,
-      // set refreshPriority for animation sequence
-    });
+
+    // no matchmedia
+    // let controller = ScrollTrigger.create({
+    //   animation: tl,
+    //   trigger: "#modelCanvasSection",
+    //   scrub: 0.2,
+    //   // start: "0% 0%",
+    //   end: "+=800%",
+    //   // markers: true,
+    //   pin: true,
+    //   ease: "none",
+    //   // anticipatePin: 1,
+    //   refreshPriority: 1,
+    //   // set refreshPriority for animation sequence
+    // });
+
+    
+    // with matchmedia
+
+    let controller
+    ScrollTrigger.matchMedia({
+      // desktop; 800px or larger
+      "(min-width: 800.02px)" : controller = () => {
+        ScrollTrigger.create({
+          animation: tl,
+          trigger: "#modelCanvasSection",
+          scrub: 0.5,
+          // start: "0% 0%",
+          end: "+=1800%",
+          // markers: true,
+          pin: true,
+          ease: "none",
+          // anticipatePin: 1,
+          refreshPriority: 1,
+          // set refreshPriority for animation sequence
+        });
+
+        return () => {
+          ScrollTrigger.clearMatchMedia()
+        };
+      },
+
+      "(max-width: 800.01px)" : 
+      controller = () => {
+        ScrollTrigger.create({
+          animation: tl,
+          trigger: "#modelCanvasSection",
+          scrub: 0.5,
+          // start: "0% 0%",
+          end: "+=800%",
+          // markers: true,
+          pin: true,
+          ease: "none",
+          // anticipatePin: 1,
+          refreshPriority: 1,
+          // set refreshPriority for animation sequence
+        });
+        return () => {
+          ScrollTrigger.clearMatchMedia()
+        };
+      }
+      
+    })
 
     ScrollTrigger.refresh();
     // call ScrollTrigger.refresh() for start/end pin refresh
+    return () => {
+      tl.kill();
+    };
+    
   }, []);
 
   return (

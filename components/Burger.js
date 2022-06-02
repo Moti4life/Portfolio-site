@@ -59,12 +59,12 @@ const Burger = () => {
   const drawerAnim = {
     offScreen: {
       opacity: 0,
-      x: 100,
+      x: 220,
     },
     onScreen: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.5 },
+      transition: { duration: .4 },
     },
     viewport: {
       once: true,
@@ -167,7 +167,7 @@ const Burger = () => {
               </div>
 
               <div className={styles.modelContainer}>
-                <DelayRender waitTime={800}> 
+                <DelayRender waitTime={1000}> 
                   <SceneLoader />
                 </DelayRender>
                 
