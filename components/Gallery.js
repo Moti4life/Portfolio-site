@@ -27,25 +27,27 @@ const GalleryItem = ({ study }) => {
           </div>
         </Link>
 
-        <div className={styles.galleryItemImageContainer}>
-          <Link scroll={false} href={`/works/${slug}`}>
+        <Link scroll={false} href={`/works/${slug}`}>
+          <div className={styles.galleryItemImageContainer}>
             <Image
               src={`https:${banner.fields.file.url}`}
               layout="fill"
               objectFit="contain"
             />
-          </Link>
-        </div>
-
-        <div className={styles.phoneFloat}>
-          <div className={styles.galleryItemMobileImageContainer}>
-            <Image
-              src={`https:${mobile.fields.file.url}`}
-              layout="fill"
-              objectFit="contain"
-            />
           </div>
-        </div>
+        </Link>
+
+        <Link scroll={false} href={`/works/${slug}`}>
+          <div className={styles.phoneFloat}>
+            <div className={styles.galleryItemMobileImageContainer}>
+              <Image
+                src={`https:${mobile.fields.file.url}`}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+        </Link>
       </div>
 
       <div></div>

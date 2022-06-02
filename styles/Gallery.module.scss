@@ -95,13 +95,17 @@ font-family: 'Saira Semi Condensed', sans-serif;
 }
 
 .galleryItemMobileImageContainer{
-    
+    cursor: pointer;
     position: relative;
     width: 100%;
     height: 100%;
-    /* background-color: aliceblue; */
-
+    // /* background-color: aliceblue; */
     overflow: hidden;
+    transition: transform 1s cubic-bezier(0.51, 0.08, 0.39, 0.79);
+    
+    &:hover{
+        transform: scale(1.4);
+    }
 }
 
 .phoneFloat{

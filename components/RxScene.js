@@ -487,14 +487,15 @@ const RxScene = () => {
           // set refreshPriority for animation sequence
         });
 
-        return () => {
-          ScrollTrigger.clearMatchMedia()
-        };
+        // return () => {
+        //   ScrollTrigger.clearMatchMedia()
+        // };
       },
 
       "(max-width: 800.01px)" : 
       controller = () => {
         ScrollTrigger.create({
+          
           animation: tl,
           trigger: "#modelCanvasSection",
           scrub: 0.5,
@@ -507,9 +508,9 @@ const RxScene = () => {
           refreshPriority: 1,
           // set refreshPriority for animation sequence
         });
-        return () => {
-          ScrollTrigger.clearMatchMedia()
-        };
+        // return () => {
+        //   ScrollTrigger.clearMatchMedia()
+        // };
       }
       
     })
