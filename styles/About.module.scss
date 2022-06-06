@@ -15,9 +15,15 @@ font-family: 'Saira Semi Condensed', sans-serif;
 
     gap: 2rem;
     align-items: flex-start;
-    overflow: hidden;
     max-width: 1024px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    .aboutPanel{
+        z-index: 1;
+        position: relative;
+    }
 
     .spanConnect{
         display: inline-block;
@@ -25,10 +31,7 @@ font-family: 'Saira Semi Condensed', sans-serif;
         line-height: 1.5rem;
         letter-spacing: .1rem;
     }
-    .showItemContainer{
-        display: inline-block;
-        border-bottom: 1px solid;
-    }
+    
     
     h1{
         font-size: 3rem;
@@ -62,10 +65,37 @@ font-family: 'Saira Semi Condensed', sans-serif;
     transform: translate( 0%, 20%) rotate(15deg);
 }
 
-.panelBuffer{
-    width: 100%;
-    height: 10vh;
+.showItemContainer{
+    display: inline-block;
+    border-bottom: 1px solid;
+    cursor: pointer;
+    margin: 0 .5rem;
+
+    &:hover ~ .showImageContainer, &:active ~ .showImageContainer{
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
+
+.showImageContainer{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    // background-color: aqua;
+    bottom: 52px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    transition: all .2s ease-out;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 100% 0;
+    z-index: 2;
+
+    
+}
+
 
 @media (min-width: 768px) {
     .offset{

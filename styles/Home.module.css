@@ -13,8 +13,8 @@
 
 .gallerySectionSpacer{
   width: 100%;
-  height: 100px;
   /* background-color: aqua; */
+  padding: 10vh 0 10vh
 }
 
 

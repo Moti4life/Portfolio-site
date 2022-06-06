@@ -114,6 +114,7 @@ const work = ({ workItem }) => {
 
   useEffect(() => {
     let panelGroup = gsap.utils.toArray(".revealPanelAnim");
+    let imageGroup = gsap.utils.toArray(".workGalleryImage")
 
     panelGroup.forEach((panel) => {
       gsap.fromTo(
@@ -169,6 +170,28 @@ const work = ({ workItem }) => {
         },
       }
     );
+
+
+    imageGroup.forEach( (image) => {
+      gsap.fromTo(
+        image,
+        { opacity: 0, yPercent: 100 },
+        {
+          opacity: 1, 
+          yPercent: 0,
+          scrollTrigger: {
+            trigger: image,
+            // markers: true,
+            toggleActions: "play none none reverse",
+            start: "-40% 100%"
+          },
+          stagger: {
+            each: 0.2,
+          }
+        }
+      );
+    })
+    
   }, []);
 
   // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
@@ -248,7 +271,6 @@ const work = ({ workItem }) => {
       </div>
 
       <div className={styles.workGalleryContainer}>
-
         {detailsBanner ? (
           <div className={` ${styles.workGalleryBannerContainer}`}>
             <div className={`revealPanelAnim ${styles.workGalleryBanner}`}>
@@ -272,7 +294,10 @@ const work = ({ workItem }) => {
             {images.map((image, index) => {
               // console.log("image: ", image);
               return (
-                <div className={`${styles.workGalleryImage}`} key={index}>
+                <div
+                  className={`workGalleryImage ${styles.workGalleryImage}`}
+                  key={index}
+                >
                   <Image
                     src={`https:${image.fields.file.url}`}
                     layout="fill"
@@ -289,7 +314,6 @@ const work = ({ workItem }) => {
             <br />
           </>
         )}
-
       </div>
     </Layout>
   );

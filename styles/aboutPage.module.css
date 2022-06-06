@@ -10,4 +10,5 @@
     padding: 20vh 4vw;
 
     position: relative;
+    overflow: hidden;
 }

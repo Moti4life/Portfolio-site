@@ -8,6 +8,7 @@ import ButtonSkip from "../components/ButtonSkip";
 import { motion } from "framer-motion";
 
 import { createClient } from "contentful";
+import ScrollyText from "../components/ScrollyText";
 
 const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
@@ -27,8 +28,11 @@ const Home = ({ studies }) => {
       <main id="mainContainer" className={styles.main}>
         <div id="modelCanvasSection" className={styles.modelCanvasContainer}>
           <ModelCanvas />
+          {/* <div style={{width: "100%", height: "100vh", backgroundColor: "#808080"}}> page fill</div> */}
         </div>
-        <div id="gallerySectionSpacer"className={styles.gallerySectionSpacer} />
+        <div id="gallerySectionSpacer" className={styles.gallerySectionSpacer}>
+          {/* <ScrollyText text={"SELECTED WORKS"} length={"500"}/> */}
+        </div>
         <div id="gallerySection" >
           <Gallery studies={studies} />
         </div>

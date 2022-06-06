@@ -1,0 +1,21 @@
+.scrollyContainer {
+  width: 80%;
+  height: 100%;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1rem, 5vmax, 5rem);
+  font-weight: 500;
+  margin: 0 auto;
+  overflow: hidden;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.scrollyWords {
+  position: relative;
+  left: -350px;
+}
+
+.scrollyWord {
+
+  
+}
