@@ -27,7 +27,7 @@ const Navbar = () => {
 
     ScrollTrigger.create({
       start: "top top",
-      end: 18000,
+      end: 21000,
       onUpdate: (self) => {
         self.direction === -1 ? showAnim.play() : showAnim.reverse();
         // console.log("self.progress ", self.progress);

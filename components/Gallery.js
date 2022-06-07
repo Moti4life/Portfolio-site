@@ -33,6 +33,7 @@ const GalleryItem = ({ study }) => {
               src={`https:${banner.fields.file.url}`}
               layout="fill"
               objectFit="contain"
+              className={styles.galleryItemImage}
             />
           </div>
         </Link>

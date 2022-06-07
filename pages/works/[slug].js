@@ -114,7 +114,7 @@ const work = ({ workItem }) => {
 
   useEffect(() => {
     let panelGroup = gsap.utils.toArray(".revealPanelAnim");
-    let imageGroup = gsap.utils.toArray(".workGalleryImage")
+    let imageGroup = gsap.utils.toArray(".workGalleryImage");
 
     panelGroup.forEach((panel) => {
       gsap.fromTo(
@@ -171,27 +171,39 @@ const work = ({ workItem }) => {
       }
     );
 
+    gsap.to(
+      ".workGalleryBanner",
+      {
+        clipPath: "circle(80% at 50% 50%)",
+        scrollTrigger: {
+          trigger: ".workGalleryBanner",
+          // markers: true,
+          scrub: 1,
+          start: "50% 80%",
+          end: "50% 55%",
+        },
+      }
+    );
 
-    imageGroup.forEach( (image) => {
+    imageGroup.forEach((image) => {
       gsap.fromTo(
         image,
         { opacity: 0, yPercent: 100 },
         {
-          opacity: 1, 
+          opacity: 1,
           yPercent: 0,
           scrollTrigger: {
             trigger: image,
             // markers: true,
             toggleActions: "play none none reverse",
-            start: "-40% 100%"
+            start: "-40% 100%",
           },
           stagger: {
             each: 0.2,
-          }
+          },
         }
       );
-    })
-    
+    });
   }, []);
 
   // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
@@ -266,18 +278,16 @@ const work = ({ workItem }) => {
             {documentToReactComponents(details, options)}
           </div>
         </div>
-
-        <div className={styles.workFiller}></div>
       </div>
 
       <div className={styles.workGalleryContainer}>
         {detailsBanner ? (
           <div className={` ${styles.workGalleryBannerContainer}`}>
-            <div className={`revealPanelAnim ${styles.workGalleryBanner}`}>
+            <div className={`workGalleryBanner ${styles.workGalleryBanner}`}>
               <Image
                 src={`https:${detailsBanner.fields.file.url}`}
                 layout="fill"
-                objectFit="contain"
+                objectFit="cover"
               />
             </div>
           </div>

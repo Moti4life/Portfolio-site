@@ -4,38 +4,37 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { TextPlugin } from "gsap/dist/TextPlugin";
 import { useEffect, useRef } from "react";
 
-const ScrollyText = ({ trigger, text, fromX, toX, length }) => {
+const ScrollyText = ({ trigger, text }) => {
   gsap.registerPlugin(ScrollTrigger);
   //   gsap.registerPlugin(TextPlugin);
   const scrollyTextRef = useRef();
-  // const textRef = useRef();
 
+  // let size = useWindowSize();
+  // console.log("size: ", size);
+ 
   useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#gallerySectionSpacer",
-        start: "top 90%",
-        end: "bottom 70%",
-        markers: true,
-        scrub: 2,
-      },
-    });
-
-    tl.fromTo(scrollyTextRef.current, { xPercent: 100 }, { xPercent: 0 });
-
-    gsap.set(".textScroll", {
-      x: (i) => i * 200,
-    });
-    gsap.to(".textScroll", {
-      duration: 5,
+    gsap.fromTo(
+      scrollyTextRef.current,
+      { xPercent: -120 },
+      {
+        xPercent: 0,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: scrollyTextRef.current,
+          start: "0% 80%",
+          // markers: true,
+          end: "100% 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+    
+    
+    gsap.to(".scrollyWords", {
+      xPercent: -50,
       ease: "none",
-      // x: "+=500",
-      x: `+=${length}`,
+      duration: 15,
       repeat: -1,
-      modifiers: {
-        // x: gsap.utils.unitize((x) => parseFloat(x) % 500),
-        x: gsap.utils.unitize((x) => parseFloat(x) % `${length}`),
-      },
     });
 
     // console.log(scrollyTextRef);
@@ -44,7 +43,15 @@ const ScrollyText = ({ trigger, text, fromX, toX, length }) => {
 
   return (
     <div ref={scrollyTextRef} className={styles.scrollyContainer}>
-      <div className={styles.scrollyWords}>
+      <div className={`scrollyWords ${styles.scrollyWords}`}>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
+        <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
         <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
         <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
       </div>
@@ -53,3 +60,5 @@ const ScrollyText = ({ trigger, text, fromX, toX, length }) => {
 };
 
 export default ScrollyText;
+
+// https://greensock.com/forums/topic/27028-looping-text-with-variable-length/

@@ -7,8 +7,8 @@ const ButtonSkip = ({ link, title }) => {
 
   useEffect(() => {
     if (fade) {
-      gsap.set(".mainCanvas", { opacity: 0 });
-      gsap.to(".mainCanvas", { opacity: 1, delay: 0.6 });
+      gsap.set("#mainContainer", { opacity: 0 });
+      gsap.to("#mainContainer", { opacity: 1, delay: 0.6 });
     }
   }, [fade]);
 

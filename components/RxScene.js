@@ -199,7 +199,7 @@ const RxScene = () => {
       )
 
       // set billboard pos
-      .set(billRef.current.parent.position, { x: 0, y: 3.5, z: 3.5 })
+      .set(billRef.current.parent.position, { x: 0, y: 3.5, z: 3 })
 
       // transistion fade in
       .to(".carModelOverlay", {
@@ -434,7 +434,8 @@ const RxScene = () => {
       .to(orbitControlRef.current.object.position, { y: 2, z: 12 }, "<")
       .to(orbitControlRef.current, { autoRotate: true, autoRotateSpeed: 1 })
       .set(".carModelOverlay", { visibility: "collapse" }, "<")
-      // .to(".carModel", { pointerEvents: "auto" }, "<")
+      // .to(".carModel", { height: "50%"})
+      // .set(".carModel", { pointerEvents: "auto" }, "<")
 
       // light dim
       .to(ambientLightRef.current, { intensity: 0.1, delay: 1 })
@@ -472,7 +473,7 @@ const RxScene = () => {
     let controller
     ScrollTrigger.matchMedia({
       // desktop; 800px or larger
-      "(min-width: 800.02px)" : controller = () => {
+      "(min-width: 801px)" : controller = () => {
         ScrollTrigger.create({
           animation: tl,
           trigger: "#modelCanvasSection",
@@ -492,7 +493,7 @@ const RxScene = () => {
         // };
       },
 
-      "(max-width: 800.01px)" : 
+      "(max-width: 800px)" : 
       controller = () => {
         ScrollTrigger.create({
           
@@ -546,11 +547,12 @@ const RxScene = () => {
         <Text
           fontSize={1}
           strokeColor={"black"}
-          strokeWidth={"3.2%"}
+          strokeWidth={"2%"}
           fillOpacity={0}
           strokeOpacity={0}
           ref={billRef}
           text={"Welcome"}
+          font={"/fonts/Danger on the Motorway.woff"}
           // maxWidth={0.3}
         ></Text>
       </Billboard>

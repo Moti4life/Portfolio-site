@@ -29,6 +29,8 @@
 .buttonTitle{
   font-size: clamp(1rem, 1.2vmax, 1.2rem);
   /* background-color: aqua; */
+  font-family: 'Poppins', sans-serif; 
+  
 }
 
 .skipArrow{

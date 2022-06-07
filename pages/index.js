@@ -31,7 +31,7 @@ const Home = ({ studies }) => {
           {/* <div style={{width: "100%", height: "100vh", backgroundColor: "#808080"}}> page fill</div> */}
         </div>
         <div id="gallerySectionSpacer" className={styles.gallerySectionSpacer}>
-          {/* <ScrollyText text={"SELECTED WORKS"} length={"500"}/> */}
+          <ScrollyText text={"SELECTED WORKS"}/>
         </div>
         <div id="gallerySection" >
           <Gallery studies={studies} />
