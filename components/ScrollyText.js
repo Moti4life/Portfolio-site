@@ -13,19 +13,34 @@ const ScrollyText = ({ trigger, text }) => {
   // console.log("size: ", size);
 
   useEffect(() => {
-    gsap.set(".scrollyContainer", { xPercent: -120 });
+    // gsap.set(".scrollyContainer", { xPercent: -120 });
 
-    gsap.to(".scrollyContainer", {
-      xPercent: 0,
-      duration: 1.5,
-      scrollTrigger: {
-        trigger: "#gallerySectionSpacer",
-        start: "25% 80%",
-        // markers: true,
-        end: "75% 70%",
-        toggleActions: "play none none reverse",
+    // gsap.to(".scrollyContainer", {
+    //   xPercent: 0,
+    //   duration: 1.5,
+    //   scrollTrigger: {
+    //     trigger: "#gallerySectionSpacer",
+    //     start: "25% 80%",
+    //     // markers: true,
+    //     end: "75% 70%",
+    //     toggleActions: "play none none reverse",
+    //   }
+    // });
+
+    gsap.fromTo(
+      ".scrollyContainer",
+      { xPercent: -120 },
+      {
+        xPercent: 0,
+        duration: 1.5,
+        scrollTrigger: {
+          trigger: "#gallerySectionSpacer",
+          start: "50% 50%",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
       }
-    });
+    );
 
     gsap.to(".scrollyWords", {
       xPercent: -50,
