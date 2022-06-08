@@ -11,9 +11,9 @@ const ScrollyText = ({ text }) => {
     
     gsap.fromTo(
       ".scrollyContainer",
-      { xPercent: -120 },
+      { x: -120 },
       {
-        xPercent: 0,
+        x: 0,
         duration: 1.5,
         scrollTrigger: {
           trigger: "#gallerySectionSpacer",
