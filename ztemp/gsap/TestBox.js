@@ -35,7 +35,7 @@ const TestBox = () => {
 
     let controller = ScrollTrigger.create({
       animation: tl,
-      trigger: "#modelCanvasSection",
+      trigger: "#gallerySectionSpacer",
       scrub: 0.2,
       // start: "0% 0%",
       start: "top top",
