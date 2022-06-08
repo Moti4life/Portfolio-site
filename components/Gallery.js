@@ -9,7 +9,7 @@ import CustomLink2 from "./CustomLink2";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+
 
 const GalleryItem = ({ study }) => {
   const { title, slug, description, banner, mobile } = study.fields;
@@ -67,7 +67,7 @@ const Gallery = ({ studies }) => {
   // }
 
   // console.log('studies: ', studies);
-  
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     let galleryPanels = gsap.utils.toArray(".galleryItemPanel");
