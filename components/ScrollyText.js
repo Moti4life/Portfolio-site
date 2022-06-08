@@ -20,10 +20,10 @@ const ScrollyText = ({ trigger, text }) => {
         xPercent: 0,
         duration: 1.5,
         scrollTrigger: {
-          trigger: scrollyTextRef.current,
-          start: "0% 80%",
-          // markers: true,
-          end: "100% 70%",
+          trigger: "#gallerySectionSpacer",
+          start: "25% 80%",
+          markers: true,
+          end: "75% 70%",
           toggleActions: "play none none reverse",
         },
       }
