@@ -11,25 +11,22 @@ const ScrollyText = ({ trigger, text }) => {
 
   // let size = useWindowSize();
   // console.log("size: ", size);
- 
+
   useEffect(() => {
-    gsap.fromTo(
-      scrollyTextRef.current,
-      { xPercent: -120 },
-      {
-        xPercent: 0,
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: "#gallerySectionSpacer",
-          start: "25% 80%",
-          markers: true,
-          end: "75% 70%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-    
-    
+    gsap.set(scrollyTextRef.current, { xPercent: -120 });
+
+    gsap.to(scrollyTextRef.current, {
+      xPercent: 0,
+      duration: 1.5,
+      scrollTrigger: {
+        trigger: "#gallerySectionSpacer",
+        start: "25% 80%",
+        markers: true,
+        end: "75% 70%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
     gsap.to(".scrollyWords", {
       xPercent: -50,
       ease: "none",
