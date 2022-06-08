@@ -2,29 +2,29 @@ import styles from "../styles/ScrollyText.module.scss";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 // import { TextPlugin } from "gsap/dist/TextPlugin";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const ScrollyText = ({ trigger, text }) => {
   gsap.registerPlugin(ScrollTrigger);
-  //   gsap.registerPlugin(TextPlugin);
-  const scrollyTextRef = useRef();
+  //  gsap.registerPlugin(TextPlugin);
+  // const scrollyTextRef = useRef();
 
   // let size = useWindowSize();
   // console.log("size: ", size);
 
   useEffect(() => {
-    gsap.set(scrollyTextRef.current, { xPercent: -120 });
+    gsap.set(".scrollyContainer", { xPercent: -120 });
 
-    gsap.to(scrollyTextRef.current, {
+    gsap.to(".scrollyContainer", {
       xPercent: 0,
       duration: 1.5,
       scrollTrigger: {
         trigger: "#gallerySectionSpacer",
         start: "25% 80%",
-        markers: true,
+        // markers: true,
         end: "75% 70%",
         toggleActions: "play none none reverse",
-      },
+      }
     });
 
     gsap.to(".scrollyWords", {
@@ -39,7 +39,7 @@ const ScrollyText = ({ trigger, text }) => {
   }, []);
 
   return (
-    <div ref={scrollyTextRef} className={styles.scrollyContainer}>
+    <div className={`scrollyContainer ${styles.scrollyContainer}`}>
       <div className={`scrollyWords ${styles.scrollyWords}`}>
         <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
         <span className={`textScroll ${styles.scrollyWord}`}>{text}</span>
