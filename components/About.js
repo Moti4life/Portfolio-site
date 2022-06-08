@@ -23,11 +23,11 @@ const About = () => {
           opacity: 1,
           scrollTrigger: {
             trigger: panel,
-            start: "0% 85%",
-            end: "50% 85%",
+            start: "0% 90%",
+            end: "50% 90%",
             // scrub: true,
             // markers: true,
-            toggleActions: "play none reverse none",
+            toggleActions: "play none none reverse",
             preventOverlaps: true,
           },
         }

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 
 const ScrollyText = ({ text }) => {
   gsap.registerPlugin(ScrollTrigger);
+  // https://greensock.com/forums/topic/24286-scrolltrigger-and-webpack-prod-build/?do=findComment&comment=115701
   gsap.core.globals("ScrollTrigger", ScrollTrigger);
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const ScrollyText = ({ text }) => {
       { xPercent: -120 },
       {
         xPercent: 0,
-        duration: 1.5,
+        duration: 0.8,
         scrollTrigger: {
           trigger: "#gallerySectionSpacer",
           start: "25% 80%",
@@ -56,3 +57,4 @@ const ScrollyText = ({ text }) => {
 export default ScrollyText;
 
 // https://greensock.com/forums/topic/27028-looping-text-with-variable-length/
+// https://greensock.com/forums/topic/24286-scrolltrigger-and-webpack-prod-build/?do=findComment&comment=115701
