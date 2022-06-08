@@ -36,42 +36,44 @@ const index = ({ workItems }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.3 } }}
       exit={{ opacity: 0, transition: { duration: 0.15 } }}
-      
     >
       <Head>
         <title>Works</title>
       </Head>
       <div className={styles.workContainer}>
-        <Breadcrumb
-          className={styles.breadCrumb}
-          spacing="8px"
-          separator={<ChevronRightIcon />}
-        >
-          <BreadcrumbItem>
-            <Link scroll={false} href="/">
-              <Text decoration="underline" cursor="pointer" color={linkColors}>
-                Home
-              </Text>
-            </Link>
-          </BreadcrumbItem>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Heading fontWeight={600}>My Work</Heading>
+          <Breadcrumb
+            spacing="8px"
+            separator={<ChevronRightIcon />}
+          >
+            <BreadcrumbItem>
+              <Link scroll={false} href="/">
+                <Text
+                  decoration="underline"
+                  cursor="pointer"
+                  color={linkColors}
+                >
+                  Home
+                </Text>
+              </Link>
+            </BreadcrumbItem>
 
-          <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href="#">Works</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-
-        <Heading>My Work</Heading>
+            <BreadcrumbItem isCurrentPage>
+              <BreadcrumbLink href="#">Works</BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+        </div>
 
         <div className={styles.workList}>
           {workItems.map((workItem) => {
             // console.log('workItem: ', workItem);
-            const { title, workbg, description, slug, workbgmobile } = workItem.fields;
+            const { title, workbg, description, slug, workbgmobile } =
+              workItem.fields;
 
             return (
               <Link scroll={false} key={title} href={`/works/${slug}`}>
-
                 <div className={styles.workCard}>
-
                   <div className={styles.imageContainer}>
                     <Image
                       className={styles.image}
@@ -93,9 +95,7 @@ const index = ({ workItems }) => {
                     <h1>{title}</h1>
                     <span>{description}</span>
                   </div>
-
                 </div>
-
               </Link>
             );
           })}

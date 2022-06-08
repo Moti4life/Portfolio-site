@@ -32,40 +32,6 @@ const About = () => {
           },
         }
       );
-
-      // if (panel.className.includes("offset")) {
-      //   gsap.fromTo(
-      //     panel,
-      //     { x: "120%", opacity: 0 },
-      //     {
-      //       x: "0%",
-      //       opacity: 1,
-      //       scrollTrigger: {
-      //         trigger: panel,
-      //         start: "0% 60%",
-      //         end: "100% 70%",
-      //         scrub: true,
-      //         // markers: true,
-      //       },
-      //     }
-      //   );
-      // } else {
-      //   gsap.fromTo(
-      //     panel,
-      //     { x: "-120%", opacity: 0 },
-      //     {
-      //       x: "0%",
-      //       opacity: 1,
-      //       scrollTrigger: {
-      //         trigger: panel,
-      //         start: "0% 60%",
-      //         end: "100% 70%",
-      //         scrub: true,
-      //         // markers: true,
-      //       },
-      //     }
-      //   );
-      // }
     });
   }, []);
 
@@ -81,14 +47,16 @@ const About = () => {
           On days where he is not working; he spends his time surrounded by
           loved ones and things that he likes to do.
         </p>
-        <span className={styles.spanConnect}>Like being a</span>
-        <div className={styles.showItemContainer}>
-          <h3 className={styles.driveRole}>
-            <FontAwesomeIcon icon={faGear} size="sm" /> head
-          </h3>
-        </div>
-        <div className={styles.showImageContainer}>
-          <Image src={"/runGif.gif"} layout="fill" objectFit="cover" />
+        <div className={styles.showContainer}>
+          <span className={styles.spanConnect}>Like being a</span>
+          <div className={styles.showItemContainer}>
+            <h3 className={styles.driveRole}>
+              <FontAwesomeIcon icon={faGear} size="sm" /> head
+            </h3>
+          </div>
+          <div className={styles.showImageContainer}>
+            <Image src={"/runGif.gif"} layout="fill" objectFit="cover" />
+          </div>
         </div>
       </div>
 
@@ -106,13 +74,15 @@ const About = () => {
           effects; build recommendations for gaming system units. Everyday
           finding a little bit of myself.
         </p>
-        <span className={styles.spanConnect}>Honing my</span>
-        <div className={styles.showItemContainer}>
-          <h3 className={styles.devRole}>&lt;webDeveloper /&gt;</h3>
-        </div>
-        <span className={styles.spanConnect}>skills</span>
-        <div className={styles.showImageContainer}>
-          <Image src={"/matrixGifSmol.gif"} layout="fill" objectFit="cover" />
+        <div className={styles.showContainer}>
+          <span className={styles.spanConnect}>Honing my</span>
+          <div className={styles.showItemContainer}>
+            <h3 className={styles.devRole}>&lt;webDeveloper /&gt;</h3>
+          </div>
+          <span className={styles.spanConnect}>skills</span>
+          <div className={styles.showImageContainer}>
+            <Image src={"/matrixGifSmol.gif"} layout="fill" objectFit="cover" />
+          </div>
         </div>
       </div>
 
@@ -124,18 +94,20 @@ const About = () => {
           very much for making the internet better and easier. Also, to all the
           people who make good food!
         </p>
-        <span className={styles.spanConnect}>especially</span>
-        <div className={styles.showItemContainer}>
-          <h3 className={styles.foodRole}>
-            <div className={styles.stickFood}>
-              <Image src={"/isaw.png"} layout="fill" objectFit="contain" />
-            </div>
-            treet fo
-            <FontAwesomeIcon icon={faBurger} size="xs" />d
-          </h3>
-        </div>
-        <div className={styles.showImageContainer}>
-          <Image src={"/streetFood.gif"} layout="fill" objectFit="cover" />
+        <div className={styles.showContainer}>
+          <span className={styles.spanConnect}>especially</span>
+          <div className={styles.showItemContainer}>
+            <h3 className={styles.foodRole}>
+              <div className={styles.stickFood}>
+                <Image src={"/isaw.png"} layout="fill" objectFit="contain" />
+              </div>
+              treet fo
+              <FontAwesomeIcon icon={faBurger} size="xs" />d
+            </h3>
+          </div>
+          <div className={styles.showImageContainer}>
+            <Image src={"/streetFood.gif"} layout="fill" objectFit="cover" />
+          </div>
         </div>
       </div>
     </div> /* --aboutContainer */

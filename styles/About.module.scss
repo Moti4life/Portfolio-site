@@ -8,7 +8,6 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Saira Semi Condensed', sans-serif;
 ---- */
 
-
 .aboutContainer{
     display: flex;
     flex-direction: column;
@@ -18,10 +17,10 @@ font-family: 'Saira Semi Condensed', sans-serif;
     max-width: 1024px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    // z-index: 0;
 
     .aboutPanel{
-        z-index: 1;
+        // z-index: 1;
         position: relative;
     }
 
@@ -31,7 +30,6 @@ font-family: 'Saira Semi Condensed', sans-serif;
         line-height: 1.5rem;
         letter-spacing: .1rem;
     }
-    
     
     h1{
         font-size: 3rem;
@@ -44,7 +42,7 @@ font-family: 'Saira Semi Condensed', sans-serif;
         font-weight: 500;
     }
     h3{
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-family: 'Saira Semi Condensed', sans-serif;
         // font-family: 'Playfair Display', serif;
         // font-style: italic;
@@ -65,16 +63,39 @@ font-family: 'Saira Semi Condensed', sans-serif;
     transform: translate( 0%, 20%) rotate(15deg);
 }
 
+.showContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+
+    margin-top: 1rem;
+}
+
 .showItemContainer{
     display: inline-block;
-    border-bottom: 1px solid;
     cursor: pointer;
     margin: 0 .5rem;
+    
+    overflow: hidden;
+    position: relative;
 
     &:hover ~ .showImageContainer, &:active ~ .showImageContainer{
         opacity: 1;
         transform: scaleY(1);
     }
+
+    &::before
+     {
+        position: absolute;
+        content: "";
+        border-bottom: 2px solid;
+        border-radius: 1em;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        animation: borderAnimation 2s ease-in infinite normal;
+    }
+
 }
 
 .showImageContainer{
@@ -96,9 +117,20 @@ font-family: 'Saira Semi Condensed', sans-serif;
     
 }
 
-
 @media (min-width: 768px) {
     .offset{
         align-self: flex-end;
     }
+}
+
+// @keyframes colorShift {
+//     0% {border-color: red;}
+//     50% {border-color: aquamarine;;}
+//     100% {border-color: yellow; }
+// }
+
+@keyframes borderAnimation {
+    0% {transform: translateX(-100%);}
+    50% {transform: translateX(0%); }
+    100% {transform: translateX(100%);}
 }

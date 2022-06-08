@@ -40,7 +40,7 @@ const contact = () => {
         <title>Contact</title>
       </Head>
       <div className={styles.contactContainer}>
-        <WaterText fontSize={'20vmax'} title={'Contact'} right={'-10%'} bottom={'20%'} />
+        <WaterText fontSize={'25vmin'} title={'Contact'} right={'-6%'} bottom={'20%'} />
 
         <span className={styles.contactHeading}>Contact</span>
 

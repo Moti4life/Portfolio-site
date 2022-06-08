@@ -31,6 +31,10 @@ const ModelCanvas = () => {
           <div children={"WORKS"} className={`bgText1 ${styles.bgText1}`}></div>
           <div children={"MOTI"} className={`bgText1 ${styles.bgText1}`}></div>
           <div children={"WORKS"} className={`bgText1 ${styles.bgText1}`}></div>
+          <div children={"MOTI"} className={`bgText1 ${styles.bgText1}`}></div>
+          <div children={"WORKS"} className={`bgText1 ${styles.bgText1}`}></div>
+          <div children={"MOTI"} className={`bgText1 ${styles.bgText1}`}></div>
+          <div children={"WORKS"} className={`bgText1 ${styles.bgText1}`}></div>
         </div>
 
         <div className={`carModel ${styles.carModel}`}>

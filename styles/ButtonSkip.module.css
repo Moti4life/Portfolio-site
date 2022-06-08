@@ -27,7 +27,7 @@
 }
 
 .buttonTitle{
-  font-size: clamp(1rem, 1.2vmax, 1.2rem);
+  font-size: clamp(1rem, 1.2vmin, 1.2rem);
   /* background-color: aqua; */
   font-family: 'Poppins', sans-serif; 
   
@@ -36,8 +36,8 @@
 .skipArrow{
   border: 2px solid;
 
-  width: clamp(1rem, 1.2vmax, 1.2rem);
-  height: clamp(1rem, 1.2vmax, 1.2rem);
+  width: clamp(1rem, 1.2vmin, 1.2rem);
+  height: clamp(1rem, 1.2vmin, 1.2rem);
   transform: rotate(45deg);
 }
 
