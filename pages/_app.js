@@ -8,11 +8,10 @@ import Navbar from "../components/Navbar";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
-import IntroOverlay from "../components/IntroOverlay";
 import Cursor from "../components/Cursor";
 import { AnimatePresence } from "framer-motion";
 import FooterSection from "../components/FooterSection";
-
+import Intro from "../components/Intro";
 import { useTransitionFix } from '../utils/useFixTransitions'
 
 import "../styles/fonts.css"
@@ -23,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
       <div className="bodyContainer">
-        <IntroOverlay />
+        <Intro />
         <Cursor />
         <Navbar />
         <AnimatePresence

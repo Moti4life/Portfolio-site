@@ -75,11 +75,11 @@ const Cursor = () => {
 
     return (
         <div className={styles.cursorContainer}>
-            <div className={styles.mainCursor} ref={mainCursor}>
+            <div className={`mainCursor ${styles.mainCursor}`} ref={mainCursor}>
                 <div className={styles.mainCursorBg}></div>
             </div>
 
-            <div className={styles.secondaryCursor} ref={secondaryCursor}>
+            <div className={`secondaryCursor ${styles.secondaryCursor}`} ref={secondaryCursor}>
                 <div className={styles.secondaryCursorBg}></div>
             </div>
         </div>

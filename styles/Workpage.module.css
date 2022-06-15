@@ -87,6 +87,8 @@
 
   text-align: center;
   color: white;
+
+  
 }
 
 .workInfo h1 {
@@ -100,10 +102,14 @@
   font-size: clamp(1rem, 5vmin, 1.5rem);
 }
 
-.workInfo:hover,
-.workInfo:active {
-  color: transparent;
+.workCard:hover .workInfo,
+.workCard:active .workInfo {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.workCard:hover .workInfo h1,
+.workCard:hover .workInfo span{
+  opacity: 0;
 }
 
 @media (max-width: 1024px) {

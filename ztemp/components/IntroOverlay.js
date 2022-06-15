@@ -14,88 +14,92 @@ const IntroOverlay = () => {
   useEffect(() => {
     const introTime = gsap.timeline();
 
-    if (!sessionStorage.getItem("hasPlayedAnimation")) {
+
+    // IN PROGRESSS
+
+    if (sessionStorage.getItem("hasPlayedAnimation")) {
       introTime
         // scrollbarGutter needed for model alignment
-        .set("html", { scrollbarGutter: "stable"})
-        .set("body", { overflowY: "hidden" })
-        .set(".bgDiv", { display: "block" })
-        .fromTo(
-          ".letterPanel",
-          { y: 1000, display: "block" },
-          { y: 0, duration: 0.4, stagger: 0.1, delay: 1 }
-        )
-        .to(".letterPanelOther", {
-          opacity: 0,
-          delay: 0.8,
-          stagger: -0.2,
-          duration: 0.2,
-        })
-        .fromTo(
-          ".infoPanel",
-          { width: "10vw", display: "flex" },
-          { width: "50vw", duration: 0.1 }
-        )
-        .fromTo(
-          ".info",
-          { display: "none" },
-          { display: "block", duration: 0.1 }
-        )
-        .fromTo(".info", { y: 300 }, { y: 0, duration: 0.6, stagger: 0.2 })
-        .to(".letterPanel", {
-          y: "-50%",
-          rotateX: "90deg",
-          duration: 0.4,
-          delay: 0.7,
-          ease: "power3.in",
-        })
-        .to(".info", {
-          y: "-50%",
-          rotateX: "90deg",
-          duration: 0.4,
-          delay: -0.4,
-          ease: "power3.in",
-        })
+        // .set("html", { scrollbarGutter: "stable"})
+        // .set("body", { overflowY: "hidden" })
+        // .set(".bgDiv", { display: "block" })
+        // .fromTo(
+        //   ".letterPanel",
+        //   { y: 1000, display: "block" },
+        //   { y: 0, duration: 0.4, stagger: 0.1, delay: 1 }
+        // )
+        // .to(".letterPanelOther", {
+        //   opacity: 0,
+        //   delay: 0.8,
+        //   stagger: -0.2,
+        //   duration: 0.2,
+        // })
+        // .fromTo(
+        //   ".infoPanel",
+        //   { width: "0vw", display: "flex" },
+        //   { width: "55vw", duration: 0.1 }
+        // )
+        // .fromTo(
+        //   ".info",
+        //   { display: "none" },
+        //   { display: "block", duration: 0.1 }
+        // )
+        // .fromTo(".info", { y: 300 }, { y: 0, duration: 0.6, stagger: 0.2 })
 
-        .fromTo(
-          ".wipePanel",
-          { y: "100%", height: "100vh" },
-          { y: "0%", ease: "power1.in", duration: 0.5, delay: -0.1 }
-        )
-        .to(".infoPanel", { display: "none", duration: 0.15 })
-        .to(".letterPanel", { display: "none", duration: 0.15 })
-        .to(".bgDiv", { backgroundColor: "transparent", duration: 0.15 })
+        // .to(".letterPanel", {
+        //   y: "-50%",
+        //   rotateX: "90deg",
+        //   duration: 0.4,
+        //   delay: 0.7,
+        //   ease: "power3.in",
+        // })
+        // .to(".info", {
+        //   y: "-50%",
+        //   rotateX: "90deg",
+        //   duration: 0.4,
+        //   delay: -0.4,
+        //   ease: "power3.in",
+        // })
 
-        //set scrollbarGutter back to auto
-        .set("html", { scrollbarGutter: "auto"})
-        .set("body", { overflowY: "auto" })
+        // .fromTo(
+        //   ".wipePanel",
+        //   { y: "100%", height: "100vh" },
+        //   { y: "0%", ease: "power1.in", duration: 0.5, delay: -0.1 }
+        // )
+        // .to(".infoPanel", { display: "none", duration: 0.15 })
+        // .to(".letterPanel", { display: "none", duration: 0.15 })
+        // .to(".bgDiv", { backgroundColor: "transparent", duration: 0.15 })
 
-        .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
+        // //set scrollbarGutter back to auto
+        // .set("html", { scrollbarGutter: "auto"})
+        // .set("body", { overflowY: "auto" })
 
-        .to(".bgDiv", { display: "none" })
+        // .to(".wipePanel", { height: 0, duration: 0.5, ease: "power1.in" })
+
+        // .to(".bgDiv", { display: "none" })
         
 
-        .fromTo(
-          "#brandLogo",
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
-        )
-        .fromTo(
-          "#navOnly",
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1 }
-        )
-        .fromTo(
-          "#burger",
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1 }
-        );
+        // .fromTo(
+        //   "#brandLogo",
+        //   { opacity: 0, y: -10 },
+        //   { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
+        // )
+        // .fromTo(
+        //   "#navOnly",
+        //   { opacity: 0, y: -10 },
+        //   { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1 }
+        // )
+        // .fromTo(
+        //   "#burger",
+        //   { opacity: 0, y: -10 },
+        //   { opacity: 1, y: 0, ease: "power3.in", duration: 0.3, delay: -0.1 }
+        // );
     }
 
     sessionStorage.setItem("hasPlayedAnimation", true);
 
     //uncomment this
-    introTime.set(".bgDiv", { display: "none" })
+    // introTime.set(".bgDiv", { display: "none" })
     
 
     //scrolltrigger animation not ok with hot reload

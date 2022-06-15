@@ -30,8 +30,8 @@ const Home = ({ studies }) => {
           <ModelCanvas />
           {/* <div style={{width: "100%", height: "100vh", backgroundColor: "#808080"}}> page fill</div> */}
         </div>
-        <div id="gallerySectionSpacer" className={styles.gallerySectionSpacer}>
-          <ScrollyText text={"SELECTED WORKS"}/>
+        <div id="gallery" className={styles.gallerySectionSpacer}>
+          <ScrollyText text={"SELECTED"} text2={"WORKS"}/>
         </div>
         <div id="gallerySection" >
           <Gallery studies={studies} />
@@ -39,7 +39,7 @@ const Home = ({ studies }) => {
         <div className={styles.gallerySectionSpacer} />
       </main>
 
-      <ButtonSkip title={"scroll"} link={"#gallerySectionSpacer"} />
+      <ButtonSkip title={"scroll"} link={"#gallery"} />
     </motion.div>
   );
 };

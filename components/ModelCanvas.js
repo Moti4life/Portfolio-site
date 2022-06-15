@@ -38,7 +38,7 @@ const ModelCanvas = () => {
         </div>
 
         <div className={`carModel ${styles.carModel}`}>
-          <Canvas /* frameloop="demand" */ shadows>
+          <Canvas /* frameloop="demand" */ shadows dpr={[0.8, 1]}>
             <Suspense fallback={null}>
               <RxScene />
             </Suspense>
