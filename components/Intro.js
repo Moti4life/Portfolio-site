@@ -282,6 +282,8 @@ const Intro = () => {
     gsap.set("html", { scrollbarGutter: "auto" });
     gsap.set("body", { overflowY: "auto" });
     sessionStorage.setItem("hasPlayedAnimation", true);
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
