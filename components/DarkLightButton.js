@@ -10,7 +10,7 @@ const DarkLightButton = () => {
   const colorModeSwitch = useColorModeValue("#cf9ff7", "#ffc400");
 
   return (
-    <div className={styles.darkLightBtnPosition}>
+    <div id="darkLightBtn" className={styles.darkLightBtnPosition}>
         <div onClick={toggleColorMode} className={styles.buttonContainer}>
           <div style={{backgroundColor: colorModeSwitch}} className={styles.buttonBg}></div>
           <div style={{color: "grey"}} className={styles.iconContainer}>

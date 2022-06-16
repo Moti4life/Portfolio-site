@@ -1,5 +1,4 @@
 import styles from "../styles/Gallery.module.scss";
-// import { useState } from 'react'
 import Image from "next/image";
 import Link from "next/link";
 import { Box } from "@chakra-ui/react";
@@ -9,7 +8,6 @@ import CustomLink2 from "./CustomLink2";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 
 const GalleryItem = ({ study }) => {
   const { title, slug, description, banner, mobile } = study.fields;

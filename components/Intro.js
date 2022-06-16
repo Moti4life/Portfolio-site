@@ -20,10 +20,10 @@ const CreateSegments = () => {
 };
 
 const Intro = () => {
+  const [flapValueTop, setFlapValueTop] = useState("");
   const [flapValue, setFlapValue] = useState("");
   const [flapValue2, setFlapValue2] = useState("");
   const [flapValue3, setFlapValue3] = useState("");
-  const [flapValueTop, setFlapValueTop] = useState("");
   const [flapValueBot, setFlapValueBot] = useState("");
   gsap.registerPlugin(ScrollTrigger);
 
@@ -48,10 +48,33 @@ const Intro = () => {
           // set flap values
           introTl
             .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 000 ");
+              setFlapValue2("00000");
+              setFlapValue3(" 000 ");
+              setFlapValueBot("  0  ");
+            })
+            .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 111 ");
+              setFlapValue2("01110");
+              setFlapValue3(" 111 ");
+              setFlapValueBot("  0  ");
+            }, ">+0.3")
+            .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 111 ");
+              setFlapValue2("01210");
+              setFlapValue3(" 111 ");
+              setFlapValueBot("  0  ");
+            }, ">+0.3")
+            .add(() => {
+              setFlapValueTop("");
               setFlapValue("WEL");
               setFlapValue2("  -");
               setFlapValue3(" COME");
-            })
+              setFlapValueBot("");
+            }, ">+1")
             .add(() => {
               setFlapValue("");
               setFlapValue2(" TO");
@@ -63,7 +86,7 @@ const Intro = () => {
               setFlapValue3("");
             }, ">+2")
             .add(() => {
-              setFlapValueTop("w");
+              setFlapValueTop("W");
               setFlapValue("MOTI");
               setFlapValue2("  R");
               setFlapValue3("   K");
@@ -104,12 +127,11 @@ const Intro = () => {
           //set scrollbarGutter back to auto
           // set custom cursor vis
           introTl
-            .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
-            .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<")
             .set("html", { scrollbarGutter: "auto" })
             .set("body", { overflowY: "auto" });
         } // !sessionStorage.getItem("hasPlayedAnimation")
 
+        // this will still play even on different route
         // set if already played
         introTl
           .set(".introOverlayContainer", {
@@ -154,7 +176,20 @@ const Intro = () => {
               duration: 0.3,
               delay: -0.1,
             }
-          );
+          )
+          .fromTo(
+            "#darkLightBtn",
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
+          .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<");
 
         return () => {
           introTl.kill();
@@ -178,33 +213,14 @@ const Intro = () => {
 
           // set split flap for smol device
           introTlSmall
-            // .add(() => {
-            //   setFlapValueTop(" M W");
-            //   setFlapValue(" O O");
-            //   setFlapValue2(" T R");
-            //   setFlapValue3(" I K");
-            //   setFlapValueBot("   S");
-            // }, ">")
-            .add(() => {
-              setFlapValueTop("MO");
-              setFlapValue("TI");
-            }, ">+3")
-            .add(() => {
-              setFlapValue2("  WOR");
-              setFlapValue3("    K");
-              setFlapValueBot("    S");
-            }, ">+3")
-            .add(() => {
-              setFlapValueTop("");
-              setFlapValue("");
-              setFlapValue2("");
-              setFlapValue3("");
-              setFlapValueBot("");
-            }, ">+2");
-
+          .add(() => {
+            setFlapValue("M0");
+            setFlapValue2("T1");
+          })
+          
           // set flap and bg to transparent
           introTlSmall
-            .to(".flapDisplayContainer", { opacity: 0, duration: 0.2 }, ">+1")
+            .to(".flapDisplayContainer", { opacity: 0, duration: 0.2 }, ">+6")
             .set(".flapDisplayContainer", { visibility: "collapse" });
 
           // animate segments to reveal
@@ -223,12 +239,11 @@ const Intro = () => {
           //set scrollbarGutter back to auto
           // set custom cursor vis
           introTlSmall
-            .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
-            .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<")
             .set("html", { scrollbarGutter: "auto" })
             .set("body", { overflowY: "auto" });
         } // !sessionStorage.getItem("hasPlayedAnimation")
 
+        // this will still play even on different route
         // set on already played
         introTlSmall
           .set(".introOverlayContainer", {
@@ -273,7 +288,20 @@ const Intro = () => {
               duration: 0.3,
               delay: -0.1,
             }
-          );
+          )
+          .fromTo(
+            "#darkLightBtn",
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
+          .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<");
 
         return () => {
           introTlSmall.kill();

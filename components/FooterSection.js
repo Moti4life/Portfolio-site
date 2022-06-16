@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons'
 import { faGithubSquare} from '@fortawesome/free-brands-svg-icons'
 
-import { Text, Box, Stack, Flex, useColorModeValue } from "@chakra-ui/react";
+import { Text, Box, Stack, useColorModeValue } from "@chakra-ui/react";
 
 const FooterSection = () => {
 

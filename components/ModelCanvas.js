@@ -14,12 +14,14 @@ import RxScene from "./RxScene";
 import DelayLoaderOverlay from "../components/DelayLoaderOverlay";
 // import ButtonSkip from "../components/ButtonSkip";
 
+//frameloop="demand" should not be included in canvas if model is being animated by gsap
+
 const ModelCanvas = () => {
+
   return (
     <div className={`mainCanvas ${styles.mainCanvas}`}>
       {/* <div className={styles.pageFiller}></div> */}
-      <DelayLoaderOverlay waitTime={4000} />
-
+      <DelayLoaderOverlay waitTime={3300} />
       <div name={"doNotRemoveThisDiv. it will break the chakra drawer"}></div>
 
       <div className={`carModelContainer ${styles.carModelContainer}`}>
@@ -38,7 +40,7 @@ const ModelCanvas = () => {
         </div>
 
         <div className={`carModel ${styles.carModel}`}>
-          <Canvas /* frameloop="demand" */ shadows dpr={[0.8, 1]}>
+          <Canvas shadows dpr={[0.8, 1]}>
             <Suspense fallback={null}>
               <RxScene />
             </Suspense>
@@ -55,7 +57,6 @@ const ModelCanvas = () => {
           </Canvas>
         </div>
       </div>
-      
     </div>
   );
 };
