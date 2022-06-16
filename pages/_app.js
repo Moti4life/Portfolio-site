@@ -11,7 +11,7 @@ config.autoAddCss = false;
 import Cursor from "../components/Cursor";
 import { AnimatePresence } from "framer-motion";
 import FooterSection from "../components/FooterSection";
-import Intro from "../components/Intro";
+// import Intro from "../components/Intro";
 import { useTransitionFix } from '../utils/useFixTransitions'
 
 import "../styles/fonts.css"
