@@ -31,12 +31,12 @@ const Intro = () => {
     let introTl = gsap.timeline();
     let introTlSmall = gsap.timeline();
 
-    // SET TO !
-    if (!sessionStorage.getItem("hasPlayedAnimation")) {
-      //https://greensock.com/forums/topic/25270-can-we-use-matchmedia-for-timelines-outside-the-scrolltrigger/?do=findComment&comment=122504
-      ScrollTrigger.matchMedia({
-        // desktop
-        "(min-width: 800px)": () => {
+    //https://greensock.com/forums/topic/25270-can-we-use-matchmedia-for-timelines-outside-the-scrolltrigger/?do=findComment&comment=122504
+    ScrollTrigger.matchMedia({
+      // desktop
+      "(min-width: 800px)": () => {
+        // SET TO ! and place inside macch media
+        if (!sessionStorage.getItem("hasPlayedAnimation")) {
           // scrollbarGutter needed for model alignment
           introTl
             .set("html", { scrollbarGutter: "stable" })
@@ -160,10 +160,13 @@ const Intro = () => {
           return () => {
             introTl.kill();
           };
-        },
+        }
+      },
 
-        // mobile / tablet
-        "(max-width: 799px)": () => {
+      // mobile / tablet
+      "(max-width: 799px)": () => {
+        // SET TO ! and place inside macch media
+        if (!sessionStorage.getItem("hasPlayedAnimation")) {
           // scrollbarGutter needed for model alignment
           introTlSmall
             .set("html", { scrollbarGutter: "stable" })
@@ -274,9 +277,9 @@ const Intro = () => {
           return () => {
             introTlSmall.kill();
           };
-        },
-      });
-    }
+        }
+      },
+    });
 
     gsap.set(".introOverlayContainer", { display: "none" });
     gsap.set("html", { scrollbarGutter: "auto" });
