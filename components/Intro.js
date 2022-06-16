@@ -28,13 +28,12 @@ const Intro = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    let introTl = gsap.timeline();
-    let introTlSmall = gsap.timeline();
-
     //https://greensock.com/forums/topic/25270-can-we-use-matchmedia-for-timelines-outside-the-scrolltrigger/?do=findComment&comment=122504
     ScrollTrigger.matchMedia({
       // desktop
       "(min-width: 800px)": () => {
+        let introTl = gsap.timeline();
+
         // SET TO ! and place inside macch media
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           // scrollbarGutter needed for model alignment
@@ -165,6 +164,8 @@ const Intro = () => {
 
       // mobile / tablet
       "(max-width: 799px)": () => {
+        let introTlSmall = gsap.timeline();
+        
         // SET TO ! and place inside macch media
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           // scrollbarGutter needed for model alignment
