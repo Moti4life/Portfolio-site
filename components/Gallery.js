@@ -69,6 +69,9 @@ const Gallery = ({ studies }) => {
   // console.log('studies: ', studies);
   gsap.registerPlugin(ScrollTrigger);
 
+  // https://greensock.com/forums/topic/24286-scrolltrigger-and-webpack-prod-build/?do=findComment&comment=115701
+  gsap.core.globals("ScrollTrigger", ScrollTrigger);
+
   useEffect(() => {
     let galleryPanels = gsap.utils.toArray(".galleryItemPanel");
 

@@ -5,13 +5,13 @@ import Link from "next/link";
 import styles from "../../styles/Workpage.module.css";
 
 import {
-  SimpleGrid,
+  // SimpleGrid,
   Image,
   Heading,
-  Badge,
-  Box,
+  // Badge,
+  // Box,
   Text,
-  Flex,
+  // Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
 
@@ -20,7 +20,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  BreadcrumbSeparator,
+  // BreadcrumbSeparator,
 } from "@chakra-ui/react";
 
 // import Layout from "../../components/Layout";
