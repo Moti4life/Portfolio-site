@@ -12,8 +12,8 @@ import ScrollyText from "../components/ScrollyText";
 
 const Home = ({ studies }) => {
   // console.log("studies from contentful: ", studies);
-
   // https://greensock.com/forums/topic/28793-pinning-and-pin-spacer-gap/
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -26,17 +26,19 @@ const Home = ({ studies }) => {
       </Head>
 
       <main id="mainContainer" className={styles.main}>
+        {/* <DelayRender waitTime={3300} customStyle={customCss}> */}
         <div id="modelCanvasSection" className={styles.modelCanvasContainer}>
           <ModelCanvas />
           {/* <div style={{width: "100%", height: "100vh", backgroundColor: "#808080"}}> page fill</div> */}
         </div>
         <div id="gallery" className={styles.gallerySectionSpacer}>
-          <ScrollyText text={"SELECTED"} text2={"WORKS"}/>
+          <ScrollyText text={"SELECTED"} text2={"WORKS"} />
         </div>
-        <div id="gallerySection" >
+        <div id="gallerySection">
           <Gallery studies={studies} />
         </div>
         <div className={styles.gallerySectionSpacer} />
+        {/* </DelayRender> */}
       </main>
 
       <ButtonSkip title={"scroll"} link={"#gallery"} />

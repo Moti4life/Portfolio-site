@@ -1,4 +1,4 @@
-import { Flex, Stack, Button } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 
 import CustomLink from "./CustomLink";
 import styles from "../styles/Navbar.module.css";

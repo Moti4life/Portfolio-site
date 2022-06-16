@@ -20,10 +20,10 @@ const CreateSegments = () => {
 };
 
 const Intro = () => {
+  const [flapValueTop, setFlapValueTop] = useState("");
   const [flapValue, setFlapValue] = useState("");
   const [flapValue2, setFlapValue2] = useState("");
   const [flapValue3, setFlapValue3] = useState("");
-  const [flapValueTop, setFlapValueTop] = useState("");
   const [flapValueBot, setFlapValueBot] = useState("");
   gsap.registerPlugin(ScrollTrigger);
 
@@ -43,17 +43,38 @@ const Intro = () => {
             .set("html", { scrollbarGutter: "stable" })
             .set("body", { overflowY: "hidden" })
             .set(".secondaryCursor", { opacity: 0 })
-            .set(".mainCursor", { opacity: 0 })
-            .set(".introOverlayContainer", {visibility: "visible"})
-            .set(".introOverlayContainer", { display: "flex" });
+            .set(".mainCursor", { opacity: 0 });
 
           // set flap values
           introTl
             .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 000 ");
+              setFlapValue2("00000");
+              setFlapValue3(" 000 ");
+              setFlapValueBot("  0  ");
+            })
+            .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 111 ");
+              setFlapValue2("01110");
+              setFlapValue3(" 111 ");
+              setFlapValueBot("  0  ");
+            }, ">+0.3")
+            .add(() => {
+              setFlapValueTop("  0  ");
+              setFlapValue(" 111 ");
+              setFlapValue2("01210");
+              setFlapValue3(" 111 ");
+              setFlapValueBot("  0  ");
+            }, ">+0.3")
+            .add(() => {
+              setFlapValueTop("");
               setFlapValue("WEL");
               setFlapValue2("  -");
               setFlapValue3(" COME");
-            })
+              setFlapValueBot("");
+            }, ">+1")
             .add(() => {
               setFlapValue("");
               setFlapValue2(" TO");
@@ -65,7 +86,7 @@ const Intro = () => {
               setFlapValue3("");
             }, ">+2")
             .add(() => {
-              setFlapValueTop("w");
+              setFlapValueTop("W");
               setFlapValue("MOTI");
               setFlapValue2("  R");
               setFlapValue3("   K");
@@ -106,63 +127,74 @@ const Intro = () => {
           //set scrollbarGutter back to auto
           // set custom cursor vis
           introTl
-            .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
-            .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<")
             .set("html", { scrollbarGutter: "auto" })
             .set("body", { overflowY: "auto" });
+        } // !sessionStorage.getItem("hasPlayedAnimation")
 
-          // vis in logo, nav, burger
-          // introTl
-          //   .fromTo(
-          //     "#brandLogo",
-          //     { opacity: 0, y: -10 },
-          //     { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
-          //   )
-          //   .fromTo(
-          //     "#navOnly",
-          //     { opacity: 0, y: -10 },
-          //     {
-          //       opacity: 1,
-          //       y: 0,
-          //       ease: "power3.in",
-          //       duration: 0.3,
-          //       delay: -0.1,
-          //     }
-          //   )
-          //   .fromTo(
-          //     "#burger",
-          //     { opacity: 0, y: -10 },
-          //     {
-          //       opacity: 1,
-          //       y: 0,
-          //       ease: "power3.in",
-          //       duration: 0.3,
-          //       delay: -0.1,
-          //     }
-          //   );
+        // this will still play even on different route
+        // set if already played
+        introTl
+          .set(".introOverlayContainer", {
+            display: "none",
+            visibility: "collapse",
+          })
+          .set(
+            ".flapDisplayContainer",
+            { opacity: 0, visibility: "collapse" },
+            ">"
+          )
+          .set(".segmentsContainer", {
+            backgroundColor: "transparent",
+            visibility: "collapse",
+          });
 
-          // set defaults on hasPlayed already
+        // vis in logo, nav, burger
+        introTl
+          .fromTo(
+            "#brandLogo",
+            { opacity: 0, y: -10 },
+            { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
+          )
+          .fromTo(
+            "#navOnly",
+            { opacity: 0, y: -10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .fromTo(
+            "#burger",
+            { opacity: 0, y: -10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .fromTo(
+            "#darkLightBtn",
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
+          .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<");
 
-          introTl
-            .set(".introOverlayContainer", {
-              display: "none",
-              visibility: "collapse",
-            })
-            .set(
-              ".flapDisplayContainer",
-              { opacity: 0, visibility: "collapse" },
-              ">"
-            )
-            .set(".segmentsContainer", {
-              backgroundColor: "transparent",
-              visibility: "collapse",
-            });
-
-          return () => {
-            introTl.kill();
-            // console.log("introTl now on kill");
-          };
-        }
+        return () => {
+          introTl.kill();
+          // console.log("introTl now on kill");
+        };
       },
 
       // mobile / tablet
@@ -177,39 +209,18 @@ const Intro = () => {
             .set("html", { scrollbarGutter: "stable" })
             .set("body", { overflowY: "hidden" })
             .set(".secondaryCursor", { opacity: 0 })
-            .set(".mainCursor", { opacity: 0 })
-            .set(".introOverlayContainer", {visibility: "visible"})
-            .set(".introOverlayContainer", { display: "flex" });
+            .set(".mainCursor", { opacity: 0 });
 
           // set split flap for smol device
           introTlSmall
-            // .add(() => {
-            //   setFlapValueTop(" M W");
-            //   setFlapValue(" O O");
-            //   setFlapValue2(" T R");
-            //   setFlapValue3(" I K");
-            //   setFlapValueBot("   S");
-            // }, ">")
-            .add(() => {
-              setFlapValueTop("MO");
-              setFlapValue("TI");
-            }, ">+3")
-            .add(() => {
-              setFlapValue2("  WOR");
-              setFlapValue3("    K");
-              setFlapValueBot("    S");
-            }, ">+3")
-            .add(() => {
-              setFlapValueTop("");
-              setFlapValue("");
-              setFlapValue2("");
-              setFlapValue3("");
-              setFlapValueBot("");
-            }, ">+2");
-
+          .add(() => {
+            setFlapValue("M0");
+            setFlapValue2("T1");
+          })
+          
           // set flap and bg to transparent
           introTlSmall
-            .to(".flapDisplayContainer", { opacity: 0, duration: 0.2 }, ">+1")
+            .to(".flapDisplayContainer", { opacity: 0, duration: 0.2 }, ">+6")
             .set(".flapDisplayContainer", { visibility: "collapse" });
 
           // animate segments to reveal
@@ -228,67 +239,77 @@ const Intro = () => {
           //set scrollbarGutter back to auto
           // set custom cursor vis
           introTlSmall
-            .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
-            .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<")
             .set("html", { scrollbarGutter: "auto" })
             .set("body", { overflowY: "auto" });
+        } // !sessionStorage.getItem("hasPlayedAnimation")
 
-          // vis in logo, nav, burger
-          // introTlSmall
-          //   .fromTo(
-          //     "#brandLogo",
-          //     { opacity: 0, y: -10 },
-          //     { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
-          //   )
-          //   .fromTo(
-          //     "#navOnly",
-          //     { opacity: 0, y: -10 },
-          //     {
-          //       opacity: 1,
-          //       y: 0,
-          //       ease: "power3.in",
-          //       duration: 0.3,
-          //       delay: -0.1,
-          //     }
-          //   )
-          //   .fromTo(
-          //     "#burger",
-          //     { opacity: 0, y: -10 },
-          //     {
-          //       opacity: 1,
-          //       y: 0,
-          //       ease: "power3.in",
-          //       duration: 0.3,
-          //       delay: -0.1,
-          //     }
-          //   );
+        // this will still play even on different route
+        // set on already played
+        introTlSmall
+          .set(".introOverlayContainer", {
+            display: "none",
+            visibility: "collapse",
+          })
+          .set(
+            ".flapDisplayContainer",
+            { opacity: 0, visibility: "collapse" },
+            ">"
+          )
+          .set(".segmentsContainer", {
+            backgroundColor: "transparent",
+            visibility: "collapse",
+          });
 
-          // set defaults on hasPlayed already
+        // vis in logo, nav, burger
+        introTlSmall
+          .fromTo(
+            "#brandLogo",
+            { opacity: 0, y: -10 },
+            { opacity: 1, y: 0, ease: "power3.in", duration: 0.3 }
+          )
+          .fromTo(
+            "#navOnly",
+            { opacity: 0, y: -10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .fromTo(
+            "#burger",
+            { opacity: 0, y: -10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .fromTo(
+            "#darkLightBtn",
+            { opacity: 0, y: 10 },
+            {
+              opacity: 1,
+              y: 0,
+              ease: "power3.in",
+              duration: 0.3,
+              delay: -0.1,
+            }
+          )
+          .to(".secondaryCursor", { opacity: 1, duration: 0.3 })
+          .to(".mainCursor", { opacity: 1, duration: 0.3 }, "<");
 
-          introTlSmall
-            .set(".introOverlayContainer", {
-              display: "none",
-              visibility: "collapse",
-            })
-            .set(
-              ".flapDisplayContainer",
-              { opacity: 0, visibility: "collapse" },
-              ">"
-            )
-            .set(".segmentsContainer", {
-              backgroundColor: "transparent",
-              visibility: "collapse",
-            });
-
-          return () => {
-            introTlSmall.kill();
-            // console.log("introTlSmall now on kill");
-          };
-        }
+        return () => {
+          introTlSmall.kill();
+          // console.log("introTlSmall now on kill");
+        };
       },
     });
 
-    
     sessionStorage.setItem("hasPlayedAnimation", true);
 
     // ScrollTrigger.refresh();
