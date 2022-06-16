@@ -111,6 +111,8 @@ const work = ({ workItem }) => {
   // console.log("images: ", images, typeof(images));
 
   gsap.registerPlugin(ScrollTrigger);
+  // https://greensock.com/forums/topic/24286-scrolltrigger-and-webpack-prod-build/?do=findComment&comment=115701
+  gsap.core.globals("ScrollTrigger", ScrollTrigger);
 
   useEffect(() => {
     let panelGroup = gsap.utils.toArray(".revealPanelAnim");

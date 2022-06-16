@@ -28,10 +28,12 @@ const Intro = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
+    // console.log("intro useEffect firing");
     //https://greensock.com/forums/topic/25270-can-we-use-matchmedia-for-timelines-outside-the-scrolltrigger/?do=findComment&comment=122504
     ScrollTrigger.matchMedia({
       // desktop
       "(min-width: 800px)": () => {
+        // https://greensock.com/forums/topic/25020-scrolltrigger-matchmedia-does-not-work-as-i-expected/?do=findComment&comment=120333
         let introTl = gsap.timeline();
 
         // SET TO ! and place inside macch media
@@ -42,8 +44,8 @@ const Intro = () => {
             .set("body", { overflowY: "hidden" })
             .set(".secondaryCursor", { opacity: 0 })
             .set(".mainCursor", { opacity: 0 })
+            .set(".introOverlayContainer", {visibility: "visible"})
             .set(".introOverlayContainer", { display: "flex" });
-          // introOverlayContainer display: "flex"
 
           // set flap values
           introTl
@@ -158,14 +160,16 @@ const Intro = () => {
 
           return () => {
             introTl.kill();
+            // console.log("introTl now on kill");
           };
         }
       },
 
       // mobile / tablet
       "(max-width: 799px)": () => {
+        // https://greensock.com/forums/topic/25020-scrolltrigger-matchmedia-does-not-work-as-i-expected/?do=findComment&comment=120333
         let introTlSmall = gsap.timeline();
-        
+
         // SET TO ! and place inside macch media
         if (!sessionStorage.getItem("hasPlayedAnimation")) {
           // scrollbarGutter needed for model alignment
@@ -174,6 +178,7 @@ const Intro = () => {
             .set("body", { overflowY: "hidden" })
             .set(".secondaryCursor", { opacity: 0 })
             .set(".mainCursor", { opacity: 0 })
+            .set(".introOverlayContainer", {visibility: "visible"})
             .set(".introOverlayContainer", { display: "flex" });
 
           // set split flap for smol device
@@ -277,17 +282,16 @@ const Intro = () => {
 
           return () => {
             introTlSmall.kill();
+            // console.log("introTlSmall now on kill");
           };
         }
       },
     });
 
-    gsap.set(".introOverlayContainer", { display: "none" });
-    gsap.set("html", { scrollbarGutter: "auto" });
-    gsap.set("body", { overflowY: "auto" });
+    
     sessionStorage.setItem("hasPlayedAnimation", true);
 
-    ScrollTrigger.refresh();
+    // ScrollTrigger.refresh();
   }, []);
 
   return (
