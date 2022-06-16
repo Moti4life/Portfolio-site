@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ChakraProvider theme={theme}>
       <div className="bodyContainer">
-        <Intro />
+        {/* <Intro /> */}
         <Cursor />
         <Navbar />
         <AnimatePresence
