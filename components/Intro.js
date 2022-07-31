@@ -55,26 +55,26 @@ const Intro = () => {
               setFlapValueBot("  0  ");
             })
             .add(() => {
-              setFlapValueTop("  0  ");
+              setFlapValueTop("  1  ");
               setFlapValue(" 111 ");
-              setFlapValue2("01110");
+              setFlapValue2("11111");
               setFlapValue3(" 111 ");
-              setFlapValueBot("  0  ");
-            }, ">+0.3")
+              setFlapValueBot("  1  ");
+            }, ">+0.45")
             .add(() => {
-              setFlapValueTop("  0  ");
+              setFlapValueTop("  2  ");
               setFlapValue(" 111 ");
-              setFlapValue2("01210");
+              setFlapValue2("21212");
               setFlapValue3(" 111 ");
-              setFlapValueBot("  0  ");
-            }, ">+0.3")
+              setFlapValueBot("  2  ");
+            }, ">+0.45")
             .add(() => {
               setFlapValueTop("");
               setFlapValue("WEL");
               setFlapValue2("  -");
               setFlapValue3(" COME");
               setFlapValueBot("");
-            }, ">+1")
+            }, ">+0.7")
             .add(() => {
               setFlapValue("");
               setFlapValue2(" TO");

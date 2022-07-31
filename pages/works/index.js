@@ -2,7 +2,7 @@ import { createClient } from "contentful";
 
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../../styles/Workpage.module.css";
+import styles from "../../styles/Workpage.module.scss";
 
 import {
   // SimpleGrid,
@@ -94,6 +94,11 @@ const index = ({ workItems }) => {
                   <div className={styles.workInfo}>
                     <h1>{title}</h1>
                     <span>{description}</span>
+                    <div/>
+                    <div/>
+                    <div>
+                      <div className={styles.viewWork}>View Work</div>
+                    </div>
                   </div>
                 </div>
               </Link>

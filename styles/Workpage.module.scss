@@ -80,15 +80,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
 
-  background-color: rgba(0, 0, 0, 0.6);
-  transition: all 0.22s ease-out;
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  /* background-color: rgb(255, 255, 255); */
+  transition: all .25s ease-out;
 
   text-align: center;
-  color: white;
+  color: rgba(255, 255, 255, 0);
 
-  
+  /* mix-blend-mode:color; */
+  /* clip-path: circle(80% at 50% 50%); */
+  /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
+  /* clip-path: ellipse(49% 0% at 50% 50%); */
 }
 
 .workInfo h1 {
@@ -104,12 +108,37 @@
 
 .workCard:hover .workInfo,
 .workCard:active .workInfo {
-  background-color: rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgb(255, 255, 255);
+  /* clip-path: circle(40% at 50% 50%); */
+  /* clip-path: polygon(35% 0, 90% 0, 65% 100%, 10% 100%); */
+  /* clip-path: ellipse(49% 40% at 50% 50%); */
+
 }
 
-.workCard:hover .workInfo h1,
+/* .workCard:hover .workInfo h1,
 .workCard:hover .workInfo span{
   opacity: 0;
+} */
+
+.viewWork {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  font-size: clamp(1rem, 5vmin, 1.5rem);
+
+  &::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid;
+    border-radius: 1em;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    animation: borderAnimation 2s ease-in infinite normal;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -132,4 +161,10 @@
     visibility: collapse;
     display: none;
   }
+}
+
+@keyframes borderAnimation {
+  0% {transform: translateX(-100%);}
+  50% {transform: translateX(0%); }
+  100% {transform: translateX(100%);}
 }
