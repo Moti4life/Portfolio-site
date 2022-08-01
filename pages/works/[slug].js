@@ -173,19 +173,16 @@ const work = ({ workItem }) => {
       }
     );
 
-    gsap.to(
-      ".workGalleryBanner",
-      {
-        clipPath: "circle(80% at 50% 50%)",
-        scrollTrigger: {
-          trigger: ".workGalleryBanner",
-          // markers: true,
-          scrub: 1,
-          start: "50% 80%",
-          end: "50% 55%",
-        },
-      }
-    );
+    gsap.to(".workGalleryBanner", {
+      clipPath: "circle(80% at 50% 50%)",
+      scrollTrigger: {
+        trigger: ".workGalleryBanner",
+        // markers: true,
+        scrub: 1,
+        start: "50% 80%",
+        end: "50% 55%",
+      },
+    });
 
     imageGroup.forEach((image) => {
       gsap.fromTo(
@@ -233,6 +230,7 @@ const work = ({ workItem }) => {
       </Box>
 
       <div className={`${styles.workContainer}`}>
+        <div />
         <div className={styles.workInfo}>
           <Badge
             variant="outline"
@@ -273,13 +271,14 @@ const work = ({ workItem }) => {
             </a>
           </div>
         </div>
-
+        <div />
         <div className={`${styles.overflowHidden} ${styles.workDetails}`}>
           <h2>{detailsHeader}</h2>
           <div className={styles.workDetailsRich}>
             {documentToReactComponents(details, options)}
           </div>
         </div>
+        <div />
       </div>
 
       <div className={styles.workGalleryContainer}>

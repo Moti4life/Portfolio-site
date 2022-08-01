@@ -57,7 +57,7 @@ const About = () => {
             </h3>
           </div>
           <div className={styles.showImageContainer}>
-            <Image src={"/runGif.gif"} layout="fill" objectFit="cover" />
+            <Image src={"/runGif.gif"} layout="fill" objectFit="cover" priority={true} />
           </div>
         </div>
       </div>
