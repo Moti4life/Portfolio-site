@@ -30,7 +30,7 @@ const About = () => {
             // scrub: true,
             // markers: true,
             toggleActions: "play none none reverse",
-            preventOverlaps: true,
+            // preventOverlaps: true,
           },
         }
       );
@@ -101,7 +101,7 @@ const About = () => {
           <div className={styles.showItemContainer}>
             <h3 className={styles.foodRole}>
               <div className={styles.stickFood}>
-                <Image src={"/isaw.png"} layout="fill" objectFit="contain" />
+                <Image src={"/isaw.png"} layout="fill" objectFit="contain" priority={true} />
               </div>
               treet fo
               <FontAwesomeIcon icon={faBurger} size="xs" />d

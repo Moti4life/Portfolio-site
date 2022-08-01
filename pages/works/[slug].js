@@ -290,6 +290,7 @@ const work = ({ workItem }) => {
                 src={`https:${detailsBanner.fields.file.url}`}
                 layout="fill"
                 objectFit="cover"
+                priority={true}
               />
             </div>
           </div>
